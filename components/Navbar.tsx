@@ -1,6 +1,6 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import { CustomButton } from '.'
+import Link from 'next/link';
+import Image from 'next/image';
+import { CustomButton } from '.';
 
 const Navbar = () => {
   return (
@@ -23,7 +23,7 @@ const Navbar = () => {
         />
       </nav>
     </header>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

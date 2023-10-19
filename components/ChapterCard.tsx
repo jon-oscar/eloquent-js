@@ -1,12 +1,12 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
-import Image from 'next/image'
+import { useState } from 'react';
+import Image from 'next/image';
 
-import { CustomButton } from '.'
+import { CustomButton } from '.';
 
 const ChapterCard = () => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className='chapter-card group'>
@@ -50,7 +50,7 @@ const ChapterCard = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ChapterCard
+export default ChapterCard;
