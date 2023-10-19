@@ -1,7 +1,7 @@
-'use client'
+'use client';
 
-import { CustomButtonProps } from '@/types'
-import Image from 'next/image'
+import { CustomButtonProps } from '@/types';
+import Image from 'next/image';
 
 const CustomButton = ({
   title,
@@ -31,7 +31,7 @@ const CustomButton = ({
         </div>
       )}
     </button>
-  )
-}
+  );
+};
 
-export default CustomButton
+export default CustomButton;

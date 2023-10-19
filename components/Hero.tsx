@@ -1,9 +1,9 @@
-'use client'
-import Image from 'next/image'
-import { CustomButton } from './'
+'use client';
+import Image from 'next/image';
+import { CustomButton } from './';
 
 const Hero = () => {
-  const handleScroll = () => {}
+  const handleScroll = () => {};
 
   return (
     <div className='hero'>
@@ -34,7 +34,7 @@ const Hero = () => {
         <div className='hero__image-overlay' />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

@@ -35,4 +35,4 @@ export const footerLinks = [
       { title: 'Facebook', url: '/' },
     ],
   },
-]
+];
