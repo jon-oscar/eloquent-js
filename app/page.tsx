@@ -1,6 +1,6 @@
-'use client'
+'use client';
 
-import { Hero, ChapterCard } from '@/components'
+import { Hero, ChapterCard } from '@/components';
 
 export default function Home() {
   return (
@@ -21,5 +21,5 @@ export default function Home() {
         </div>
       </div>
     </main>
-  )
+  );
 }
