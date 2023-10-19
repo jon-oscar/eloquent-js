@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 
-import { CustomButton } from '.';
+import { CardDetails, CustomButton } from '.';
 
 const ChapterCard = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,6 +49,8 @@ const ChapterCard = () => {
           />
         </div>
       </div>
+
+      <CardDetails isOpen={isOpen} closeModal={() => setIsOpen(false)} />
     </div>
   );
 };
