@@ -1,6 +1,6 @@
 'use client';
-import { MouseEventHandler } from 'react';
 import Image from 'next/image';
+import { MouseEventHandler } from 'react';
 
 export type CustomButtonProps = {
   title: string;
