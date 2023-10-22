@@ -1,16 +1,12 @@
-import { MAX_ROWS_SHOWN_PYRAMID } from '../../../pages/chapter-2';
 import jGetPyramid from './jGetPyramid';
 
 /**
- * Renders a pyramid of dots with a maximum of 5 rows and 5 columns based on the given count.
- * @param count - The number of dots to render in the pyramid.
+ * Renders a pyramid of dots with a maximum of 5 rows and 5 columns based on the given rows.
+ * @param rows - The number of dots to render in the pyramid.
  * @returns A JSX element that renders the pyramid of dots.
  */
-export default function JPyramid({ count }: { count: number }): JSX.Element {
-  // get a derived value from the count in order to always show a max of 5 rows and 5 columns
-  const rowsShown = (count % MAX_ROWS_SHOWN_PYRAMID) + 1;
-
-  const pyramid = jGetPyramid(rowsShown);
+export default function JPyramid({ rows }: { rows: number }): JSX.Element {
+  const pyramid = jGetPyramid(rows);
 
   return (
     <div className='h-[20em]'>
