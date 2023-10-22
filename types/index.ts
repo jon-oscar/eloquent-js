@@ -9,3 +9,9 @@ export interface CustomButtonProps {
   rightIcon?: string;
   isDisabled?: boolean;
 }
+
+export interface ChapterCardProps {
+  title: string;
+  subtitle: string;
+  image: string;
+}

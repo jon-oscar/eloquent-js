@@ -14,10 +14,11 @@ export default function Home() {
         </div>
 
         <div className='home__chapter-wrapper'>
-          <ChapterCard />
-          <ChapterCard />
-          <ChapterCard />
-          <ChapterCard />
+          <ChapterCard
+            title='Chapter 1'
+            subtitle='Values, Types, and Operators'
+            image='/chapter_picture_1.png'
+          />
         </div>
       </div>
     </main>

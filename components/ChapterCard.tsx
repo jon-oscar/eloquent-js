@@ -2,27 +2,28 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import { ChapterCardProps } from '@/types';
 
 import { CardDetails, CustomButton } from '.';
 
-const ChapterCard = () => {
+const ChapterCard = ({ title, subtitle, image }: ChapterCardProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className='chapter-card group'>
       <div className='chapter-card__content'>
-        <h2 className='chapter-card__content-title'>Chapter 1</h2>
+        <h2 className='chapter-card__content-title'>{title}</h2>
       </div>
 
       <p className='flex mt-6 text-[32px] leading-[38px] font-extrabold'>
         <span className='self-start text-[14px] leading-[17px] font-semibold'>
-          Values, Types, and Operators
+          {subtitle}
         </span>
       </p>
 
       <div className='relative w-full h-40 my-3 object-contain'>
         <Image
-          src='/hero.png'
+          src={image}
           alt='chapter img'
           fill
           priority
