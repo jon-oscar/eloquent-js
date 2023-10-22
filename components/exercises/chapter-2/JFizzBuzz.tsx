@@ -9,7 +9,10 @@ export function JFizzBuzz({ count }: { count: number }) {
   const fizzBuzzValue = fizzBuzz(count);
 
   return (
-    <div className='text-[80px] font-bold text-slate-500'>
+    <div
+      className='text-[80px] font-bold text-slate-500'
+      data-testid='j-fizz-buzz'
+    >
       {fizzBuzzValue === 'FizzBuzz' ? (
         <span className='text-[#B2980B] animate-pulse'>{fizzBuzzValue}</span>
       ) : fizzBuzzValue === 'Fizz' || fizzBuzzValue === 'Buzz' ? (
