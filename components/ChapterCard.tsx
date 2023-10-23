@@ -3,12 +3,16 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { ChapterCardProps } from '@/types';
-
+import Link from 'next/link';
 import { CardDetails, CustomButton } from '.';
 
-const ChapterCard = ({ title, subtitle, image }: ChapterCardProps) => {
-  const [isOpen, setIsOpen] = useState(false);
-
+const ChapterCard = ({
+  title,
+  subtitle,
+  image,
+  exercises,
+  link,
+}: ChapterCardProps) => {
   return (
     <div className='chapter-card group'>
       <div className='chapter-card__content'>
@@ -35,23 +39,23 @@ const ChapterCard = ({ title, subtitle, image }: ChapterCardProps) => {
         <div className='flex group-hover:invisible w-full justify-between text-grey'>
           <div className='flex flex-col justify-center items-center gap-2'>
             <span className='self-end text-[14px] leading-[17px] font-medium'>
-              Values, Types, and Operators
+              {exercises}
             </span>
           </div>
         </div>
 
-        <div className='chapter-card__btn-container'>
+        <Link href={link} className='chapter-card__btn-container'>
           <CustomButton
             title='View More'
             containerStyles='w-full py-[16px] rounded-full bg-[#B2980B]'
             textStyles='text-white text-[14px] leading-[17px] font-bold'
             rightIcon='/right-arrow.svg'
-            handleClick={() => setIsOpen(true)}
           />
-        </div>
+        </Link>
       </div>
 
-      <CardDetails isOpen={isOpen} closeModal={() => setIsOpen(false)} />
+      <Link href={link}></Link>
+      {/* <CardDetails isOpen={isOpen} closeModal={() => setIsOpen(false)} /> */}
     </div>
   );
 };

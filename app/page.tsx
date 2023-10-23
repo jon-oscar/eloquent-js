@@ -1,6 +1,7 @@
 'use client';
 
 import { Hero, ChapterCard } from '@/components';
+import { chapter } from '@/constants/chapter';
 
 export default function Home() {
   return (
@@ -14,11 +15,17 @@ export default function Home() {
         </div>
 
         <div className='home__chapter-wrapper'>
-          <ChapterCard
-            title='Chapter 1'
-            subtitle='Values, Types, and Operators'
-            image='/chapter_picture_1.png'
-          />
+          {chapter.map(({ title, subtitle, image, exercises, link }) => {
+            return (
+              <ChapterCard
+                title={title}
+                subtitle={subtitle}
+                image={image}
+                exercises={exercises}
+                link={link}
+              />
+            );
+          })}
         </div>
       </div>
     </main>

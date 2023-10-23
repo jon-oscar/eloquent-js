@@ -14,4 +14,6 @@ export interface ChapterCardProps {
   title: string;
   subtitle: string;
   image: string;
+  exercises: string;
+  link: string;
 }
