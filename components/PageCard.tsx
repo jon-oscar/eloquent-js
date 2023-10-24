@@ -1,15 +1,15 @@
 import React from 'react';
 
-export interface Info {
+export type Info = {
   id: number;
   title: string;
   details: string;
   code(name: string): void;
-}
+};
 
-export interface PageCardProps {
+type PageCardProps = {
   cardInfo: Info[];
-}
+};
 
 const PageCard = ({ cardInfo }: PageCardProps) => {
   return (

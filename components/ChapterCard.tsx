@@ -3,15 +3,15 @@
 import Image from 'next/image';
 
 import Link from 'next/link';
-import { CustomButton } from '.';
+import CustomButton from './CustomButton';
 
-export interface ChapterCardProps {
+export type ChapterCardProps = {
   title: string;
   subtitle: string;
   image: string;
   exercises: string;
   link: string;
-}
+};
 
 const ChapterCard = ({
   title,

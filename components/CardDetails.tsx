@@ -3,12 +3,12 @@
 import React, { Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 
-interface CardDetailsProps {
+export type CardDetailsProps = {
   isOpen: boolean;
   closeModal: () => void;
-}
+};
 
-const CardDetails = ({ isOpen, closeModal }: CardDetailsProps) => {
+export default function CardDetails({ isOpen, closeModal }: CardDetailsProps) {
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as='div' className='relative z-10' onClose={closeModal}>
@@ -65,6 +65,4 @@ const CardDetails = ({ isOpen, closeModal }: CardDetailsProps) => {
       </Dialog>
     </Transition>
   );
-};
-
-export default CardDetails;
+}

@@ -1,0 +1,110 @@
+[
+  {
+    "id": 2,
+    "title": "Chapter 2",
+    "subtitle": "Program Structure",
+    "image": "/chapter-2.jpg",
+    "exercises": "Looping a triangle, FizzBuzz, Chessboard",
+    "link": "/chapter2",
+    "details": "This chapter introduces the basic concepts of programming. Control structures, functions, and data structures are covered. The chapter also explains how JavaScript is organized and how it differs from other programming languages.",
+    "devOscar": [
+      {
+        "id": 1,
+        "title": "Looping a triangle",
+        "details": "This is my solution for..."
+      },
+      {
+        "id": 2,
+        "title": "FizzBuzz",
+        "details": "This is my solution for..."
+      },
+      {
+        "id": 3,
+        "title": "Chessboard",
+        "details": "This is my solution for..."
+      }
+    ],
+    "devJon": [
+      {
+        "id": 1,
+        "title": "Looping a triangle",
+        "details": "This is my solution for..."
+      },
+      {
+        "id": 2,
+        "title": "FizzBuzz",
+        "details": "This is my solution for..."
+      },
+      {
+        "id": 3,
+        "title": "Chessboard",
+        "details": "This is my solution for..."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Chapter 3",
+    "subtitle": "Functions",
+    "image": "/chapter-3.jpg",
+    "exercises": "Looping a triangle, FizzBuzz, Chessboard",
+    "link": "/chapter3",
+    "details": ""
+  },
+  {
+    "title": "Chapter 4",
+    "subtitle": "Data Structures: Objects and Arrays",
+    "image": "/chapter-4.jpg",
+    "exercises": "Looping a triangle, FizzBuzz, Chessboard",
+    "link": "/chapter4",
+    "details": ""
+  },
+  {
+    "title": "Chapter 5",
+    "subtitle": "Higher-order Functions",
+    "image": "/chapter-5.jpg",
+    "exercises": "Looping a triangle, FizzBuzz, Chessboard",
+    "link": "/chapter5",
+    "details": ""
+  },
+  {
+    "title": "Chapter 6",
+    "subtitle": "The Secret Life of Objects",
+    "image": "/chapter-6.jpg",
+    "exercises": "Looping a triangle, FizzBuzz, Chessboard",
+    "link": "/chapter6",
+    "details": ""
+  },
+  {
+    "title": "Chapter 7",
+    "subtitle": "Project: A Robot",
+    "image": "/chapter-7.jpg",
+    "exercises": "Looping a triangle, FizzBuzz, Chessboard",
+    "link": "/chapter7",
+    "details": ""
+  },
+  {
+    "title": "Chapter 8",
+    "subtitle": "Bugs and Errors",
+    "image": "/chapter-8.jpg",
+    "exercises": "Looping a triangle, FizzBuzz, Chessboard",
+    "link": "/chapter8",
+    "details": ""
+  },
+  {
+    "title": "Chapter 9",
+    "subtitle": "Regular Expressions",
+    "image": "/chapter-9.jpg",
+    "exercises": "Looping a triangle, FizzBuzz, Chessboard",
+    "link": "/chapter9",
+    "details": ""
+  },
+  {
+    "title": "Chapter 10",
+    "subtitle": "Modules",
+    "image": "/chapter-10.jpg",
+    "exercises": "Looping a triangle, FizzBuzz, Chessboard",
+    "link": "/chapter10",
+    "details": ""
+  }
+]

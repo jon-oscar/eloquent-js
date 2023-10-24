@@ -1,7 +1,7 @@
-import PageCard from '@/components/PageCard';
 import '../app/globals.css';
+import PageCard from '@/components/PageCard';
 import Layout from '@/components/Layout';
-import { chapter } from '@/constants/chapter';
+import chapter from '@/constants/chapter.json';
 
 const chapterId = 2;
 
@@ -13,7 +13,7 @@ if (!chapterMatch) {
 
 const { title, subtitle, details, devOscar, devJon } = chapterMatch;
 
-const chapter2 = () => {
+export default function Chapter2() {
   return (
     <Layout>
       <div className=' flex xl:flex-col gap-5 z-0 relative max-w-[1440px] mx-auto mb-2'>
@@ -36,6 +36,4 @@ const chapter2 = () => {
       </div>
     </Layout>
   );
-};
-
-export default chapter2;
+}

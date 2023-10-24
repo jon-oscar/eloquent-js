@@ -2,7 +2,7 @@
 import { MouseEventHandler } from 'react';
 import Image from 'next/image';
 
-export interface CustomButtonProps {
+export type CustomButtonProps = {
   title: string;
   containerStyles?: string;
   handleClick?: MouseEventHandler<HTMLButtonElement>;
@@ -10,7 +10,7 @@ export interface CustomButtonProps {
   textStyles?: string;
   rightIcon?: string;
   isDisabled?: boolean;
-}
+};
 
 const CustomButton = ({
   title,
