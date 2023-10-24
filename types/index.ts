@@ -17,3 +17,14 @@ export interface ChapterCardProps {
   exercises: string;
   link: string;
 }
+
+export interface Info {
+  id: number;
+  title: string;
+  details: string;
+  code(name: string): void;
+}
+
+export interface PageCardProps {
+  cardInfo: Info[];
+}

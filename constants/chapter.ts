@@ -10,9 +10,36 @@ export const chapter = [
       'This chapter introduces the basic concepts of programming. Control structures, functions, and data structures are covered. The chapter also explains how JavaScript is organized and how it differs from other programming languages.',
     devOscar: [
       {
+        id: 1,
         title: 'Looping a triangle',
         details: 'This is my solution for...',
-        code: '',
+      },
+      {
+        id: 2,
+        title: 'FizzBuzz',
+        details: 'This is my solution for...',
+      },
+      {
+        id: 3,
+        title: 'Chessboard',
+        details: 'This is my solution for...',
+      },
+    ],
+    devJon: [
+      {
+        id: 1,
+        title: 'Looping a triangle',
+        details: 'This is my solution for...',
+      },
+      {
+        id: 2,
+        title: 'FizzBuzz',
+        details: 'This is my solution for...',
+      },
+      {
+        id: 3,
+        title: 'Chessboard',
+        details: 'This is my solution for...',
       },
     ],
   },

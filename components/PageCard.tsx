@@ -1,22 +1,32 @@
 import React from 'react';
 
-const PageCard = () => {
-  return (
-    <div className='flex-1 flex flex-col p-6 justify-center items-start text-black-100 bg-[#FEFCF3] hover:bg-white hover:shadow-md rounded-3xl'>
-      <div className='chapter-card__content'>
-        <h2 className='chapter-card__content-title'>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </h2>
-      </div>
+import { PageCardProps } from '../types';
 
-      <span className='self-start mt-2 text-[14px] leading-[17px] font-semibold'>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit quo
-        ipsum molestiae dignissimos explicabo asperiores delectus veritatis a,
-        pariatur magni perferendis tempore, minima atque! Ea perspiciatis
-        debitis veniam inventor
-      </span>
-      <div>CODE GOES HERE</div>
-    </div>
+const PageCard = ({ cardInfo }: PageCardProps) => {
+  console.log(cardInfo);
+
+  return (
+    <>
+      {cardInfo.map((info, index) => {
+        return (
+          <div
+            key={index}
+            className=' w-[40rem] flex-1 flex flex-col p-6 justify-center items-start text-black-100 bg-[#FEFCF3] hover:bg-white hover:shadow-md rounded-3xl mb-5'
+          >
+            <div className='chapter-card__content'>
+              <h2 className='chapter-card__content-title'>{info.title}</h2>
+            </div>
+            <span className='self-start mt-2 text-[14px] leading-[17px] font-semibold'>
+              {info.details}
+            </span>
+
+            <div className='bg-white mt-4 w-full h-full rounded-3xl'>
+              <div className='p-6'>CODE GOES HERE</div>
+            </div>
+          </div>
+        );
+      })}
+    </>
   );
 };
 
