@@ -1,16 +1,23 @@
 import React from 'react';
 
-import { PageCardProps } from '../types';
+export interface Info {
+  id: number;
+  title: string;
+  details: string;
+  code(name: string): void;
+}
+
+export interface PageCardProps {
+  cardInfo: Info[];
+}
 
 const PageCard = ({ cardInfo }: PageCardProps) => {
-  console.log(cardInfo);
-
   return (
     <>
       {cardInfo.map((info, index) => {
         return (
           <div
-            key={index}
+            key={info.title}
             className=' w-[40rem] flex-1 flex flex-col p-6 justify-center items-start text-black-100 bg-[#FEFCF3] hover:bg-white hover:shadow-md rounded-3xl mb-5'
           >
             <div className='chapter-card__content'>

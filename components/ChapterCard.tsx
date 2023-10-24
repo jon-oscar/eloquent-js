@@ -1,9 +1,17 @@
 'use client';
 
 import Image from 'next/image';
-import { ChapterCardProps } from '@/types';
+
 import Link from 'next/link';
-import { CardDetails, CustomButton } from '.';
+import { CustomButton } from '.';
+
+export interface ChapterCardProps {
+  title: string;
+  subtitle: string;
+  image: string;
+  exercises: string;
+  link: string;
+}
 
 const ChapterCard = ({
   title,
@@ -52,9 +60,6 @@ const ChapterCard = ({
           />
         </Link>
       </div>
-
-      <Link href={link}></Link>
-      {/* <CardDetails isOpen={isOpen} closeModal={() => setIsOpen(false)} /> */}
     </div>
   );
 };

@@ -2,7 +2,6 @@ import PageCard from '@/components/PageCard';
 import '../app/globals.css';
 import Layout from '@/components/Layout';
 import { chapter } from '@/constants/chapter';
-import { Info, PageCardProps } from '@/types';
 
 const chapterId = 2;
 
@@ -28,10 +27,10 @@ const chapter2 = () => {
 
         <div className='flex xl:flex-row flex-col gap-5 z-0 relative max-w-[1440px] mx-auto'>
           <div className='flex flex-col'>
-            <PageCard cardInfo={devOscar} />
+            <PageCard cardInfo={devOscar as []} />
           </div>
           <div className='flex flex-col'>
-            <PageCard cardInfo={devJon} />
+            <PageCard cardInfo={devJon as []} />
           </div>
         </div>
       </div>
