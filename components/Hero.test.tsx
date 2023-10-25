@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 import { render, screen } from '@testing-library/react';
-import { Hero } from '.';
+import Hero from './Hero';
 
 describe('Hero', () => {
   it('renders a heading', () => {

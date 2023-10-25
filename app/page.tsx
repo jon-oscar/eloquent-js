@@ -1,6 +1,8 @@
 'use client';
 
-import { Hero, ChapterCard } from '@/components';
+import Hero from '@/components/Hero';
+import ChapterCard from '@/components/ChapterCard';
+import chapter from '@/constants/chapter.json';
 
 export default function Home() {
   return (
@@ -14,10 +16,18 @@ export default function Home() {
         </div>
 
         <div className='home__chapter-wrapper'>
-          <ChapterCard />
-          <ChapterCard />
-          <ChapterCard />
-          <ChapterCard />
+          {chapter.map(({ title, subtitle, image, exercises, link }) => {
+            return (
+              <ChapterCard
+                key={title}
+                title={title}
+                subtitle={subtitle}
+                image={image}
+                exercises={exercises}
+                link={link}
+              />
+            );
+          })}
         </div>
       </div>
     </main>

@@ -1,7 +1,16 @@
 'use client';
-
-import { CustomButtonProps } from '@/types';
+import { MouseEventHandler } from 'react';
 import Image from 'next/image';
+
+export type CustomButtonProps = {
+  title: string;
+  containerStyles?: string;
+  handleClick?: MouseEventHandler<HTMLButtonElement>;
+  btnType?: 'button' | 'submit';
+  textStyles?: string;
+  rightIcon?: string;
+  isDisabled?: boolean;
+};
 
 const CustomButton = ({
   title,
