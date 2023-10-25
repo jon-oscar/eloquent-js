@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 interface FizzBuzzProps {
   phraseValue: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  // onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const getPhrase = (phrase: string) => {
@@ -21,18 +21,23 @@ const getPhrase = (phrase: string) => {
   return fizzBuzzedPhrase.join(' ');
 };
 
-const FizzBuzz = ({ phraseValue, onChange }: FizzBuzzProps) => {
+const FizzBuzz = ({ phraseValue }: FizzBuzzProps) => {
+  const [state, setState] = useState(phraseValue);
+
   return (
-    <>
-      <h1>Live typing display</h1>
+    <div className='flex flex-col text-center gap-2 items-center'>
+      <h1 className='font-semibold'>Live typing display</h1>
       <input
         type='text'
-        value={phraseValue}
+        value={state}
         placeholder='Enter your phrase here'
-        onChange={onChange}
+        onChange={(e) => setState(e.target.value)}
+        className='text-center bg-[#FEFCF3] border-2 border-black-50 rounded-3xl w-full h-[50px]'
       />
-      <p>{getPhrase(phraseValue)}</p>
-    </>
+      <span className='text-center bg-white border-2 border-black-100 rounded-3xl w-full h-[50px] overflow-hidden'>
+        {getPhrase(state)}
+      </span>
+    </div>
   );
 };
 

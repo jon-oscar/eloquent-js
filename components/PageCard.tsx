@@ -1,20 +1,20 @@
-import React from 'react';
+import React, { DetailedHTMLProps, HTMLAttributes } from 'react';
 
 export type Info = {
   id: number;
   title: string;
   details: string;
-  code(name: string): void;
 };
 
 type PageCardProps = {
   cardInfo: Info[];
+  code: () => void;
 };
 
-const PageCard = ({ cardInfo }: PageCardProps) => {
+const PageCard = ({ cardInfo, code }: PageCardProps) => {
   return (
     <>
-      {cardInfo.map((info, index) => {
+      {cardInfo.map((info) => {
         return (
           <div
             key={info.title}
@@ -28,7 +28,7 @@ const PageCard = ({ cardInfo }: PageCardProps) => {
             </span>
 
             <div className='bg-white mt-4 w-full h-full rounded-3xl'>
-              <div className='p-6'>CODE GOES HERE</div>
+              <div className='p-6'>{code()}</div>
             </div>
           </div>
         );
