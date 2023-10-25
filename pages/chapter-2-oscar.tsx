@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { CustomButton } from '@/components';
+import CustomButton from '@/components/CustomButton';
 
 import Pyramid from '@/components/exercises/chapter-2-oscar/Pyramid';
-import FizzBuzz from '@/components/exercises/chapter-2-oscar/fizzBuzz';
+import FizzBuzz from '@/components/exercises/chapter-2-oscar/FizzBuzz';
 
 const initialState = {
   rows: 1,

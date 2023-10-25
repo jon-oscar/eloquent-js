@@ -3,6 +3,9 @@ import PageCard from '@/components/PageCard';
 import Layout from '@/components/Layout';
 import chapter from '@/constants/chapter.json';
 
+import Pyramid from '@/components/exercises/chapter-2-oscar/Pyramid';
+import FizzBuzz from '@/components/exercises/chapter-2-oscar/FizzBuzz';
+
 const chapterId = 2;
 
 const chapterMatch = chapter.find((chapter) => chapter.id === chapterId);
@@ -27,10 +30,21 @@ export default function Chapter2() {
 
         <div className='flex xl:flex-row flex-col gap-5 z-0 relative max-w-[1440px] mx-auto'>
           <div className='flex flex-col'>
-            <PageCard cardInfo={devOscar as []} />
+            <PageCard
+              cardInfo={devOscar as []}
+              code={() => {
+                // return <Pyramid rows={0} />;
+                return <FizzBuzz phraseValue={''} />;
+              }}
+            />
           </div>
           <div className='flex flex-col'>
-            <PageCard cardInfo={devJon as []} />
+            <PageCard
+              cardInfo={devJon as []}
+              code={() => {
+                console.log('hey there');
+              }}
+            />
           </div>
         </div>
       </div>
