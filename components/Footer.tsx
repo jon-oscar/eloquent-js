@@ -25,20 +25,15 @@ const Footer = () => {
             <div key={item.title} className='footer__link'>
               <h3 className='font-bold'>{item.title}</h3>
               <div className='flex flex-col gap-5'>
-                {item.links.map(
-                  (link) => (
-                    console.log(item.links.length),
-                    (
-                      <Link
-                        key={link.title}
-                        href={link.url}
-                        className='text-gray-500'
-                      >
-                        {link.title}
-                      </Link>
-                    )
-                  )
-                )}
+                {item.links.map((link) => (
+                  <Link
+                    key={link.title}
+                    href={link.url}
+                    className='text-gray-500'
+                  >
+                    {link.title}
+                  </Link>
+                ))}
               </div>
             </div>
           ))}
