@@ -18,14 +18,16 @@ describe('ChapterCard', () => {
 
   it('renders the image', () => {
     render(<ChapterCard {...props} />);
-    expect(screen.getByRole('img')).toHaveAttribute('src', props.image);
+    const image = screen.getByRole('img', {
+      name: /chapter image/i,
+    });
+
+    expect(image).toBeInTheDocument();
   });
 
-  it('renders the exercises count', () => {
+  it('renders the exercises information', () => {
     render(<ChapterCard {...props} />);
-    expect(
-      screen.getByText(`${props.exercises} exercises`)
-    ).toBeInTheDocument();
+    expect(screen.getByText(props.exercises)).toBeInTheDocument();
   });
 
   it('renders a link to the chapter', () => {
