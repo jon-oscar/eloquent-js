@@ -1,26 +1,28 @@
 import { render, screen } from '@testing-library/react';
-import Chapter2 from './chapter2';
+import Chapter2 from '../pages/chapter2';
 
-describe('chapter2', () => {
-  it('renders the title and subtitle', () => {
+describe('Chapter2', () => {
+  it('renders the title, subtitle and details', () => {
     render(<Chapter2 />);
-    const titleElement = screen.getByText(/Chapter 2/i);
-    expect(titleElement).toBeInTheDocument();
-    const subtitleElement = screen.getByText(/Program Structure/i);
-    expect(subtitleElement).toBeInTheDocument();
+    const title = screen.getByText(/Chapter 2/i);
+    const subtitle = screen.getByText(/Program Structure/i);
+    const details = screen.getByText((details) =>
+      details.startsWith(
+        'This chapter introduces the basic concepts of programming'
+      )
+    );
+    expect(title).toBeInTheDocument();
+    expect(subtitle).toBeInTheDocument();
+    expect(details).toBeInTheDocument();
   });
 
-  it('renders the details section', () => {
+  it('renders the Pyramid, FizzBuzz and Chessboard title', () => {
     render(<Chapter2 />);
-    const detailsElement = screen.getByText(/Expressions and Statements/i);
-    expect(detailsElement).toBeInTheDocument();
-  });
-
-  it('renders the developers section', () => {
-    render(<Chapter2 />);
-    const devOscarElement = screen.getByText(/Oscar Reyes/i);
-    expect(devOscarElement).toBeInTheDocument();
-    const devJonElement = screen.getByText(/Jon Doe/i);
-    expect(devJonElement).toBeInTheDocument();
+    const pyramidTitle = screen.getAllByText('Looping a triangle');
+    const fizzBuzzTitle = screen.getAllByText(/FizzBuzz/i);
+    const chessboardTitle = screen.getAllByText(/Chessboard/i);
+    expect(pyramidTitle[0]).toBeInTheDocument();
+    expect(fizzBuzzTitle[0]).toBeInTheDocument();
+    expect(chessboardTitle[0]).toBeInTheDocument();
   });
 });
