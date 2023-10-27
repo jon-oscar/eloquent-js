@@ -34,7 +34,7 @@ const FizzBuzz = ({ phraseValue }: FizzBuzzProps) => {
         onChange={(e) => setState(e.target.value)}
         className='text-center bg-[#FEFCF3] border-2 border-black-50 rounded-3xl w-full h-[50px]'
       />
-      <span className='text-center bg-white border-2 border-black-100 rounded-3xl w-full h-[50px] overflow-hidden'>
+      <span className='text-center bg-white border-2 border-[#B2980B] rounded-3xl w-full h-[50px] overflow-hidden'>
         {getPhrase(state)}
       </span>
     </div>

@@ -5,6 +5,7 @@ import chapter from '@/constants/chapter.json';
 
 import Pyramid from '@/components/exercises/chapter-2-oscar/Pyramid';
 import FizzBuzz from '@/components/exercises/chapter-2-oscar/FizzBuzz';
+import Chessboard from '@/components/exercises/chapter-2-oscar/Chessboard';
 
 const chapterId = 2;
 
@@ -45,21 +46,23 @@ export default function Chapter2() {
                   code={() => <FizzBuzz phraseValue={''} />}
                 />
                 <PageCard
-                  id={devOscar[0].id}
-                  title={devOscar[0].title}
-                  details={devOscar[0].details}
-                  code={() => <Pyramid rows={0} />}
+                  id={devOscar[2].id}
+                  title={devOscar[2].title}
+                  details={devOscar[2].details}
+                  code={() => <Chessboard size={8} />}
                 />
               </>
             )}
           </div>
           <div className='flex flex-col'>
-            <PageCard
-              cardInfo={devJon as []}
-              code={() => {
-                console.log('hey there');
-              }}
-            />
+            {devJon && (
+              <PageCard
+                id={devJon[0].id}
+                title={devJon[0].title}
+                details={devJon[0].details}
+                code={() => 'YOUR CODE GOES HERE'}
+              />
+            )}
           </div>
         </div>
       </div>
