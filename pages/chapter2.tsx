@@ -30,13 +30,28 @@ export default function Chapter2() {
 
         <div className='flex xl:flex-row flex-col gap-5 z-0 relative max-w-[1440px] mx-auto'>
           <div className='flex flex-col'>
-            <PageCard
-              cardInfo={devOscar as []}
-              code={() => {
-                // return <Pyramid rows={0} />;
-                return <FizzBuzz phraseValue={''} />;
-              }}
-            />
+            {devOscar && (
+              <>
+                <PageCard
+                  id={devOscar[0].id}
+                  title={devOscar[0].title}
+                  details={devOscar[0].details}
+                  code={() => <Pyramid rows={0} />}
+                />
+                <PageCard
+                  id={devOscar[1].id}
+                  title={devOscar[1].title}
+                  details={devOscar[1].details}
+                  code={() => <FizzBuzz phraseValue={''} />}
+                />
+                <PageCard
+                  id={devOscar[0].id}
+                  title={devOscar[0].title}
+                  details={devOscar[0].details}
+                  code={() => <Pyramid rows={0} />}
+                />
+              </>
+            )}
           </div>
           <div className='flex flex-col'>
             <PageCard
