@@ -1,6 +1,6 @@
 # Project: Website around the book Eloquent JavaScript
 
-Website link: <https://eloquent-js.vercel.app/>
+Website link: [https://eloquent-js.vercel.app](https://eloquent-js-theta.vercel.app/)
 
 ## Summary
 
