@@ -33,6 +33,7 @@ const FizzBuzz = ({ phraseValue }: FizzBuzzProps) => {
         placeholder='Enter your phrase here'
         onChange={(e) => setState(e.target.value)}
         className='text-center bg-[#FEFCF3] border-2 border-black-50 rounded-3xl w-full h-[50px]'
+        aria-label='Phrase'
       />
       <span className='text-center bg-white border-2 border-[#B2980B] rounded-3xl w-full h-[50px] overflow-hidden'>
         {getPhrase(state)}

@@ -22,8 +22,12 @@ const Pyramid = ({ rows }: PyramidProps) => {
       <div className='flex flex-col flex-1'>
         {getPyramid(state)
           .split('\n')
-          .map((row, index) => {
-            return <div key={index}>{row}</div>;
+          .map((row, i) => {
+            return (
+              <div data-testid='pyramid-row' key={i}>
+                {row}
+              </div>
+            );
           })}
       </div>
       <div className='flex flex-col gap-2 flex-1 justify-center items-center'>
