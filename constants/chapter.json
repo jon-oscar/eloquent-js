@@ -47,9 +47,43 @@
     "title": "Chapter 3",
     "subtitle": "Functions",
     "image": "/chapter-3.jpg",
-    "exercises": "",
+    "exercises": "Minimum, Recursion, Bean counting",
     "link": "/chapter3",
-    "details": ""
+    "details": "This chapter taught you how to write your own functions. Separating the tasks your program performs into different functions is helpful. You won’t have to repeat yourself as much, and functions can help organize a program by grouping code into pieces that do specific things.",
+    "devOscar": [
+      {
+        "id": 1,
+        "title": "Minimum",
+        "details": "lorem ipsum dolor sit amet"
+      },
+      {
+        "id": 2,
+        "title": "Recursion",
+        "details": "lorem ipsum dolor sit amet"
+      },
+      {
+        "id": 3,
+        "title": "Bean counting",
+        "details": "lorem ipsum dolor sit amet"
+      }
+    ],
+    "devJon": [
+      {
+        "id": 1,
+        "title": " ",
+        "details": "This is my solution for..."
+      },
+      {
+        "id": 2,
+        "title": " ",
+        "details": "This is my solution for..."
+      },
+      {
+        "id": 3,
+        "title": " ",
+        "details": "This is my solution for..."
+      }
+    ]
   },
   {
     "title": "Chapter 4",
