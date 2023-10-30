@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import PageCard, { Info } from './PageCard';
 
 describe('PageCard', () => {
@@ -11,17 +11,20 @@ describe('PageCard', () => {
   };
 
   it('renders the title', () => {
-    const { getByText } = render(<PageCard {...info} />);
-    expect(getByText(info.title)).toBeInTheDocument();
+    render(<PageCard {...info} />);
+    const infoTitle = screen.getByText(info.title);
+    expect(infoTitle).toBeInTheDocument();
   });
 
   it('renders the details', () => {
-    const { getByText } = render(<PageCard {...info} />);
-    expect(getByText(info.details)).toBeInTheDocument();
+    render(<PageCard {...info} />);
+    const infoDetails = screen.getByText(info.details);
+    expect(infoDetails).toBeInTheDocument();
   });
 
   it('renders the code', () => {
-    const { getByText } = render(<PageCard {...info} />);
-    expect(getByText('Test Code')).toBeInTheDocument();
+    render(<PageCard {...info} />);
+    const infoCode = screen.getByText('Test Code');
+    expect(infoCode).toBeInTheDocument();
   });
 });

@@ -1,22 +1,20 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, screen } from '@testing-library/react';
 import FizzBuzz from './FizzBuzz';
 
 describe('FizzBuzz', () => {
   it('renders the phrase value', () => {
     const phraseValue = 'Hello, world!';
-    const { getByText } = render(<FizzBuzz phraseValue={phraseValue} />);
-    expect(getByText(phraseValue)).toBeInTheDocument();
+    render(<FizzBuzz phraseValue={phraseValue} />);
+    expect(screen.getByText(phraseValue)).toBeInTheDocument();
   });
 
   it('updates the phrase value when the input changes', () => {
     const phraseValue = 'Hello, world!';
     const newPhraseValue = 'Goodbye, world!';
-    const { getByLabelText, getByText } = render(
-      <FizzBuzz phraseValue={phraseValue} />
-    );
-    const input = getByLabelText('Phrase');
+    render(<FizzBuzz phraseValue={phraseValue} />);
+    const input = screen.getByLabelText('Phrase');
     fireEvent.change(input, { target: { value: newPhraseValue } });
-    expect(getByText(newPhraseValue)).toBeInTheDocument();
+    expect(screen.getByText(newPhraseValue)).toBeInTheDocument();
   });
 });
