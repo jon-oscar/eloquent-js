@@ -49,7 +49,21 @@
     "image": "/chapter-3.jpg",
     "exercises": "Looping a triangle, FizzBuzz, Chessboard",
     "link": "/chapter3",
-    "details": ""
+    "details": "",
+    "devOscar": [
+      {
+        "id": 1,
+        "title": "",
+        "details": ""
+      }
+    ],
+    "devJon": [
+      {
+        "id": 1,
+        "title": "",
+        "details": ""
+      }
+    ]
   },
   {
     "title": "Chapter 4",
@@ -65,7 +79,21 @@
     "image": "/chapter-5.jpg",
     "exercises": "Looping a triangle, FizzBuzz, Chessboard",
     "link": "/chapter5",
-    "details": ""
+    "details": "",
+    "devOscar": [
+      {
+        "id": 1,
+        "title": "",
+        "details": ""
+      }
+    ],
+    "devJon": [
+      {
+        "id": 1,
+        "title": "",
+        "details": ""
+      }
+    ]
   },
   {
     "title": "Chapter 6",
@@ -73,7 +101,21 @@
     "image": "/chapter-6.jpg",
     "exercises": "Looping a triangle, FizzBuzz, Chessboard",
     "link": "/chapter6",
-    "details": ""
+    "details": "",
+    "devOscar": [
+      {
+        "id": 1,
+        "title": "",
+        "details": ""
+      }
+    ],
+    "devJon": [
+      {
+        "id": 1,
+        "title": "",
+        "details": ""
+      }
+    ]
   },
   {
     "title": "Chapter 7",
@@ -81,7 +123,21 @@
     "image": "/chapter-7.jpg",
     "exercises": "Looping a triangle, FizzBuzz, Chessboard",
     "link": "/chapter7",
-    "details": ""
+    "details": "",
+    "devOscar": [
+      {
+        "id": 1,
+        "title": "",
+        "details": ""
+      }
+    ],
+    "devJon": [
+      {
+        "id": 1,
+        "title": "",
+        "details": ""
+      }
+    ]
   },
   {
     "title": "Chapter 8",
@@ -89,7 +145,21 @@
     "image": "/chapter-8.jpg",
     "exercises": "Looping a triangle, FizzBuzz, Chessboard",
     "link": "/chapter8",
-    "details": ""
+    "details": "",
+    "devOscar": [
+      {
+        "id": 1,
+        "title": "",
+        "details": ""
+      }
+    ],
+    "devJon": [
+      {
+        "id": 1,
+        "title": "",
+        "details": ""
+      }
+    ]
   },
   {
     "title": "Chapter 9",
@@ -97,7 +167,21 @@
     "image": "/chapter-9.jpg",
     "exercises": "Looping a triangle, FizzBuzz, Chessboard",
     "link": "/chapter9",
-    "details": ""
+    "details": "",
+    "devOscar": [
+      {
+        "id": 1,
+        "title": "",
+        "details": ""
+      }
+    ],
+    "devJon": [
+      {
+        "id": 1,
+        "title": "",
+        "details": ""
+      }
+    ]
   },
   {
     "title": "Chapter 10",
@@ -105,6 +189,20 @@
     "image": "/chapter-10.jpg",
     "exercises": "Looping a triangle, FizzBuzz, Chessboard",
     "link": "/chapter10",
-    "details": ""
+    "details": "",
+    "devOscar": [
+      {
+        "id": 1,
+        "title": "",
+        "details": ""
+      }
+    ],
+    "devJon": [
+      {
+        "id": 1,
+        "title": "",
+        "details": ""
+      }
+    ]
   }
 ]

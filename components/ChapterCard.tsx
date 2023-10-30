@@ -35,7 +35,7 @@ const ChapterCard = ({
       <div className='relative w-full h-40 my-3 object-contain'>
         <Image
           src={image}
-          alt='chapter img'
+          alt='chapter image'
           fill
           priority
           className='object-contain'

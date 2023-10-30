@@ -11,7 +11,7 @@ describe('Footer', () => {
   it('renders the footer links', () => {
     render(<Footer />);
     const footerLinks = screen.getAllByRole('link');
-    expect(footerLinks).toHaveLength(6);
+    expect(footerLinks).toHaveLength(18);
   });
 
   it('renders the privacy and policy link', () => {
