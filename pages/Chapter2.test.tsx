@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import Chapter2 from '../pages/chapter2';
+import Chapter2 from './chapter2';
 
 describe('Chapter2', () => {
   it('renders the title, subtitle and details', () => {
