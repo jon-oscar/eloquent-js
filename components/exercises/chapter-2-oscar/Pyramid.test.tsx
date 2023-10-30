@@ -1,84 +1,23 @@
-import React, { useState } from 'react';
-import 'app/globals.css';
-import CustomButton from '@/components/CustomButton';
+import { render, screen } from '@testing-library/react';
 
-interface PyramidProps {
-  rows: number;
-}
+import Pyramid from './Pyramid';
 
-const getPyramid = (rows: number) => {
-  let pyramid = '';
-  for (let i = 1; i <= rows; i++) {
-    pyramid += '🌝'.repeat(i) + '\n';
-  }
-  return pyramid;
-};
+describe('Pyramid', () => {
+  it('renders the correct number of rows 1', async () => {
+    render(<Pyramid rows={8} />);
+    const rows = await screen.findAllByTestId('pyramid-row');
+    expect(rows.length).toBe(9);
+  });
 
-const Pyramid = ({ rows }: PyramidProps) => {
-  const [state, setState] = useState(rows);
+  it('renders the correct number of rows 1', async () => {
+    render(<Pyramid rows={5} />);
+    const rows = await screen.findAllByTestId('pyramid-row');
+    expect(rows.length).toBe(6);
+  });
 
-  return (
-    <div className='flex flex-row'>
-      <div className='flex flex-col flex-1'>
-        {getPyramid(state)
-          .split('\n')
-          .map((row, i) => {
-            return (
-              <div data-testid='pyramid-row' key={i}>
-                {row}
-              </div>
-            );
-          })}
-      </div>
-      <div className='flex flex-col gap-2 flex-1 justify-center items-center'>
-        {state < 8 && (
-          <>
-            <CustomButton
-              title='Add a row'
-              btnType='button'
-              containerStyles='text-white rounded-full bg-[#B2980B] min-w-[150px] max-h-[48px]'
-              handleClick={() =>
-                setState((prevState) =>
-                  prevState === 8 ? prevState : prevState + 1
-                )
-              }
-            />
-
-            <CustomButton
-              title='Remove a row'
-              btnType='button'
-              containerStyles='text-white rounded-full bg-[#B2980B] min-w-[150px] max-h-[48px]'
-              handleClick={() =>
-                setState((prevState) =>
-                  prevState === 0 ? prevState : prevState - 1
-                )
-              }
-            />
-          </>
-        )}
-
-        {state === 8 && (
-          <>
-            <>
-              <CustomButton
-                title='Start over?'
-                btnType='button'
-                containerStyles='text-white rounded-full bg-[#B2980B] min-w-[150px] max-h-[48px]'
-                handleClick={() =>
-                  setState((prevState) => {
-                    return (prevState = 0);
-                  })
-                }
-              />
-              <span className=' text-red-600 mt-2 text-[14px] leading-[17px] font-semibold text-center gap-2'>
-                Max rows reached!
-              </span>
-            </>
-          </>
-        )}
-      </div>
-    </div>
-  );
-};
-
-export default Pyramid;
+  it('renders the correct number of rows 1', async () => {
+    render(<Pyramid rows={0} />);
+    const rows = await screen.findAllByTestId('pyramid-row');
+    expect(rows.length).toBe(1);
+  });
+});
