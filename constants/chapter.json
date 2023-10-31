@@ -28,17 +28,17 @@
       {
         "id": 1,
         "title": "Looping a triangle",
-        "details": "This is my solution for..."
+        "details": "Tap + or - to update rows"
       },
       {
         "id": 2,
         "title": "FizzBuzz",
-        "details": "This is my solution for..."
+        "details": "Tap + or - to update number"
       },
       {
         "id": 3,
         "title": "Chessboard",
-        "details": "This is my solution for..."
+        "details": "Tap + or - to update rows"
       }
     ]
   },

@@ -1,30 +1,67 @@
+import CustomButton from '@/components/CustomButton';
+import { useState } from 'react';
 import jGetPyramid from './jGetPyramid';
 
+const MAX_ROWS_SHOWN = 5;
+const INITIAL_STATE = 52;
+
 /**
- * Renders a pyramid of dots using the "#" character.
- * The number of dots in each row is equal to the row number.
- * The number of rows is equal to the rows parameter.
- * @param rows - The number of dots to render in the pyramid.
- * @returns A JSX element that renders the pyramid of dots.
+ * A component that renders a pyramid of dots, with the number of rows
+ * determined by a count that can be increased or decreased by the user.
  */
-export default function JPyramid({ rows }: { rows: number }): JSX.Element {
+export default function JPyramid(): JSX.Element {
+  const [count, setCount] = useState(INITIAL_STATE);
+
+  // handler to increase count on click
+  const handleIncrease = () => setCount(count + 1);
+
+  // handler to decrease count on click, preventing negative numbers
+  const handleDecrease = () => {
+    if (count > 0) {
+      setCount(count - 1);
+    }
+  };
+
+  // get a derived value from the count in order to always show
+  // a max of 5 rows on pyramid
+  const rows = count === 0 ? 0 : (count % MAX_ROWS_SHOWN) + 1;
+
+  const buttonStyles =
+    'bg-[#B2980B] w-10 h-10 rounded-full m-2 text-2xl font-bold';
+
   const pyramid = jGetPyramid(rows);
 
   return (
-    <div className='w-[15rem] h-[15rem]' data-testid='j-pyramid'>
-      {/* Iterate over pyramid and render a dot for each "#" and a new line for each "/n" */}
-      {pyramid.split('').map((char, index) =>
-        char === '#' ? (
-          // inline rounded div that looks like a dot
-          <div
-            data-testid='j-pyramid-dot'
-            key={index}
-            className='inline-block w-[2em] h-[2em] rounded-full bg-slate-500 m-1 hover:bg-slate-400 hover:animate-pulse'
+    <div data-testid='j-pyramid'>
+      <div className='flex flex-col items-center'>
+        <div className='flex align-center justify-center'>
+          <CustomButton
+            handleClick={handleDecrease}
+            title='-'
+            containerStyles={buttonStyles}
           />
-        ) : (
-          <br key={index} />
-        )
-      )}
+          <CustomButton
+            handleClick={handleIncrease}
+            title='+'
+            containerStyles={buttonStyles}
+          />
+        </div>
+        <div className='w-[15rem] h-[15rem]'>
+          {/* Iterate over pyramid and render a dot for each "#" and a new line for each "/n" */}
+          {pyramid.split('').map((char, index) =>
+            char === '#' ? (
+              // inline rounded div that looks like a dot
+              <div
+                data-testid='j-pyramid-dot'
+                key={index}
+                className='inline-block w-[2em] h-[2em] rounded-full bg-[#B2980B] m-1 hover:animate-pulse'
+              />
+            ) : (
+              <br key={index} />
+            )
+          )}
+        </div>
+      </div>
     </div>
   );
 }
