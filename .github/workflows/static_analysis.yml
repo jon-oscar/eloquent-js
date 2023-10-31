@@ -19,8 +19,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run linter
-        run: npm run lint
-
       - name: Run Jest tests
         run: npm run test:ci
+
+      # This is the command run in vercel. Better to also run it here to surface any issues. It runs linter, type checking and building.
+      - name: Create test build
+        run: npm run build
