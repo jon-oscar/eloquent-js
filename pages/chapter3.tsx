@@ -3,6 +3,8 @@ import PageCard from '@/components/PageCard';
 import Layout from '@/components/Layout';
 import chapter from '@/constants/chapter.json';
 
+import Minimum from '@/components/exercises/chapter-3-oscar/Minimum';
+
 const chapterId = 3;
 
 const chapterMatch = chapter.find((chapter) => chapter.id === chapterId);
@@ -33,9 +35,7 @@ export default function Chapter3() {
                   id={devOscar[0].id}
                   title={devOscar[0].title}
                   details={devOscar[0].details}
-                  code={() => {
-                    () => {};
-                  }}
+                  code={() => <Minimum />}
                 />
                 <PageCard
                   id={devOscar[1].id}
