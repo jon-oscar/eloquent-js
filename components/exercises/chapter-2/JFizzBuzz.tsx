@@ -4,6 +4,10 @@ import fizzBuzz from './jGetFizzBuzz';
 
 export const INITIAL_STATE = 11;
 
+/**
+ * Renders a FizzBuzz component with a count value that can be increased or decreased.
+ * @returns JSX element
+ */
 export default function JFizzBuzz() {
   const [count, setCount] = useState(11);
 
