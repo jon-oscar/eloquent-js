@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import './Recursion.css';
 
+/**
+ * Determines if a given number is even or odd using recursion.
+ * @param param - The number to be evaluated.
+ * @returns A boolean indicating whether the number is even or odd.
+ */
 export function isEven(param: number): boolean {
   if (param == 0) {
     return true;
@@ -15,7 +19,11 @@ export function isEven(param: number): boolean {
 
 const petals: JSX.Element[] = [];
 
-const Recursion = () => {
+/**
+ * Renders a flower with petals that change color every second using recursion.
+ * @returns JSX element
+ */
+export default function Recursion() {
   const [timeRemaining, setTimeRemaining] = useState<number>(0);
 
   useEffect(() => {
@@ -28,20 +36,35 @@ const Recursion = () => {
     return () => clearTimeout(timer);
   });
 
+  /**
+   * Adds a new petal to the `petals` array based on the current `timeRemaining` value.
+   * If `timeRemaining` is even, a petal with a dark red background color is added.
+   * If `timeRemaining` is odd, a petal with a light yellow background color is added.
+   */
   const addPetal = () => {
     if (isEven(timeRemaining) === false) {
-      petals.push(<div className='petal bg-[#b2990b9f]' />);
+      petals.push(
+        <div
+          data-testid='petal'
+          key={`petal + ${timeRemaining}`}
+          className=' petal-rotating w-24 h-24 rounded-full absolute top-0 left-0 right-0 m-auto origin-custom bg-[#b2990b9f]'
+        />
+      );
     } else {
-      petals.push(<div className='petal bg-[#b2430b9f]' />);
+      petals.push(
+        <div
+          data-testid='petal'
+          key={`petal + ${timeRemaining}`}
+          className='petal-rotating w-24 h-24 rounded-full absolute top-0 left-0 right-0 m-auto origin-custom bg-[#b2430b9f]'
+        />
+      );
     }
   };
 
   return (
-    <div className='wrap'>
+    <div className='min-w-max h-[300px] relative'>
       {petals.map((petal) => petal)}
-      <div className='center'></div>
+      <div className='w-52 h-52 rounded-full bg-[#b2980b] absolute top-12 left-0 right-0 m-auto' />
     </div>
   );
-};
-
-export default Recursion;
+}

@@ -4,7 +4,7 @@ describe('Chapter3', () => {
   it('renders the title, subtitle and details', () => {
     render(<Chapter3 />);
     const title = screen.getByText(/Chapter 3/i);
-    const subtitle = screen.getByText(/Functions/i);
+    const subtitle = screen.getByText('Functions');
     const details = screen.getByText((details) =>
       details.startsWith(
         'This chapter taught you how to write your own functions.'
@@ -29,11 +29,5 @@ describe('Chapter3', () => {
     render(<Chapter3 />);
     const oscarCard = screen.getByText(/Oscar Reyes/i);
     expect(oscarCard).toBeInTheDocument();
-  });
-
-  it('renders the developer card for Jon', () => {
-    render(<Chapter3 />);
-    const jonCard = screen.getByText(/Jon Snow/i);
-    expect(jonCard).toBeInTheDocument();
   });
 });

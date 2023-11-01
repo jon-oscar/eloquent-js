@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import CustomButton from '@/components/CustomButton';
 
-const initialState = [
+const initialPeople = [
   {
     name: 'Josh',
     age: 35,
@@ -17,52 +17,47 @@ const initialState = [
   },
 ];
 
-const getMinimum = (a: number, b: number) => Math.min(a, b);
+// const getMinimum = (a: number, b: number) => Math.min(a, b);
+const getMinimum = (a: number, b: number) => (a < b ? a : b);
 
-const stateFiltered = initialState.filter((item) =>
-  item.age === getMinimum(initialState[0].age, initialState[1].age)
+const stateFiltered = initialPeople.filter((item) =>
+  item.age === getMinimum(initialPeople[0].age, initialPeople[1].age)
     ? item
     : null
 );
 
-const Minimum = () => {
-  const [state, setState] = useState(initialState);
+export default function Minimum() {
+  const [people, setPeople] = useState(initialPeople);
 
   return (
-    <div>
-      <div className='wrapper flex flex-col'>
-        <div className='flex flex-row justify-between'>
-          {state.map((item) => (
-            <div
-              key={item.name}
-              className='flex-1 flex flex-col flex1 justify-center items-center m-2'
-            >
-              <div className='w-32 h-auto'>
-                <Image
-                  src={item.image}
-                  alt={`Avatar for ${item.name}}`}
-                  width={20}
-                  height={20}
-                  layout='responsive'
-                  objectFit='cover'
-                  className='rounded-full'
-                />
-              </div>
-              <p className='text-center mt-2'>{item.phrase}</p>
+    <div className='wrapper flex flex-col'>
+      <div className='flex flex-row justify-between'>
+        {people.map((item) => (
+          <div
+            key={item.name}
+            className='flex-1 flex flex-col flex1 justify-center items-center m-2'
+          >
+            <div className='w-32 h-32'>
+              <Image
+                src={item.image}
+                alt={`Avatar for ${item.name}}`}
+                width={128}
+                height={128}
+                className='rounded-full'
+              />
             </div>
-          ))}
-        </div>
-        <>
-          <CustomButton
-            title='Click me'
-            btnType='button'
-            containerStyles='text-white rounded-full bg-[#B2980B] min-w-[150px] max-h-[48px]'
-            handleClick={() => setState(stateFiltered)}
-          />
-        </>
+            <p className='text-center mt-2'>{item.phrase}</p>
+          </div>
+        ))}
       </div>
+      <>
+        <CustomButton
+          title='Click me'
+          btnType='button'
+          containerStyles='text-white rounded-full bg-[#B2980B] min-w-[150px] max-h-[48px]'
+          handleClick={() => setPeople(stateFiltered)}
+        />
+      </>
     </div>
   );
-};
-
-export default Minimum;
+}

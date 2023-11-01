@@ -137,3 +137,30 @@
 .footer__copyrights-link {
   @apply flex-1 flex sm:justify-end justify-center max-sm:mt-4 gap-10;
 }
+/* Recursion css styles */
+.petal-rotating {
+  &:nth-child(1) {
+    @apply rotate-45;
+  }
+  &:nth-child(2) {
+    @apply rotate-90;
+  }
+  &:nth-child(3) {
+    @apply rotate-[135deg];
+  }
+  &:nth-child(4) {
+    @apply rotate-180;
+  }
+  &:nth-child(5) {
+    @apply rotate-[225deg];
+  }
+  &:nth-child(6) {
+    @apply rotate-[270deg];
+  }
+  &:nth-child(7) {
+    @apply rotate-[315deg];
+  }
+  &:nth-child(8) {
+    @apply rotate-[360deg];
+  }
+}

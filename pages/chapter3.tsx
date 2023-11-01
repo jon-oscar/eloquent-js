@@ -49,7 +49,7 @@ export default function Chapter3() {
                   id={devOscar[2].id}
                   title={devOscar[2].title}
                   details={devOscar[2].details}
-                  code={() => <BeanCounting />}
+                  code={() => <BeanCounting phraseValue={''} />}
                 />
               </>
             )}

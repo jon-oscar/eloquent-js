@@ -1,5 +1,14 @@
 import React, { useState } from 'react';
 
+type BeanCountingProps = {
+  phraseValue: string;
+};
+
+/**
+ * Counts the number of uppercase 'B's in a given string.
+ * @param param - The string to search for 'B's.
+ * @returns The number of 'B's found in the string.
+ */
 export function countBs(param: string): number {
   let count = 0;
   for (let i = 0; i < param.length; i++) {
@@ -10,18 +19,27 @@ export function countBs(param: string): number {
   return count;
 }
 
+/**
+ * Returns the number of times a character appears in a string.
+ * @param param - The string to search for the character.
+ * @param char - The character to search for.
+ * @returns The number of times the character appears in the string.
+ */
 export function countChar(param: string, char: string): number {
   let count = 0;
   for (let i = 0; i < param.length; i++) {
-    if (param[i] === char) {
-      count++;
-    }
+    if (param[i] === char) count++;
   }
   return count;
 }
 
-const BeanCounting = () => {
-  const [state, setState] = useState('BBC');
+/**
+ * Renders a component that takes a phrase as input and displays the number of 'B' and 's' letters in it.
+ * @returns JSX.Element
+ */
+
+export default function BeanCounting({ phraseValue }: BeanCountingProps) {
+  const [state, setState] = useState(phraseValue);
   return (
     <div>
       <input
@@ -42,6 +60,4 @@ const BeanCounting = () => {
       </div>
     </div>
   );
-};
-
-export default BeanCounting;
+}
