@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Recursion.css';
 
-const isEven = (param: number): boolean => {
+export function isEven(param: number): boolean {
   if (param == 0) {
     return true;
   } else if (param == 1) {
@@ -11,19 +11,34 @@ const isEven = (param: number): boolean => {
   } else {
     return isEven(param - 2);
   }
-};
+}
+
+const petals: JSX.Element[] = [];
 
 const Recursion = () => {
+  const [timeRemaining, setTimeRemaining] = useState<number>(0);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      petalAdd();
+      setTimeRemaining(
+        timeRemaining === 8 ? timeRemaining + 0 : timeRemaining + 1
+      );
+    }, 1000);
+    return () => clearTimeout(timer);
+  });
+
+  const petalAdd = () => {
+    if (isEven(timeRemaining) === false) {
+      petals.push(<div className='petal bg-[#b2990b9f]' />);
+    } else {
+      petals.push(<div className='petal bg-[#b2430b9f]' />);
+    }
+  };
+
   return (
     <div className='wrap'>
-      <div className='petal'></div>
-      <div className='petal'></div>
-      <div className='petal'></div>
-      <div className='petal'></div>
-      <div className='petal'></div>
-      <div className='petal'></div>
-      <div className='petal'></div>
-      <div className='petal'></div>
+      {petals.map((petal) => petal)}
       <div className='center'></div>
     </div>
   );
