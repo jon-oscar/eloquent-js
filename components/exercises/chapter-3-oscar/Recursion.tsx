@@ -20,7 +20,7 @@ const Recursion = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      petalAdd();
+      addPetal();
       setTimeRemaining(
         timeRemaining === 8 ? timeRemaining + 0 : timeRemaining + 1
       );
@@ -28,7 +28,7 @@ const Recursion = () => {
     return () => clearTimeout(timer);
   });
 
-  const petalAdd = () => {
+  const addPetal = () => {
     if (isEven(timeRemaining) === false) {
       petals.push(<div className='petal bg-[#b2990b9f]' />);
     } else {
