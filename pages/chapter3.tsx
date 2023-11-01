@@ -4,6 +4,8 @@ import Layout from '@/components/Layout';
 import chapter from '@/constants/chapter.json';
 
 import Minimum from '@/components/exercises/chapter-3-oscar/Minimum';
+import Recursion from '@/components/exercises/chapter-3-oscar/Recursion';
+import BeanCounting from '@/components/exercises/chapter-3-oscar/BeanCounting';
 
 const chapterId = 3;
 
@@ -41,17 +43,13 @@ export default function Chapter3() {
                   id={devOscar[1].id}
                   title={devOscar[1].title}
                   details={devOscar[1].details}
-                  code={() => {
-                    () => {};
-                  }}
+                  code={() => <Recursion />}
                 />
                 <PageCard
                   id={devOscar[2].id}
                   title={devOscar[2].title}
                   details={devOscar[2].details}
-                  code={() => {
-                    () => {};
-                  }}
+                  code={() => <BeanCounting />}
                 />
               </>
             )}

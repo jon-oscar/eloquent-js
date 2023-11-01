@@ -59,12 +59,12 @@
       {
         "id": 2,
         "title": "Recursion",
-        "details": "lorem ipsum dolor sit amet"
+        "details": "So I was thinking about recursion, then I found a flower and I came up with this:"
       },
       {
         "id": 3,
         "title": "Bean counting",
-        "details": "lorem ipsum dolor sit amet"
+        "details": "👨🏽‍💻: Enter any phrase and I will count the number of Bs."
       }
     ],
     "devJon": [

@@ -1,4 +1,5 @@
 import React from 'react';
+import './Recursion.css';
 
 const isEven = (param: number): boolean => {
   if (param == 0) {
@@ -12,10 +13,20 @@ const isEven = (param: number): boolean => {
   }
 };
 
-console.log(isEven(50));
-
 const Recursion = () => {
-  return <div>Recursion</div>;
+  return (
+    <div className='wrap'>
+      <div className='petal'></div>
+      <div className='petal'></div>
+      <div className='petal'></div>
+      <div className='petal'></div>
+      <div className='petal'></div>
+      <div className='petal'></div>
+      <div className='petal'></div>
+      <div className='petal'></div>
+      <div className='center'></div>
+    </div>
+  );
 };
 
 export default Recursion;
