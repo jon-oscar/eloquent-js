@@ -86,12 +86,52 @@
     ]
   },
   {
+    "id": 4,
     "title": "Chapter 4",
     "subtitle": "Data Structures: Objects and Arrays",
     "image": "/chapter-4.jpg",
-    "exercises": "",
+    "exercises": "The sum of a range, reversing an array, a list, deep comparison",
     "link": "/chapter4",
-    "details": ""
+    "details": "Objects and arrays (which are a specific kind of object) provide ways to group several values into a single value. Conceptually, this allows us to put a bunch of related things in a bag and run around with the bag, instead of wrapping our arms around all of the individual things and trying to hold on to them separately.",
+    "devOscar": [
+      {
+        "id": 1,
+        "title": "The sum of a range",
+        "details": ""
+      },
+      {
+        "id": 2,
+        "title": "Reversing an array",
+        "details": ""
+      },
+      {
+        "id": 3,
+        "title": "A list",
+        "details": ""
+      },
+      {
+        "id": 4,
+        "title": "Deep comparison",
+        "details": ""
+      }
+    ],
+    "devJon": [
+      {
+        "id": 1,
+        "title": " ",
+        "details": "This is my solution for..."
+      },
+      {
+        "id": 2,
+        "title": " ",
+        "details": "This is my solution for..."
+      },
+      {
+        "id": 3,
+        "title": " ",
+        "details": "This is my solution for..."
+      }
+    ]
   },
   {
     "title": "Chapter 5",
