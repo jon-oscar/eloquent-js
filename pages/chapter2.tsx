@@ -1,23 +1,30 @@
-import '../app/globals.css';
-import PageCard from '@/components/PageCard';
 import Layout from '@/components/Layout';
+import PageCard from '@/components/PageCard';
 import chapter from '@/constants/chapter.json';
+import '../app/globals.css';
 
-import Pyramid from '@/components/exercises/chapter-2-oscar/Pyramid';
-import FizzBuzz from '@/components/exercises/chapter-2-oscar/FizzBuzz';
 import Chessboard from '@/components/exercises/chapter-2-oscar/Chessboard';
+import FizzBuzz from '@/components/exercises/chapter-2-oscar/FizzBuzz';
+import Pyramid from '@/components/exercises/chapter-2-oscar/Pyramid';
+import JChessBoard from '@/components/exercises/chapter-2/JChessBoard';
+import JFizzBuzz from '@/components/exercises/chapter-2/JFizzBuzz';
+import JPyramid from '@/components/exercises/chapter-2/JPyramid';
 
-const chapterId = 2;
-
-const chapterMatch = chapter.find((chapter) => chapter.id === chapterId);
-
-if (!chapterMatch) {
-  throw new Error(`Chapter ${chapterId} not found`);
-}
-
-const { title, subtitle, details, devOscar, devJon } = chapterMatch;
-
+/**
+ * Renders the content for Chapter 2 page.
+ * @returns JSX element
+ */
 export default function Chapter2() {
+  // Find the chapter details from the chapter.json file
+  const chapterId = 2;
+  const chapterMatch = chapter.find((chapter) => chapter.id === chapterId);
+
+  if (!chapterMatch) {
+    throw new Error(`Chapter ${chapterId} not found`);
+  }
+
+  const { title, subtitle, details, devOscar, devJon } = chapterMatch;
+
   return (
     <Layout>
       <div className=' flex xl:flex-col gap-5 z-0 relative max-w-[1440px] mx-auto mb-2'>
@@ -56,12 +63,26 @@ export default function Chapter2() {
           </div>
           <div className='flex flex-col'>
             {devJon && (
-              <PageCard
-                id={devJon[0].id}
-                title={devJon[0].title}
-                details={devJon[0].details}
-                code={() => 'YOUR CODE GOES HERE'}
-              />
+              <>
+                <PageCard
+                  id={devJon[0].id}
+                  title={devJon[0].title}
+                  details={devJon[0].details}
+                  code={() => <JPyramid />}
+                />
+                <PageCard
+                  id={devJon[1].id}
+                  title={devJon[1].title}
+                  details={devJon[1].details}
+                  code={() => <JFizzBuzz />}
+                />
+                <PageCard
+                  id={devJon[2].id}
+                  title={devJon[2].title}
+                  details={devJon[2].details}
+                  code={() => <JChessBoard />}
+                />
+              </>
             )}
           </div>
         </div>
