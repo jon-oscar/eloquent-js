@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import './recursion.css';
 /**
  * Determines if a given number is even or odd using recursion.
  * @param param - The number to be evaluated.

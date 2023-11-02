@@ -34,12 +34,16 @@ export function countChar(param: string, char: string): number {
 }
 
 /**
- * Renders a component that takes a phrase as input and displays the number of 'B' and 's' letters in it.
- * @returns JSX.Element
+ * Renders a component that counts the number of 'B' and 's' letters in a given phrase.
+ * @param {Object} props - Component props.
+ * @param {string} props.phraseValue - The initial value of the input field.
+ * @returns {JSX.Element} - The BeanCounting component.
  */
-
-export default function BeanCounting({ phraseValue }: BeanCountingProps) {
+export default function BeanCounting({
+  phraseValue,
+}: BeanCountingProps): JSX.Element {
   const [state, setState] = useState(phraseValue);
+
   return (
     <div>
       <input

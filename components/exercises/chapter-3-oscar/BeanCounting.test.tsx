@@ -23,16 +23,19 @@ describe('BeanCounting', () => {
     render(<BeanCounting phraseValue={phraseValue} />);
     expect(screen.getByText('This phrase has 0 B letter')).toBeInTheDocument();
   });
+
   it('renders the phrase value 1, when the input includes B', () => {
     const phraseValue = 'Bingo!';
     render(<BeanCounting phraseValue={phraseValue} />);
     expect(screen.getByText('This phrase has 1 B letter')).toBeInTheDocument();
   });
+
   it('renders the phrase value 0, when the input does not include s', () => {
     const phraseValue = 'Hello, world!';
     render(<BeanCounting phraseValue={phraseValue} />);
     expect(screen.getByText('This phrase has 0 s letter')).toBeInTheDocument();
   });
+
   it('renders the phrase value 1, when the input includes s', () => {
     const phraseValue = 'I like trains';
     render(<BeanCounting phraseValue={phraseValue} />);
