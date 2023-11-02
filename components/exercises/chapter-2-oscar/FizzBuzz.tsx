@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-interface FizzBuzzProps {
+type FizzBuzzProps = {
   phraseValue: string;
   // onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
+};
 
 const getPhrase = (phrase: string) => {
   let fizzBuzzedPhrase = [];
