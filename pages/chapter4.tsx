@@ -40,21 +40,21 @@ export default function Chapter3() {
                   code={() => <SumOfARange />}
                 />
                 <PageCard
-                  id={devOscar[0].id}
-                  title={devOscar[0].title}
-                  details={devOscar[0].details}
+                  id={devOscar[1].id}
+                  title={devOscar[1].title}
+                  details={devOscar[1].details}
                   code={() => <ReversingAnArray />}
                 />
                 <PageCard
-                  id={devOscar[0].id}
-                  title={devOscar[0].title}
-                  details={devOscar[0].details}
+                  id={devOscar[2].id}
+                  title={devOscar[2].title}
+                  details={devOscar[2].details}
                   code={() => <Alist />}
                 />
                 <PageCard
-                  id={devOscar[0].id}
-                  title={devOscar[0].title}
-                  details={devOscar[0].details}
+                  id={devOscar[3].id}
+                  title={devOscar[3].title}
+                  details={devOscar[3].details}
                   code={() => <DeepComparison />}
                 />
               </>
