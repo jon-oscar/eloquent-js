@@ -25,10 +25,12 @@ const calcRangeSumMod = (start: number, end: number, step: number) => {
   const range = [];
 
   if (step === 1) {
+    // if step is 1, then we can just use the original function
     for (let i = start; i <= end; i += step) {
       range.push(i);
     }
   } else if (step < 1) {
+    // if step is less than 1, then we need to decrement the range
     for (let i = start; i >= end; i += step) {
       range.push(i);
     }
