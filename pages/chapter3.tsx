@@ -1,11 +1,12 @@
-import '../app/globals.css';
-import PageCard from '@/components/PageCard';
 import Layout from '@/components/Layout';
+import PageCard from '@/components/PageCard';
 import chapter from '@/constants/chapter.json';
+import '../app/globals.css';
 
+import BeanCounting from '@/components/exercises/chapter-3-oscar/BeanCounting';
 import Minimum from '@/components/exercises/chapter-3-oscar/Minimum';
 import Recursion from '@/components/exercises/chapter-3-oscar/Recursion';
-import BeanCounting from '@/components/exercises/chapter-3-oscar/BeanCounting';
+import JRecursiveIsEven from '@/components/exercises/chapter-3/JRecursiveIsEven';
 
 const chapterId = 3;
 
@@ -56,12 +57,14 @@ export default function Chapter3() {
           </div>
           <div className='flex flex-col'>
             {devJon && (
-              <PageCard
-                id={devJon[0].id}
-                title={devJon[0].title}
-                details={devJon[0].details}
-                code={() => 'YOUR CODE GOES HERE'}
-              />
+              <>
+                <PageCard
+                  id={devJon[1].id}
+                  title={devJon[1].title}
+                  details={devJon[1].details}
+                  code={() => <JRecursiveIsEven />}
+                />
+              </>
             )}
           </div>
         </div>
