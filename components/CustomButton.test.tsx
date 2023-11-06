@@ -15,4 +15,22 @@ describe('CustomButton', () => {
     fireEvent.click(getByTextResult('Click me'));
     expect(handleClick).toHaveBeenCalledTimes(1);
   });
+
+  it('calls the handleMouseDown function when mouse is pressed down', () => {
+    const handleMouseDown = jest.fn();
+    const getByTextResult = render(
+      <CustomButton title='Click me' handleMouseDown={handleMouseDown} />
+    ).getByText;
+    fireEvent.mouseDown(getByTextResult('Click me'));
+    expect(handleMouseDown).toHaveBeenCalledTimes(1);
+  });
+
+  it('calls the handleMouseUp function when mouse is released', () => {
+    const handleMouseUp = jest.fn();
+    const getByTextResult = render(
+      <CustomButton title='Click me' handleMouseUp={handleMouseUp} />
+    ).getByText;
+    fireEvent.mouseUp(getByTextResult('Click me'));
+    expect(handleMouseUp).toHaveBeenCalledTimes(1);
+  });
 });
