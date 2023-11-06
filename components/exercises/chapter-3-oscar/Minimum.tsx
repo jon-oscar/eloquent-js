@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import Image from 'next/image';
 import CustomButton from '@/components/CustomButton';
+import Image from 'next/image';
+import { useState } from 'react';
 
 const initialPeople = [
   {
@@ -45,7 +45,7 @@ export default function Minimum() {
   const [people, setPeople] = useState(initialPeople);
 
   return (
-    <div className='wrapper flex flex-col'>
+    <div data-testid='minimum' className='wrapper flex flex-col'>
       <div className='flex flex-row justify-between'>
         {people.map((item) => (
           <div

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './recursion.css';
 /**
  * Determines if a given number is even or odd using recursion.
@@ -62,7 +62,7 @@ export default function Recursion() {
   };
 
   return (
-    <div className='min-w-max h-[300px] relative'>
+    <div data-testid='recursion' className='min-w-max h-[300px] relative'>
       {petals.map((petal) => petal)}
       <div className='w-52 h-52 rounded-full bg-[#b2980b] absolute top-12 left-0 right-0 m-auto' />
     </div>

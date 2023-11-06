@@ -16,13 +16,17 @@ describe('Chapter3', () => {
     expect(details).toBeInTheDocument();
   });
 
-  it('renders the Minimum, Recursion, and BeanCounting exercises', () => {
+  it('renders the Minimum, JMinimum, Recursion, JRecursionIsEven, and BeanCounting exercises', () => {
     render(<Chapter3 />);
-    const minimum = screen.getByText(/Minimum/i);
-    const recursion = screen.getByText(/Recursion/i);
-    const beanCounting = screen.getByText(/Bean Counting/i);
+    const minimum = screen.getByTestId('minimum');
+    const jMinimum = screen.getByTestId('j-minimum');
+    const recursion = screen.getByTestId('recursion');
+    const JRecursionIsEven = screen.getByTestId('j-recursive-is-even');
+    const beanCounting = screen.getByTestId('bean counting');
     expect(minimum).toBeInTheDocument();
+    expect(jMinimum).toBeInTheDocument();
     expect(recursion).toBeInTheDocument();
+    expect(JRecursionIsEven).toBeInTheDocument();
     expect(beanCounting).toBeInTheDocument();
   });
 

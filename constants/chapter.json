@@ -70,8 +70,8 @@
     "devJon": [
       {
         "id": 1,
-        "title": " ",
-        "details": "This is my solution for..."
+        "title": "Minimum number of Bugs",
+        "details": "Add bugs on the code by tapping + or -, and find out which code has the fewest bugs."
       },
       {
         "id": 2,
