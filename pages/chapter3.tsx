@@ -20,6 +20,10 @@ if (!chapterMatch) {
 
 const { title, subtitle, details, devOscar, devJon } = chapterMatch;
 
+/**
+ * Renders the exercises for Chapter 3 of the book.
+ * @returns {JSX.Element} The JSX element that represents the content of Chapter 3.
+ */
 export default function Chapter3() {
   return (
     <Layout>
