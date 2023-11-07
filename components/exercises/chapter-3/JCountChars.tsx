@@ -6,6 +6,10 @@ import jGetNumberOfChars from './jGetNumberOfChars';
 const WORDS = ['BBC', 'kakkerlak', 'chase', 'prejudice', 'revival', 'sacred'];
 const COUNTED_CHARACTERS = ['a', 'B', 'c'];
 
+/**
+ * Renders a component that displays a table of word counts for a selected character.
+ * @returns JSX.Element
+ */
 export default function JCountChars() {
   const [countedCharacter, setCountedCharacter] = useState(
     COUNTED_CHARACTERS[0]
