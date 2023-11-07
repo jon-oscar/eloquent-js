@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 type BeanCountingProps = {
   phraseValue: string;
@@ -45,7 +45,7 @@ export default function BeanCounting({
   const [state, setState] = useState(phraseValue);
 
   return (
-    <div>
+    <div data-testid='bean counting'>
       <input
         type='text'
         value={state}

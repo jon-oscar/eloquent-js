@@ -6,6 +6,8 @@ export type CustomButtonProps = {
   title: string;
   containerStyles?: string;
   handleClick?: MouseEventHandler<HTMLButtonElement>;
+  handleMouseDown?: MouseEventHandler<HTMLButtonElement>;
+  handleMouseUp?: MouseEventHandler<HTMLButtonElement>;
   btnType?: 'button' | 'submit';
   textStyles?: string;
   rightIcon?: string;
@@ -16,6 +18,8 @@ const CustomButton = ({
   title,
   containerStyles,
   handleClick,
+  handleMouseDown,
+  handleMouseUp,
   btnType,
   textStyles,
   rightIcon,
@@ -26,6 +30,8 @@ const CustomButton = ({
       type={btnType || 'button'}
       className={`custom-btn ${containerStyles}`}
       onClick={handleClick}
+      onMouseDown={handleMouseDown}
+      onMouseUp={handleMouseUp}
     >
       <span className={`flex-1 ${textStyles}`}>{title}</span>
 
