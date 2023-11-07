@@ -1,23 +1,23 @@
-import JCountBs from './JCountBs';
+import jCountBs from './jCountBs';
 
-describe('JCountBs', () => {
+describe('jCountBs', () => {
   it('returns 0 when given an empty string', () => {
-    const result = JCountBs('');
+    const result = jCountBs('');
     expect(result).toBe(0);
   });
 
   it('returns 0 when given a string with no "B" characters', () => {
-    const result = JCountBs('hello world');
+    const result = jCountBs('hello world');
     expect(result).toBe(0);
   });
 
   it('returns the correct count when given a string with only "B" characters', () => {
-    const result = JCountBs('BBBBBB');
+    const result = jCountBs('BBBBBB');
     expect(result).toBe(6);
   });
 
   it('returns the correct count when given a string with both "B" and non-"B" characters', () => {
-    const result = JCountBs('aBcBdB');
+    const result = jCountBs('aBcBdB');
     expect(result).toBe(3);
   });
 });
