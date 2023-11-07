@@ -13,11 +13,13 @@ const deepEqual = (a: any, b: any) => {
   if (a == null || typeof a != 'object' || b == null || typeof b != 'object')
     return false;
 
-  let keysA = Object.keys(a),
-    keysB = Object.keys(b);
+  let keysA = Object.keys(a);
+  let keysB = Object.keys(b);
 
+  // compare the total number of keys, if it is not the same it's false
   if (keysA.length != keysB.length) return false;
 
+  // for each key, it checks if the key is not present in keysB or if the values associated with the same key in a and b are not deeply equal.
   for (let key of keysA) {
     if (!keysB.includes(key) || !deepEqual(a[key], b[key])) return false;
   }
