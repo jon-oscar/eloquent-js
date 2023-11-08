@@ -2,13 +2,27 @@ import Image from 'next/image';
 import React, { useState } from 'react';
 
 /**
+ * Calculates the sum of a range of numbers.
+ * @param start - The starting number of the range.
+ * @param end - The ending number of the range.
+ * @returns An array containing all the numbers in the range.
+ */
+export const calcRangeSum = (start: number, end: number) => {
+  const range = [];
+  for (let i = start; i <= end; i++) {
+    range.push(i);
+  }
+  return range;
+};
+
+/**
  * Calculates the sum of a range of numbers based on a given start, end, and step.
  * @param start - The starting number of the range.
  * @param end - The ending number of the range.
  * @param step - The step to increment or decrement the range by.
  * @returns An array of numbers representing the range.
  */
-const calcRangeSumMod = (start: number, end: number, step: number) => {
+export const calcRangeSumMod = (start: number, end: number, step: number) => {
   const range = [];
 
   if (step === 1) {
@@ -32,24 +46,10 @@ const calcRangeSumMod = (start: number, end: number, step: number) => {
  * @param arr - The array of numbers to sum.
  * @returns The sum of all numbers in the array.
  */
-const arraySum = (arr: number[]) => {
+export const arraySum = (arr: number[]) => {
   let sum = 0;
   for (let i = 0; i < arr.length; i++) sum += arr[i];
   return sum;
-};
-
-/**
- * Calculates the sum of a range of numbers.
- * @param start - The starting number of the range.
- * @param end - The ending number of the range.
- * @returns An array containing all the numbers in the range.
- */
-const calcRangeSum = (start: number, end: number) => {
-  const range = [];
-  for (let i = start; i <= end; i++) {
-    range.push(i);
-  }
-  return range;
 };
 
 const animals = [
@@ -71,8 +71,13 @@ const initialAnimals = {
   step: 1,
 };
 
-const SumOfARange = () => {
+export default function SumOfARange() {
   const [showAnimals, setShowAnimals] = useState(initialAnimals);
+
+  /**
+   * Handles the change event of the end select element and updates the showAnimals state accordingly.
+   * @param event - The change event of the start select element.
+   */
 
   function handleChangeStart(event: React.ChangeEvent<HTMLSelectElement>) {
     setShowAnimals((prevState) => {
@@ -85,6 +90,10 @@ const SumOfARange = () => {
     });
   }
 
+  /**
+   * Handles the change event of the end select element and updates the showAnimals state accordingly.
+   * @param event - The change event of the end select element.
+   */
   function handleChangeEnd(event: React.ChangeEvent<HTMLSelectElement>) {
     setShowAnimals((prevState) => {
       const showAnimals = {
@@ -126,79 +135,77 @@ const SumOfARange = () => {
         })}
       </div>
 
-      <p className='mt-3'>Select an option</p>
-      <div className='flex flex-row  justify-between items-center '>
-        <div className='flex flex-row gap-6'>
-          <div className='w-32 relative'>
-            <select
-              value={showAnimals.start}
-              onChange={handleChangeStart}
-              className='block appearance-none w-full bg-white border border-gray-300 hover:border-gray-400 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:ring focus:border-blue-500'
-            >
-              <option value='1'>1</option>
-              <option value='2'>2</option>
-              <option value='3'>3</option>
-              <option value='4'>4</option>
-              <option value='5'>5</option>
-              <option value='6'>6</option>
-              <option value='7'>7</option>
-              <option value='8'>8</option>
-              <option value='9'>9</option>
-              <option value='10'>10</option>
-            </select>
-            <div className='pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700'>
-              <svg
-                className='fill-current h-4 w-4'
-                xmlns='http://www.w3.org/2000/svg'
-                viewBox='0 0 20 20'
-              >
-                <path d='M6.293 9.293a1 1 0 011.414 0L10 11.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z' />
-              </svg>
-            </div>
-          </div>
-          <p>to</p>
-          <div className='w-32 relative'>
-            <select
-              value={showAnimals.end}
-              onChange={handleChangeEnd}
-              className='block appearance-none w-full bg-white border border-gray-300 hover:border-gray-400 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:ring focus:border-blue-500'
-            >
-              <option value='1'>1</option>
-              <option value='2'>2</option>
-              <option value='3'>3</option>
-              <option value='4'>4</option>
-              <option value='5'>5</option>
-              <option value='6'>6</option>
-              <option value='7'>7</option>
-              <option value='8'>8</option>
-              <option value='9'>9</option>
-              <option value='10'>10</option>
-            </select>
-            <div className='pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700'>
-              <svg
-                className='fill-current h-4 w-4'
-                xmlns='http://www.w3.org/2000/svg'
-                viewBox='0 0 20 20'
-              >
-                <path d='M6.293 9.293a1 1 0 011.414 0L10 11.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z' />
-              </svg>
+      <div className='flex flex-row'>
+        <div className='flex flex-col flex-[1.5]'>
+          <div className='flex flex-col'>
+            <p className='mt-3 mb-2'>Select an option</p>
+            <div className='flex flex-row justify-between items-center'>
+              <div className='w-40 relative'>
+                <select
+                  value={showAnimals.start}
+                  onChange={handleChangeStart}
+                  className='block appearance-none w-full bg-white border border-gray-300 hover:border-gray-400 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:ring focus:border-blue-500'
+                >
+                  <option value='1'>1</option>
+                  <option value='2'>2</option>
+                  <option value='3'>3</option>
+                  <option value='4'>4</option>
+                  <option value='5'>5</option>
+                  <option value='6'>6</option>
+                  <option value='7'>7</option>
+                  <option value='8'>8</option>
+                  <option value='9'>9</option>
+                  <option value='10'>10</option>
+                </select>
+                <div className='pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700'>
+                  <svg
+                    className='fill-current h-4 w-4'
+                    xmlns='http://www.w3.org/2000/svg'
+                    viewBox='0 0 20 20'
+                  >
+                    <path d='M6.293 9.293a1 1 0 011.414 0L10 11.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z' />
+                  </svg>
+                </div>
+              </div>
+              <p>to</p>
+              <div className='w-40 relative'>
+                <select
+                  value={showAnimals.end}
+                  onChange={handleChangeEnd}
+                  className='block appearance-none w-full bg-white border border-gray-300 hover:border-gray-400 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:ring focus:border-blue-500'
+                >
+                  <option value='1'>1</option>
+                  <option value='2'>2</option>
+                  <option value='3'>3</option>
+                  <option value='4'>4</option>
+                  <option value='5'>5</option>
+                  <option value='6'>6</option>
+                  <option value='7'>7</option>
+                  <option value='8'>8</option>
+                  <option value='9'>9</option>
+                  <option value='10'>10</option>
+                </select>
+                <div className='pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700'>
+                  <svg
+                    className='fill-current h-4 w-4'
+                    xmlns='http://www.w3.org/2000/svg'
+                    viewBox='0 0 20 20'
+                  >
+                    <path d='M6.293 9.293a1 1 0 011.414 0L10 11.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z' />
+                  </svg>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+        <div className='flex flex-col flex-[0.5] ml-2'>
+          <p className='mt-3 mb-2'>Sum of animals</p>
 
-        <p>{arraySum(calcRangeSum(showAnimals.start, showAnimals.end))}</p>
-
-        {/* <CustomButton
-          title='Show animals'
-          btnType='button'
-          containerStyles='text-white rounded-full bg-[#B2980B] min-w-[150px] max-h-[48px]'
-          handleClick={() =>
-            setShowAnimals((prevState) => console.log('hey there'))
-          }
-        /> */}
+          <p className='flex flex-row justify-start py-1'>
+            {arraySum(calcRangeSum(showAnimals.start, showAnimals.end))}
+          </p>
+        </div>
       </div>
     </div>
   );
-};
-
-export default SumOfARange;
+}
