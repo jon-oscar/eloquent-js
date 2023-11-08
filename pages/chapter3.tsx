@@ -6,6 +6,7 @@ import '../app/globals.css';
 import BeanCounting from '@/components/exercises/chapter-3-oscar/BeanCounting';
 import Minimum from '@/components/exercises/chapter-3-oscar/Minimum';
 import Recursion from '@/components/exercises/chapter-3-oscar/Recursion';
+import JCountChars from '@/components/exercises/chapter-3/JCountChars';
 import JMinimum from '@/components/exercises/chapter-3/JMinimum';
 import JRecursiveIsEven from '@/components/exercises/chapter-3/JRecursiveIsEven';
 
@@ -19,6 +20,10 @@ if (!chapterMatch) {
 
 const { title, subtitle, details, devOscar, devJon } = chapterMatch;
 
+/**
+ * Renders the exercises for Chapter 3 of the book.
+ * @returns {JSX.Element} The JSX element that represents the content of Chapter 3.
+ */
 export default function Chapter3() {
   return (
     <Layout>
@@ -70,6 +75,12 @@ export default function Chapter3() {
                   title={devJon[1].title}
                   details={devJon[1].details}
                   code={() => <JRecursiveIsEven />}
+                />
+                <PageCard
+                  id={devJon[2].id}
+                  title={devJon[2].title}
+                  details={devJon[2].details}
+                  code={() => <JCountChars />}
                 />
               </>
             )}

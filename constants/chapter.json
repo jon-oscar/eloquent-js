@@ -80,8 +80,8 @@
       },
       {
         "id": 3,
-        "title": " ",
-        "details": "This is my solution for..."
+        "title": "Character counter",
+        "details": "Tap to see the number of \"a\"s, \"B\"s or \"c\"s on these words"
       }
     ]
   },
