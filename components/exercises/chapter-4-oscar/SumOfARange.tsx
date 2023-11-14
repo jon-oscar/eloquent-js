@@ -31,6 +31,7 @@ const initialRange = {
   end: 10,
   step: 1,
 };
+
 export default function SumOfARange(): React.JSX.Element {
   const [range, setRange] = useState(initialRange);
   /**
@@ -81,7 +82,7 @@ export default function SumOfARange(): React.JSX.Element {
                   src={animals[num - 1].img}
                   alt={animals[num - 1].name}
                 />
-                <div>{animals[num - 1].name}</div>
+                <figcaption>{animals[num - 1].name}</figcaption>
               </figure>
             )
         )}
