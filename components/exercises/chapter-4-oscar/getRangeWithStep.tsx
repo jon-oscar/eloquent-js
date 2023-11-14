@@ -1,3 +1,11 @@
+/**
+ * Returns an array of numbers from start to end (inclusive) with a given step.
+ * @param start - The starting number of the range.
+ * @param end - The ending number of the range.
+ * @param step - The step between each number in the range. Defaults to 1 if start is less than end, -1 otherwise.
+ * @returns An array of numbers from start to end (inclusive) with a given step.
+ * @throws An error if step is zero.
+ */
 export const getRangeWithStep = (
   start: number,
   end: number,
