@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import React, { useState } from 'react';
-import { getRangeWithStep } from './getRangeWithStep';
-import { arraySum } from './arraySum';
+import { getRangeWithStep, arraySum } from './Utils';
 
 /**
  * Array of animal objects with id, name, and img properties.
@@ -34,11 +33,11 @@ const initialRange = {
 
 export default function SumOfARange(): React.JSX.Element {
   const [range, setRange] = useState(initialRange);
+
   /**
    * Handles the change event of the start select element and updates the range state accordingly.
    * @param event - The change event of the start select element.
    */
-
   function handleChangeStart(event: React.ChangeEvent<HTMLSelectElement>) {
     setRange((prevState) => {
       const range = { ...prevState, start: parseInt(event.target.value) };

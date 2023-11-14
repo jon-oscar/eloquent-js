@@ -1,4 +1,4 @@
-import { getRangeWithStep } from './getRangeWithStep';
+import { getRangeWithStep, arraySum } from './Utils';
 
 describe('getRangeWithStep', () => {
   it('returns an array of numbers from start to end with a step of 1 if no step is provided', () => {
@@ -13,5 +13,20 @@ describe('getRangeWithStep', () => {
 
   it('throws an error if step is 0', () => {
     expect(() => getRangeWithStep(1, 5, 0)).toThrowError('Step cannot be zero');
+  });
+});
+
+describe('arraySum', () => {
+  it('should return 0 for an empty array', () => {
+    expect(arraySum([])).toBe(0);
+  });
+
+  it('should return the sum of a single-element array', () => {
+    expect(arraySum([5])).toBe(5);
+  });
+
+  it('should return the sum of a multi-element array', () => {
+    expect(arraySum([1, 2, 3, 4, 5])).toBe(15);
+    expect(arraySum([-1, -2, -3, -4, -5])).toEqual(-15);
   });
 });
