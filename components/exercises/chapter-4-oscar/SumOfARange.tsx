@@ -1,57 +1,11 @@
 import Image from 'next/image';
 import React, { useState } from 'react';
+import { getRangeWithStep } from './getRangeWithStep';
+import { arraySum } from './arraySum';
 
 /**
- * Calculates the sum of a range of numbers.
- * @param start - The starting number of the range.
- * @param end - The ending number of the range.
- * @returns An array containing all the numbers in the range.
+ * Array of animal objects with id, name, and img properties.
  */
-export const calcRangeSum = (start: number, end: number) => {
-  const range = [];
-  for (let i = start; i <= end; i++) {
-    range.push(i);
-  }
-  return range;
-};
-
-/**
- * Calculates the sum of a range of numbers based on a given start, end, and step.
- * @param start - The starting number of the range.
- * @param end - The ending number of the range.
- * @param step - The step to increment or decrement the range by.
- * @returns An array of numbers representing the range.
- */
-export const calcRangeSumMod = (start: number, end: number, step: number) => {
-  const range = [];
-
-  if (step === 1) {
-    // if step is 1, then we can just use the original function
-    for (let i = start; i <= end; i += step) {
-      range.push(i);
-    }
-  } else if (step < 1) {
-    // if step is less than 1, then we need to decrement the range
-    for (let i = start; i >= end; i += step) {
-      range.push(i);
-    }
-  } else {
-    return;
-  }
-  return range;
-};
-
-/**
- * Calculates the sum of all numbers in an array.
- * @param arr - The array of numbers to sum.
- * @returns The sum of all numbers in the array.
- */
-export const arraySum = (arr: number[]) => {
-  let sum = 0;
-  for (let i = 0; i < arr.length; i++) sum += arr[i];
-  return sum;
-};
-
 const animals = [
   { id: 1, name: 'Bear', img: '/bear.png' },
   { id: 2, name: 'Boar', img: '/boar.png' },
@@ -65,61 +19,63 @@ const animals = [
   { id: 10, name: 'Wolf', img: '/wolf.png' },
 ];
 
-const initialAnimals = {
+/**
+ * Represents the initial range for the sum of a range exercise.
+ * @type {Object}
+ * @property {number} start - The starting number of the range.
+ * @property {number} end - The ending number of the range.
+ * @property {number} step - The step between each number in the range.
+ */
+const initialRange = {
   start: 1,
   end: 10,
   step: 1,
 };
 
-export default function SumOfARange() {
-  const [showAnimals, setShowAnimals] = useState(initialAnimals);
-
+export default function SumOfARange(): React.JSX.Element {
+  const [range, setRange] = useState(initialRange);
   /**
-   * Handles the change event of the end select element and updates the showAnimals state accordingly.
+   * Handles the change event of the start select element and updates the range state accordingly.
    * @param event - The change event of the start select element.
    */
 
   function handleChangeStart(event: React.ChangeEvent<HTMLSelectElement>) {
-    setShowAnimals((prevState) => {
-      const showAnimals = { ...prevState, start: parseInt(event.target.value) };
-      if (showAnimals.start <= showAnimals.end) {
-        showAnimals.step = 1;
+    setRange((prevState) => {
+      const range = { ...prevState, start: parseInt(event.target.value) };
+      if (range.start <= range.end) {
+        range.step = 1;
       }
 
-      return showAnimals;
+      return range;
     });
   }
 
   /**
-   * Handles the change event of the end select element and updates the showAnimals state accordingly.
+   * Handles the change event of the end select element and updates the range state accordingly.
    * @param event - The change event of the end select element.
    */
   function handleChangeEnd(event: React.ChangeEvent<HTMLSelectElement>) {
-    setShowAnimals((prevState) => {
-      const showAnimals = {
+    setRange((prevState) => {
+      const range = {
         ...prevState,
         end: parseInt(event.target.value),
       };
-      if (showAnimals.start > showAnimals.end) {
-        showAnimals.step = -1;
+      if (range.start > range.end) {
+        range.step = -1;
       }
-      return showAnimals;
+      return range;
     });
   }
 
   return (
     <div>
-      <div className='animals container grid grid-cols-5 grid-rows-2 gap-3'>
-        {calcRangeSumMod(
-          showAnimals.start,
-          showAnimals.end,
-          showAnimals.step
-        )?.map((num) => {
-          if (num === animals[num - 1].id) {
-            return (
-              <div
+      <div className='container grid grid-cols-5 grid-rows-2 gap-3'>
+        {getRangeWithStep(range.start, range.end, range.step)?.map(
+          (num) =>
+            num === animals[num - 1].id && (
+              <figure
                 className='w-24 h-24 flex flex-col text-center justify-center items-center rounded-md space-y-1'
-                key={animals[num - 1].id}
+                key={animals[num - 1].name}
               >
                 <Image
                   width={60}
@@ -128,21 +84,20 @@ export default function SumOfARange() {
                   alt={animals[num - 1].name}
                 />
                 <div>{animals[num - 1].name}</div>
-              </div>
-            );
-          }
-          return null;
-        })}
+              </figure>
+            )
+        )}
       </div>
 
       <div className='flex flex-row'>
         <div className='flex flex-col flex-[1.5]'>
           <div className='flex flex-col'>
-            <p className='mt-3 mb-2'>Select an option</p>
+            <p className='mt-3 mb-2'>Select an option to display animals</p>
             <div className='flex flex-row justify-between items-center'>
               <div className='w-40 relative'>
                 <select
-                  value={showAnimals.start}
+                  data-testid='Start'
+                  value={range.start}
                   onChange={handleChangeStart}
                   className='block appearance-none w-full bg-white border border-gray-300 hover:border-gray-400 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:ring focus:border-blue-500'
                 >
@@ -170,7 +125,8 @@ export default function SumOfARange() {
               <p>to</p>
               <div className='w-40 relative'>
                 <select
-                  value={showAnimals.end}
+                  data-testid='End'
+                  value={range.end}
                   onChange={handleChangeEnd}
                   className='block appearance-none w-full bg-white border border-gray-300 hover:border-gray-400 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:ring focus:border-blue-500'
                 >
@@ -202,7 +158,7 @@ export default function SumOfARange() {
           <p className='mt-3 mb-2'>Sum of animals</p>
 
           <p className='flex flex-row justify-start py-1'>
-            {arraySum(calcRangeSum(showAnimals.start, showAnimals.end))}
+            {arraySum(getRangeWithStep(range.start, range.end))}
           </p>
         </div>
       </div>

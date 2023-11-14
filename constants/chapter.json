@@ -97,7 +97,7 @@
       {
         "id": 1,
         "title": "The sum of a range",
-        "details": ""
+        "details": "The dropdown option adjust the quantity of animals to be shown. Sum of animals, is a function that takes an array and returns the sum of these numbers."
       },
       {
         "id": 2,

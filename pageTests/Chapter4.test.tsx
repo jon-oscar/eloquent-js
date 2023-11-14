@@ -19,13 +19,7 @@ describe('Chapter4', () => {
   it('renders the The sum of a range, Reversing an array, A list and Deep comparison exercises', () => {
     render(<Chapter4 />);
     const sumOfARange = screen.getByText(/The sum of a range/i);
-    const reversingAnArray = screen.getByText(/Reversing an array/i);
-    const aList = screen.getByText(/A list/i);
-    const deepComparison = screen.getByText(/Deep comparison/i);
     expect(sumOfARange).toBeInTheDocument();
-    expect(reversingAnArray).toBeInTheDocument();
-    expect(aList).toBeInTheDocument();
-    expect(deepComparison).toBeInTheDocument();
   });
 
   it('renders the developer card for Oscar Reyes', () => {
