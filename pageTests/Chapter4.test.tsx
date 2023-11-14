@@ -16,7 +16,7 @@ describe('Chapter4', () => {
     expect(details).toBeInTheDocument();
   });
 
-  it('renders the The sum of a range, Reversing an array, A list and Deep comparison exercises', () => {
+  it('renders the The sum of a range exercise', () => {
     render(<Chapter4 />);
     const sumOfARange = screen.getByText(/The sum of a range/i);
     expect(sumOfARange).toBeInTheDocument();
