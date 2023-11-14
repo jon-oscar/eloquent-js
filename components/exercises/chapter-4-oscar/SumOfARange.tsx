@@ -44,7 +44,6 @@ export default function SumOfARange(): React.JSX.Element {
       if (range.start <= range.end) {
         range.step = 1;
       }
-
       return range;
     });
   }
