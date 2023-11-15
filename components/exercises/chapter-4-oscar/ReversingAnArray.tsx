@@ -15,7 +15,6 @@ const initialArrays = [
  * Renders a component that displays two arrays and allows the user to reverse them.
  * @returns A JSX element representing the component.
  */
-
 export default function ReversingAnArray(): JSX.Element {
   const [arrays, setArrays] = useState(initialArrays);
 
@@ -42,8 +41,8 @@ export default function ReversingAnArray(): JSX.Element {
   };
 
   return (
-    <div className='wrapper flex'>
-      <div className='side1 flex flex-col flex-1 justify-center items-center'>
+    <div className='flex'>
+      <div className='flex flex-col flex-1 justify-center items-center'>
         <div className='mx-2 my-2'>
           <p className='text-4xl tracking-widest'>{arrays[0].value}</p>
         </div>
@@ -53,7 +52,7 @@ export default function ReversingAnArray(): JSX.Element {
           handleClick={handleReverse}
         />
       </div>
-      <div className='side2 flex flex-col flex-1 justify-center items-center'>
+      <div className='flex flex-col flex-1 justify-center items-center'>
         <div className='mx-2 my-2'>
           <p className='text-4xl tracking-widest'>{arrays[1].value}</p>
         </div>
