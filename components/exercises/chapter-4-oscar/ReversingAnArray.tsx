@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { getReverseArray, getReverseArrayInPlace } from './Utils';
+import { getReversedArray, reverseArrayInPlace } from './Utils';
 import CustomButton from '@/components/CustomButton';
 
 /**
@@ -24,7 +24,7 @@ export default function ReversingAnArray(): JSX.Element {
       const newArrays = [...prevState];
 
       // update the value of the first array
-      newArrays[0].value = getReverseArray(newArrays[0].value);
+      newArrays[0].value = getReversedArray(newArrays[0].value);
       return newArrays;
     });
   };
@@ -35,7 +35,7 @@ export default function ReversingAnArray(): JSX.Element {
       const newArrays = [...prevState];
 
       // update the value of the second array
-      newArrays[1].value = getReverseArrayInPlace(newArrays[1].value);
+      newArrays[1].value = reverseArrayInPlace(newArrays[1].value);
       return newArrays;
     });
   };

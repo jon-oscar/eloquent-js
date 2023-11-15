@@ -42,10 +42,10 @@ export const arraySum = (arr: number[]): number => {
  * @param arr - The array to be reversed.
  * @returns A new array with the elements in reverse order.
  */
-export function getReverseArray(arr: any[]): any[] {
+export function getReversedArray(arr: any[]): any[] {
   const newArr = [];
 
-  // loop through the array backwards and arr.length - 1 = 4 to match with indexation
+  // loop through the passed array in inverse order and add each item to the new array
   for (let i = arr.length - 1; i >= 0; i--) {
     newArr.push(arr[i]);
   }
@@ -56,7 +56,7 @@ export function getReverseArray(arr: any[]): any[] {
  * Reverses an array in place.
  * @param arr - The array to be reversed.
  */
-export function getReverseArrayInPlace(arr: any[]): any[] {
+export function reverseArrayInPlace(arr: any[]): any[] {
   for (let i = 0; i < Math.floor(arr.length / 2); i++) {
     // prevArr is assigned the value at array[0], which is 1
     let prevArr = arr[i];
@@ -71,3 +71,5 @@ export function getReverseArrayInPlace(arr: any[]): any[] {
   }
   return arr;
 }
+
+console.log(reverseArrayInPlace([1, 2, 3, 4, 5]));

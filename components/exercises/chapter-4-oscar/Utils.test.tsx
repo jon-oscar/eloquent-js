@@ -1,8 +1,8 @@
 import {
   getRangeWithStep,
   arraySum,
-  getReverseArray,
-  getReverseArrayInPlace,
+  getReversedArray,
+  reverseArrayInPlace,
 } from './Utils';
 
 describe('getRangeWithStep', () => {
@@ -36,14 +36,18 @@ describe('arraySum', () => {
   });
 });
 
-describe('getReverseArray', () => {
+describe('getReversedArray', () => {
   it('should return an empty array if given an empty array', () => {
-    expect(getReverseArray([])).toEqual([]);
+    expect(getReversedArray([])).toEqual([]);
   });
 
   it('should return an array with the elements in reverse order', () => {
-    expect(getReverseArray([1, 2, 3, 4, 5])).toEqual([5, 4, 3, 2, 1]);
-    expect(getReverseArray(['a', 'b', 'c', 'd', 'e'])).toEqual([
+    expect(getReversedArray([1, 2, 3])).toEqual([3, 2, 1]);
+    expect(getReversedArray([1, 2, 3, 4, 5])).toEqual([5, 4, 3, 2, 1]);
+    expect(getReversedArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])).toEqual([
+      10, 9, 8, 7, 6, 5, 4, 3, 2, 1,
+    ]);
+    expect(getReversedArray(['a', 'b', 'c', 'd', 'e'])).toEqual([
       'e',
       'd',
       'c',
@@ -51,24 +55,28 @@ describe('getReverseArray', () => {
       'a',
     ]);
   });
+
+  it('should not return the same array as the one passed', () => {
+    const arr = [1, 2, 3, 4, 5];
+    const reversedArr = getReversedArray(arr);
+    expect(reversedArr).not.toBe(arr);
+  });
 });
 
-describe('getReverseArrayInPlace', () => {
+describe('reverseArrayInPlace', () => {
   it('should return an empty array if given an empty array', () => {
     const arr: any[] = [];
-    getReverseArrayInPlace(arr);
+    reverseArrayInPlace(arr);
     expect(arr).toEqual([]);
   });
 
   it('should return an array with the elements in reverse order', () => {
     const arr1 = [1, 2, 3, 4, 5];
-    getReverseArrayInPlace(arr1);
+    reverseArrayInPlace(arr1);
     expect(arr1).toEqual([5, 4, 3, 2, 1]);
 
     const arr2 = ['a', 'b', 'c', 'd', 'e'];
-    getReverseArrayInPlace(arr2);
+    reverseArrayInPlace(arr2);
     expect(arr2).toEqual(['e', 'd', 'c', 'b', 'a']);
   });
 });
-
-
