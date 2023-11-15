@@ -1,4 +1,9 @@
-import { getRangeWithStep, arraySum } from './Utils';
+import {
+  getRangeWithStep,
+  arraySum,
+  getReverseArray,
+  getReverseArrayInPlace,
+} from './Utils';
 
 describe('getRangeWithStep', () => {
   it('returns an array of numbers from start to end with a step of 1 if no step is provided', () => {
@@ -30,3 +35,40 @@ describe('arraySum', () => {
     expect(arraySum([-1, -2, -3, -4, -5])).toEqual(-15);
   });
 });
+
+describe('getReverseArray', () => {
+  it('should return an empty array if given an empty array', () => {
+    expect(getReverseArray([])).toEqual([]);
+  });
+
+  it('should return an array with the elements in reverse order', () => {
+    expect(getReverseArray([1, 2, 3, 4, 5])).toEqual([5, 4, 3, 2, 1]);
+    expect(getReverseArray(['a', 'b', 'c', 'd', 'e'])).toEqual([
+      'e',
+      'd',
+      'c',
+      'b',
+      'a',
+    ]);
+  });
+});
+
+describe('getReverseArrayInPlace', () => {
+  it('should return an empty array if given an empty array', () => {
+    const arr: any[] = [];
+    getReverseArrayInPlace(arr);
+    expect(arr).toEqual([]);
+  });
+
+  it('should return an array with the elements in reverse order', () => {
+    const arr1 = [1, 2, 3, 4, 5];
+    getReverseArrayInPlace(arr1);
+    expect(arr1).toEqual([5, 4, 3, 2, 1]);
+
+    const arr2 = ['a', 'b', 'c', 'd', 'e'];
+    getReverseArrayInPlace(arr2);
+    expect(arr2).toEqual(['e', 'd', 'c', 'b', 'a']);
+  });
+});
+
+

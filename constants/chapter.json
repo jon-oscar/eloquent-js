@@ -102,7 +102,7 @@
       {
         "id": 2,
         "title": "Reversing an array",
-        "details": ""
+        "details": "The first, Click to reverse, takes an array as argument and produces a new array that has the same elements in the inverse order. The second, Click to reverse in place, modifies the array given as argument by reversing its elements"
       },
       {
         "id": 3,
