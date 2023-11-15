@@ -16,12 +16,14 @@ describe('Chapter4', () => {
     expect(details).toBeInTheDocument();
   });
 
-  it('renders the The sum of a range, reversing an array exercises', () => {
+  it('renders the The sum of a range, reversing an array, a list exercises', () => {
     render(<Chapter4 />);
     const sumOfARange = screen.getByText(/The sum of a range/i);
     expect(sumOfARange).toBeInTheDocument();
     const ReversingAnArray = screen.getByText(/Reversing an array/i);
     expect(ReversingAnArray).toBeInTheDocument();
+    const AList = screen.getByText(/A list/i);
+    expect(AList).toBeInTheDocument();
   });
 
   it('renders the developer card for Oscar Reyes', () => {
