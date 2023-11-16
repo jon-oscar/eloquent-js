@@ -56,7 +56,7 @@ export function getReversedArray(arr: any[]): any[] {
  * Reverses an array in place.
  * @param arr - The array to be reversed.
  */
-export function reverseArrayInPlace(arr: any[]): any[] {
+export function reverseArrayInPlace(arr: any[]): undefined {
   for (let i = 0; i < Math.floor(arr.length / 2); i++) {
     // prevArr is assigned the value at array[0], which is 1
     let prevArr = arr[i];
@@ -69,5 +69,4 @@ export function reverseArrayInPlace(arr: any[]): any[] {
 
     // After the first iteration, the array becomes [5, 2, 3, 4, 1]
   }
-  return arr;
 }

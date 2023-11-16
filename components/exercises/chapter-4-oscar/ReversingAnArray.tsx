@@ -35,7 +35,7 @@ export default function ReversingAnArray(): JSX.Element {
       const newArrays = [...prevState];
 
       // update the value of the second array
-      newArrays[1].value = reverseArrayInPlace(newArrays[1].value);
+      reverseArrayInPlace(newArrays[1].value);
       return newArrays;
     });
   };
