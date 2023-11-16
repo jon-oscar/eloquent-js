@@ -3,6 +3,7 @@ import PageCard from '@/components/PageCard';
 import Layout from '@/components/Layout';
 import chapter from '@/constants/chapter.json';
 import SumOfARange from '@/components/exercises/chapter-4-oscar/SumOfARange';
+import ReversingAnArray from '@/components/exercises/chapter-4-oscar/ReversingAnArray';
 
 const chapterId = 4;
 
@@ -35,6 +36,12 @@ export default function Chapter3() {
                   title={devOscar[0].title}
                   details={devOscar[0].details}
                   code={() => <SumOfARange />}
+                />
+                <PageCard
+                  id={devOscar[1].id}
+                  title={devOscar[1].title}
+                  details={devOscar[1].details}
+                  code={() => <ReversingAnArray />}
                 />
               </>
             )}
