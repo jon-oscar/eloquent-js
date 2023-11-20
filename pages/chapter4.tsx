@@ -46,6 +46,12 @@ export default function Chapter4() {
                   code={() => <ReversingAnArray />}
                 />
                 <PageCard
+                  id={devOscar[3].id}
+                  title={devOscar[3].title}
+                  details={devOscar[3].details}
+                  code={() => <DeepComparison />}
+                />
+                <PageCard
                   id={devOscar[2].id}
                   title={devOscar[2].title}
                   details={devOscar[2].details}
