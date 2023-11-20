@@ -1,3 +1,5 @@
+import React, { ReactNode } from 'react';
+
 /**
  * Returns an array of numbers from start to end (inclusive) with a given step.
  * @param start - The starting number of the range.
@@ -76,7 +78,7 @@ export function reverseArrayInPlace(arr: any[]): undefined {
  * @param arr - The array of numbers to be converted.
  * @returns The resulting linked list.
  */
-export function arrayToList(arr: number[]) {
+export function arrayToList(arr: ReactNode[]) {
   let list = null;
 
   // arr.length - 1 --> because we want to start from the last element of the array as starts from 0
@@ -126,3 +128,16 @@ export function nth(list: any, n: number): any {
   // list.rest because we want to move to the next node
   else return nth(list.rest, n - 1);
 }
+
+console.log(prepend(10, arrayToList([20])));
+// → {value: 10, rest: {value: 20, rest: null}}
+
+console.log(listToArray(arrayToList([10, 20, 30])));
+// → [10, 20, 30]
+console.log(nth(arrayToList([10, 20, 30]), 1));
+// → [20]
+
+const list = arrayToList(['Paris', 'London', 'Barcelona']);
+
+console.log(list);
+// → {value: 10, rest: {value: 20, rest: null}}

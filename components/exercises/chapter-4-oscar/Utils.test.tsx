@@ -3,6 +3,10 @@ import {
   arraySum,
   getReversedArray,
   reverseArrayInPlace,
+  arrayToList,
+  listToArray,
+  prepend,
+  nth,
 } from './Utils';
 
 describe('getRangeWithStep', () => {
