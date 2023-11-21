@@ -111,7 +111,7 @@ export function listToArray(list: any) {
  * @param list - The list to which the value will be prepended.
  * @returns A new list with the value prepended to it.
  */
-export function prepend(value: number, list: any) {
+export function prepend(value: number | string, list: any) {
   // list is null when we reach the end of the list
   return { value, rest: list };
 }
@@ -129,15 +129,7 @@ export function nth(list: any, n: number): any {
   else return nth(list.rest, n - 1);
 }
 
-console.log(prepend(10, arrayToList([20])));
-// → {value: 10, rest: {value: 20, rest: null}}
-
 console.log(listToArray(arrayToList([10, 20, 30])));
 // → [10, 20, 30]
-console.log(nth(arrayToList([10, 20, 30]), 1));
+console.log(nth(arrayToList([10, 20, 30]), 2));
 // → [20]
-
-const list = arrayToList(['Paris', 'London', 'Barcelona']);
-
-console.log(list);
-// → {value: 10, rest: {value: 20, rest: null}}
