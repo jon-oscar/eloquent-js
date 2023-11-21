@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { getReversedArray, reverseArrayInPlace } from './Utils';
 import CustomButton from '@/components/CustomButton';
+import { useState } from 'react';
+import { getReversedArray, reverseArrayInPlace } from './Utils';
 
 /**
  * An array of objects containing a name and a value array.
@@ -42,8 +42,8 @@ export default function ReversingAnArray(): JSX.Element {
 
   return (
     <div className='flex'>
-      <div className='flex flex-col flex-1 justify-center items-center'>
-        <div className='mx-2 my-2'>
+      <div className='flex flex-1 flex-col items-center justify-center'>
+        <div className='m-2'>
           <p className='text-4xl tracking-widest'>{arrays[0].value}</p>
         </div>
         <CustomButton
@@ -52,8 +52,8 @@ export default function ReversingAnArray(): JSX.Element {
           handleClick={handleReverse}
         />
       </div>
-      <div className='flex flex-col flex-1 justify-center items-center'>
-        <div className='mx-2 my-2'>
+      <div className='flex flex-1 flex-col items-center justify-center'>
+        <div className='m-2'>
           <p className='text-4xl tracking-widest'>{arrays[1].value}</p>
         </div>
         <CustomButton

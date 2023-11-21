@@ -7,7 +7,7 @@ const Hero = () => {
 
   return (
     <div className='hero'>
-      <div className='flex-1 padding-x pt-36'>
+      <div className='padding-x flex-1 pt-36'>
         <h1 className='hero__title'>
           This is a web project about the book Eloquent JavaScript!
         </h1>

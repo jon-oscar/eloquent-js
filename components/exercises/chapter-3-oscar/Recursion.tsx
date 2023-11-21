@@ -47,7 +47,7 @@ export default function Recursion() {
         <div
           data-testid='petal'
           key={`petal + ${timeRemaining}`}
-          className=' petal-rotating w-24 h-24 rounded-full absolute top-0 left-0 right-0 m-auto origin-custom bg-[#b2990b9f]'
+          className=' petal-rotating absolute inset-x-0 top-0 m-auto h-24 w-24 origin-custom rounded-full bg-[#b2990b9f]'
         />
       );
     } else {
@@ -55,16 +55,16 @@ export default function Recursion() {
         <div
           data-testid='petal'
           key={`petal + ${timeRemaining}`}
-          className='petal-rotating w-24 h-24 rounded-full absolute top-0 left-0 right-0 m-auto origin-custom bg-[#b2430b9f]'
+          className='petal-rotating absolute inset-x-0 top-0 m-auto h-24 w-24 origin-custom rounded-full bg-[#b2430b9f]'
         />
       );
     }
   };
 
   return (
-    <div data-testid='recursion' className='min-w-max h-[300px] relative'>
+    <div data-testid='recursion' className='relative h-[300px] min-w-max'>
       {petals.map((petal) => petal)}
-      <div className='w-52 h-52 rounded-full bg-[#b2980b] absolute top-12 left-0 right-0 m-auto' />
+      <div className='absolute inset-x-0 top-12 m-auto h-52 w-52 rounded-full bg-[#b2980b]' />
     </div>
   );
 }

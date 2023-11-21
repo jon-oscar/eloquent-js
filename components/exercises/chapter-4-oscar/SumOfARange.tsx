@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React, { useState } from 'react';
-import { getRangeWithStep, arraySum } from './Utils';
+import { arraySum, getRangeWithStep } from './Utils';
 
 /**
  * Array of animal objects with id, name, and img properties.
@@ -72,7 +72,7 @@ export default function SumOfARange(): React.JSX.Element {
           (num) =>
             num === animals[num - 1].id && (
               <figure
-                className='w-24 h-24 flex flex-col text-center justify-center items-center rounded-md space-y-1'
+                className='flex h-24 w-24 flex-col items-center justify-center space-y-1 rounded-md text-center'
                 key={animals[num - 1].name}
               >
                 <Image
@@ -88,16 +88,16 @@ export default function SumOfARange(): React.JSX.Element {
       </div>
 
       <div className='flex flex-row'>
-        <div className='flex flex-col flex-[1.5]'>
+        <div className='flex flex-[1.5] flex-col'>
           <div className='flex flex-col'>
-            <p className='mt-3 mb-2'>Select an option to display animals</p>
-            <div className='flex flex-row justify-between items-center'>
-              <div className='w-40 relative'>
+            <p className='mb-2 mt-3'>Select an option to display animals</p>
+            <div className='flex flex-row items-center justify-between'>
+              <div className='relative w-40'>
                 <select
                   data-testid='Start'
                   value={range.start}
                   onChange={handleChangeStart}
-                  className='block appearance-none w-full bg-white border border-gray-300 hover:border-gray-400 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:ring focus:border-blue-500'
+                  className='block w-full appearance-none rounded border border-gray-300 bg-white px-4 py-2 pr-8 leading-tight shadow hover:border-gray-400 focus:border-blue-500 focus:outline-none focus:ring'
                 >
                   {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
                     <option key={num + ' start'} value={num}>
@@ -107,7 +107,7 @@ export default function SumOfARange(): React.JSX.Element {
                 </select>
                 <div className='pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700'>
                   <svg
-                    className='fill-current h-4 w-4'
+                    className='h-4 w-4 fill-current'
                     xmlns='http://www.w3.org/2000/svg'
                     viewBox='0 0 20 20'
                   >
@@ -116,12 +116,12 @@ export default function SumOfARange(): React.JSX.Element {
                 </div>
               </div>
               <p>to</p>
-              <div className='w-40 relative'>
+              <div className='relative w-40'>
                 <select
                   data-testid='End'
                   value={range.end}
                   onChange={handleChangeEnd}
-                  className='block appearance-none w-full bg-white border border-gray-300 hover:border-gray-400 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:ring focus:border-blue-500'
+                  className='block w-full appearance-none rounded border border-gray-300 bg-white px-4 py-2 pr-8 leading-tight shadow hover:border-gray-400 focus:border-blue-500 focus:outline-none focus:ring'
                 >
                   {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
                     <option key={num + ' end'} value={num}>
@@ -131,7 +131,7 @@ export default function SumOfARange(): React.JSX.Element {
                 </select>
                 <div className='pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700'>
                   <svg
-                    className='fill-current h-4 w-4'
+                    className='h-4 w-4 fill-current'
                     xmlns='http://www.w3.org/2000/svg'
                     viewBox='0 0 20 20'
                   >
@@ -142,8 +142,8 @@ export default function SumOfARange(): React.JSX.Element {
             </div>
           </div>
         </div>
-        <div className='flex flex-col flex-[0.5] ml-2'>
-          <p className='mt-3 mb-2'>Sum of animals</p>
+        <div className='ml-2 flex flex-[0.5] flex-col'>
+          <p className='mb-2 mt-3'>Sum of animals</p>
 
           <p className='flex flex-row justify-start py-1'>
             {arraySum(getRangeWithStep(range.start, range.end))}

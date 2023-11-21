@@ -51,10 +51,10 @@ export default function BeanCounting({
         value={state}
         placeholder='Enter your phrase here'
         onChange={(e) => setState(e.target.value)}
-        className='text-center bg-[#FEFCF3] border-2 border-black-50 rounded-3xl w-full h-[50px]'
+        className='h-[50px] w-full rounded-3xl border-2 bg-[#FEFCF3] text-center'
         aria-label='Phrase'
       />
-      <div className='flex flex-row mt-2'>
+      <div className='mt-2 flex flex-row'>
         <div className='flex-1 text-center'>
           <p>This phrase has {countBs(state)} B letter</p>
         </div>

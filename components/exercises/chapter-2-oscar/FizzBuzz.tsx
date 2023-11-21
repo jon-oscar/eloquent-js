@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 type FizzBuzzProps = {
   phraseValue: string;
@@ -25,17 +25,17 @@ const FizzBuzz = ({ phraseValue }: FizzBuzzProps) => {
   const [state, setState] = useState(phraseValue);
 
   return (
-    <div className='flex flex-col text-center gap-2 items-center'>
+    <div className='flex flex-col items-center gap-2 text-center'>
       <h1 className='font-semibold'>Live typing display</h1>
       <input
         type='text'
         value={state}
         placeholder='Enter your phrase here'
         onChange={(e) => setState(e.target.value)}
-        className='text-center bg-[#FEFCF3] border-2 border-black-50 rounded-3xl w-full h-[50px]'
+        className='h-[50px] w-full rounded-3xl border-2 bg-[#FEFCF3] text-center'
         aria-label='Phrase'
       />
-      <span className='text-center bg-white border-2 border-[#B2980B] rounded-3xl w-full h-[50px] overflow-hidden'>
+      <span className='h-[50px] w-full overflow-hidden rounded-3xl border-2 border-[#B2980B] bg-white text-center'>
         {getPhrase(state)}
       </span>
     </div>

@@ -29,7 +29,7 @@ export default function JFizzBuzz() {
   return (
     <div data-testid='j-fizz-buzz'>
       <div className='flex flex-col items-center'>
-        <div className='flex align-center justify-center'>
+        <div className='flex justify-center'>
           <CustomButton
             handleClick={handleDecrease}
             title='-'
@@ -43,7 +43,7 @@ export default function JFizzBuzz() {
         </div>
         <div className='text-[80px] font-bold text-[#B2980B]'>
           {fizzBuzzValue === 'FizzBuzz' ? (
-            <span className='text-[#B2980B] animate-pulse'>
+            <span className='animate-pulse text-[#B2980B]'>
               {fizzBuzzValue}
             </span>
           ) : fizzBuzzValue === 'Fizz' || fizzBuzzValue === 'Buzz' ? (
