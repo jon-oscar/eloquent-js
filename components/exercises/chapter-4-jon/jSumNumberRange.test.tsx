@@ -1,4 +1,4 @@
-import sumArray from './jSumRange';
+import sumArray from './jSumNumberRange';
 
 describe('sumArray', () => {
   it('should return 0 for an empty array', () => {
