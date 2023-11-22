@@ -1,5 +1,3 @@
-import React from 'react';
-
 type Props = {
   size: number;
 };
@@ -19,7 +17,7 @@ const getBoard = (size: number) => {
 
 const Chessboard = ({ size }: Props) => {
   return (
-    <div className='flex flex-row gap-0.5 justify-center'>
+    <div className='flex flex-row justify-center gap-0.5'>
       {getBoard(size)
         .split('\n')
         .map((row, y) => (
@@ -30,8 +28,8 @@ const Chessboard = ({ size }: Props) => {
                 key={x}
                 className={
                   cell === ' '
-                    ? 'bg-white w-5 h-5'
-                    : 'bg-[#B2980B] w-5 h-5 animate-bounce'
+                    ? 'h-5 w-5 bg-white'
+                    : 'h-5 w-5 animate-bounce bg-[#B2980B]'
                 }
               ></div>
             ))}

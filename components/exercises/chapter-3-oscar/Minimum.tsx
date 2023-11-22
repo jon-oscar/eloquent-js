@@ -45,14 +45,14 @@ export default function Minimum() {
   const [people, setPeople] = useState(initialPeople);
 
   return (
-    <div data-testid='minimum' className='wrapper flex flex-col'>
+    <div data-testid='minimum' className='flex flex-col'>
       <div className='flex flex-row justify-between'>
         {people.map((item) => (
           <div
             key={item.name}
-            className='flex-1 flex flex-col flex1 justify-center items-center m-2'
+            className='m-2 flex flex-1 flex-col items-center justify-center'
           >
-            <div className='w-32 h-32'>
+            <div className='h-32 w-32'>
               <Image
                 src={item.image}
                 alt={`Avatar for ${item.name}}`}
@@ -61,7 +61,7 @@ export default function Minimum() {
                 className='rounded-full'
               />
             </div>
-            <p className='text-center mt-2'>{item.phrase}</p>
+            <p className='mt-2 text-center'>{item.phrase}</p>
           </div>
         ))}
       </div>

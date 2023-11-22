@@ -14,7 +14,7 @@ function Cell({ color }: { color: 'white' | 'black' }): JSX.Element {
   return (
     <div
       data-testid={`j-chess-board-${color}-cell`}
-      className={`w-10 h-10 ${
+      className={`h-10 w-10 ${
         color === 'white' ? 'bg-[#FEFCF3]' : 'bg-[#B2980B]'
       }`}
     ></div>
@@ -50,7 +50,7 @@ export default function JChessBoard(): JSX.Element {
   return (
     <div data-testid='j-chess-board'>
       <div className='flex flex-col items-center'>
-        <div className='flex align-center justify-center'>
+        <div className='flex justify-center'>
           <CustomButton
             handleClick={handleDecrease}
             title='-'
@@ -62,7 +62,7 @@ export default function JChessBoard(): JSX.Element {
             containerStyles={buttonStyles}
           />
         </div>
-        <div className='w-[13rem] h-[13rem]'>
+        <div className='h-[13rem] w-[13rem]'>
           {chessBoard.split('\n').map((row, i) => (
             <div
               key={`row-${i}`}

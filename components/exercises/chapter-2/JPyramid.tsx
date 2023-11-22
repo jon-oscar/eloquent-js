@@ -34,7 +34,7 @@ export default function JPyramid(): JSX.Element {
   return (
     <div data-testid='j-pyramid'>
       <div className='flex flex-col items-center'>
-        <div className='flex align-center justify-center'>
+        <div className='flex justify-center'>
           <CustomButton
             handleClick={handleDecrease}
             title='-'
@@ -46,7 +46,7 @@ export default function JPyramid(): JSX.Element {
             containerStyles={buttonStyles}
           />
         </div>
-        <div className='w-[15rem] h-[15rem]'>
+        <div className='h-[15rem] w-[15rem]'>
           {/* Iterate over pyramid and render a dot for each "#" and a new line for each "/n" */}
           {pyramid.split('').map((char, index) =>
             char === '#' ? (
@@ -54,7 +54,7 @@ export default function JPyramid(): JSX.Element {
               <div
                 data-testid='j-pyramid-dot'
                 key={index}
-                className='inline-block w-[2em] h-[2em] rounded-full bg-[#B2980B] m-1 hover:animate-pulse'
+                className='m-1 inline-block h-[2em] w-[2em] rounded-full bg-[#B2980B] hover:animate-pulse'
               />
             ) : (
               <br key={index} />

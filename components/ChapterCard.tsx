@@ -26,13 +26,13 @@ const ChapterCard = ({
         <h2 className='chapter-card__content-title'>{title}</h2>
       </div>
 
-      <p className='flex mt-6 text-[32px] leading-[38px] font-extrabold'>
-        <span className='self-start text-[14px] leading-[17px] font-semibold'>
+      <p className='mt-6 flex text-[32px] font-extrabold leading-[38px]'>
+        <span className='self-start text-[14px] font-semibold leading-[17px]'>
           {subtitle}
         </span>
       </p>
 
-      <div className='relative w-full h-40 my-3 object-contain'>
+      <div className='relative my-3 h-40 w-full object-contain'>
         <Image
           src={image}
           alt='chapter image'
@@ -42,10 +42,10 @@ const ChapterCard = ({
         />
       </div>
 
-      <div className='relative flex w-full mt-2'>
-        <div className='flex group-hover:invisible w-full justify-between text-grey'>
-          <div className='flex flex-col justify-center items-center gap-2'>
-            <span className='self-end text-[14px] leading-[17px] font-medium'>
+      <div className='relative mt-2 flex w-full'>
+        <div className='flex w-full justify-between text-grey group-hover:invisible'>
+          <div className='flex flex-col items-center justify-center gap-2'>
+            <span className='self-end text-[14px] font-medium leading-[17px]'>
               {exercises}
             </span>
           </div>
