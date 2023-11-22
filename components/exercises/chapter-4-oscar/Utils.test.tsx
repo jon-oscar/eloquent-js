@@ -7,7 +7,11 @@ import {
   listToArray,
   prepend,
   nth,
+  ListItemProp,
+  getFood,
+  ListItem,
 } from './Utils';
+import { render, screen } from '@testing-library/react';
 
 describe('getRangeWithStep', () => {
   it('returns an array of numbers from start to end with a step of 1 if no step is provided', () => {
@@ -209,5 +213,65 @@ describe('nth', () => {
       },
     };
     expect(nth(list, 3)).toBeUndefined();
+  });
+});
+
+describe('ListItem', () => {
+  it('should render the item value', () => {
+    const item = {
+      value: 'Item 1',
+      rest: null,
+    };
+    render(<ListItem item={item} />);
+    const renderedItem = screen.getByText('Item 1');
+    expect(renderedItem).toBeInTheDocument();
+  });
+
+  it('should render the rest of the list if it exists', () => {
+    const item = {
+      value: 'Item 1',
+      rest: {
+        value: 'Item 2',
+        rest: null,
+      },
+    };
+    render(<ListItem item={item} />);
+    const renderedItem1 = screen.getByText('Item 1');
+    const renderedItem2 = screen.getByText('Item 2');
+    expect(renderedItem1).toBeInTheDocument();
+    expect(renderedItem2).toBeInTheDocument();
+  });
+
+  it('should render "No more cities to visit" if the rest of the list is null', () => {
+    const item = {
+      value: 'Item 1',
+      rest: null,
+    };
+    render(<ListItem item={item} />);
+    const renderedItem = screen.getByText('No more cities to visit');
+    expect(renderedItem).toBeInTheDocument();
+  });
+});
+
+describe('getFood', () => {
+  it('should return the correct food for Paris', () => {
+    const items: ListItemProp = { value: 'Paris', rest: null };
+    render(getFood(items));
+    const foodElement = screen.getByText('Ratatouille');
+    expect(foodElement).toBeInTheDocument();
+  });
+
+  it('should return the correct food for London', () => {
+    const items: ListItemProp = { value: 'London', rest: null };
+    render(getFood(items));
+    const foodElement = screen.getByText('Sunday roast');
+    expect(foodElement).toBeInTheDocument();
+  });
+
+  it('should return the default food for an unknown city', () => {
+    const items: ListItemProp = { value: 'UnknownCity', rest: null };
+    render(getFood(items));
+    const foodElement = screen.getByText('Goulash');
+    expect(foodElement).toBeInTheDocument();
   });
 });

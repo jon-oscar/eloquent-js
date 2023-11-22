@@ -142,3 +142,69 @@ export function nth(
   // list.rest because we want to move to the next node
   else return nth(list.rest, n - 1);
 }
+
+/**
+ * Retrieves the corresponding food for a given city.
+ * @param items - The list of items.
+ * @returns The food associated with the city.
+ */
+export function getFood(items: ListItemProp | null) {
+  const city = nth(items, 0);
+  let food = '';
+
+  switch (city) {
+    case 'Paris':
+      food = 'Ratatouille';
+      break;
+    case 'London':
+      food = 'Sunday roast';
+      break;
+    case 'Barcelona':
+      food = 'Paella';
+      break;
+    case 'Porto':
+      food = 'Salted cod';
+      break;
+    case 'Milan':
+      food = 'Lasagna';
+      break;
+    case 'Geneva':
+      food = 'Fondue';
+      break;
+    default:
+      food = 'Goulash';
+      break;
+  }
+  return <p>{food}</p>;
+}
+
+/**
+ * Represents a list item.
+ * @param item - The item to be rendered.
+ * @returns The rendered list item.
+ */
+export function ListItem({ item }: { item: ListItemProp }) {
+  return (
+    <li>
+      <p className='text-gray-800'>{item.value}</p>
+      {item.rest === null ? (
+        <div className='mb-2'>
+          <div className='bg-red-600 p-3 rounded-lg cursor-pointer shadow'>
+            <p className='font-semibold'>No more cities to visit</p>
+          </div>
+        </div>
+      ) : (
+        <details className='mb-2'>
+          <summary className='bg-yellow-600 p-3 rounded-lg cursor-pointer shadow'>
+            <span className='font-semibold'>
+              {item.rest && Object.getOwnPropertyNames(item?.rest)[1]}
+            </span>
+          </summary>
+          <div className='bg-white p-4'>
+            <ListItem item={item.rest} />
+          </div>
+        </details>
+      )}
+    </li>
+  );
+}
