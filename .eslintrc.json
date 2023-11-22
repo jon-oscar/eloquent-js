@@ -1,5 +1,5 @@
 {
-  "extends": ["next/core-web-vitals"],
+  "extends": ["next/core-web-vitals", "plugin:tailwindcss/recommended"],
   "overrides": [
     // Only uses Testing Library lint rules in test files
     {

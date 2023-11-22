@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import 'app/globals.css';
 import CustomButton from '@/components/CustomButton';
+import 'app/globals.css';
+import { useState } from 'react';
 
 interface PyramidProps {
   rows: number;
@@ -19,7 +19,7 @@ const Pyramid = ({ rows }: PyramidProps) => {
 
   return (
     <div className='flex flex-row'>
-      <div className='flex flex-col flex-1'>
+      <div className='flex flex-1 flex-col'>
         {getPyramid(state)
           .split('\n')
           .map((row, i) => {
@@ -30,7 +30,7 @@ const Pyramid = ({ rows }: PyramidProps) => {
             );
           })}
       </div>
-      <div className='flex flex-col gap-2 flex-1 justify-center items-center'>
+      <div className='flex flex-1 flex-col items-center justify-center gap-2'>
         {state < 8 && (
           <>
             <CustomButton
@@ -70,7 +70,7 @@ const Pyramid = ({ rows }: PyramidProps) => {
                   })
                 }
               />
-              <span className=' text-red-600 mt-2 text-[14px] leading-[17px] font-semibold text-center gap-2'>
+              <span className=' mt-2 gap-2 text-center text-[14px] font-semibold leading-[17px] text-red-600'>
                 Max rows reached!
               </span>
             </>

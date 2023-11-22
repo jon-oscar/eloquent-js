@@ -78,7 +78,7 @@ function BugCounter({
 
   return (
     <div className='flex flex-col items-center'>
-      <div className='flex justify-center items-center'>
+      <div className='flex items-center justify-center'>
         <CustomButton
           handleMouseDown={() => setIncrementMouseDown(true)}
           handleMouseUp={handleIncrementMouseUp}
@@ -93,7 +93,7 @@ function BugCounter({
         />
       </div>
       <div
-        className='border-2 border-[#B2990B9F] rounded-lg p-10 relative m-4'
+        className='relative m-4 rounded-lg border-2 border-[#B2990B9F] p-10'
         style={{ width: BUG_CONTAINER_SIZE, height: BUG_CONTAINER_SIZE }}
       >
         {bugs.map((bug, i) => (

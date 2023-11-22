@@ -56,8 +56,8 @@ export default function JRecursiveIsEven(): JSX.Element {
       data-testid='j-recursive-is-even'
       className='flex flex-col items-center justify-center'
     >
-      <p className='text-4xl font-bold mb-8'>{message}</p>
-      <div className='flex space-x-4 mb-8'>
+      <p className='mb-8 text-4xl font-bold'>{message}</p>
+      <div className='mb-8 flex space-x-4'>
         <CustomButton
           containerStyles='text-white rounded-full bg-[#B2980B]'
           handleClick={handleIncrementClick}
