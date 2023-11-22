@@ -84,3 +84,130 @@ describe('reverseArrayInPlace', () => {
     expect(arr2).toEqual(['e', 'd', 'c', 'b', 'a']);
   });
 });
+
+describe('arrayToList', () => {
+  it('should convert an array of numbers into a linked list', () => {
+    const arr = [1, 2, 3];
+    const expectedList = {
+      value: 1,
+      rest: {
+        value: 2,
+        rest: {
+          value: 3,
+          rest: null,
+        },
+      },
+    };
+    expect(arrayToList(arr)).toEqual(expectedList);
+  });
+  it('should convert an array of strings into a linked list', () => {
+    const arr = ['a', 'b', 'c'];
+    const expectedList = {
+      value: 'a',
+      rest: {
+        value: 'b',
+        rest: {
+          value: 'c',
+          rest: null,
+        },
+      },
+    };
+    expect(arrayToList(arr)).toEqual(expectedList);
+  });
+
+  it('should return null for an empty array', () => {
+    expect(arrayToList([])).toBeNull();
+  });
+});
+
+describe('listToArray', () => {
+  it('should convert a linked list to an array', () => {
+    const list = {
+      value: 1,
+      rest: {
+        value: 2,
+        rest: {
+          value: 3,
+          rest: null,
+        },
+      },
+    };
+    const expectedArray = [1, 2, 3];
+    expect(listToArray(list)).toEqual(expectedArray);
+  });
+
+  it('should return an empty array for a null list', () => {
+    expect(listToArray(null)).toEqual([]);
+  });
+});
+
+describe('prepend', () => {
+  it('should add a value at the beginning of list', () => {
+    const value = 1;
+    const list = {
+      value: 2,
+      rest: {
+        value: 3,
+        rest: null,
+      },
+    };
+    const expectedList = {
+      value: 1,
+      rest: {
+        value: 2,
+        rest: {
+          value: 3,
+          rest: null,
+        },
+      },
+    };
+    expect(prepend(value, list)).toEqual(expectedList);
+  });
+
+  it('should return a new list if the original list is null', () => {
+    const value = 1;
+    const list = null;
+    const expectedList = {
+      value: 1,
+      rest: null,
+    };
+    expect(prepend(value, list)).toEqual(expectedList);
+  });
+});
+
+describe('nth', () => {
+  it('should return the value of the nth element in a list', () => {
+    const list = {
+      value: 1,
+      rest: {
+        value: 2,
+        rest: {
+          value: 3,
+          rest: null,
+        },
+      },
+    };
+    expect(nth(list, 0)).toBe(1);
+    expect(nth(list, 1)).toBe(2);
+    expect(nth(list, 2)).toBe(3);
+  });
+
+  it('should return undefined if the list is empty', () => {
+    const list = null;
+    expect(nth(list, 0)).toBeUndefined();
+  });
+
+  it('should return undefined if the index is out of bounds', () => {
+    const list = {
+      value: 1,
+      rest: {
+        value: 2,
+        rest: {
+          value: 3,
+          rest: null,
+        },
+      },
+    };
+    expect(nth(list, 3)).toBeUndefined();
+  });
+});

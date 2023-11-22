@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 
 /**
  * Returns an array of numbers from start to end (inclusive) with a given step.
@@ -74,16 +74,24 @@ export function reverseArrayInPlace(arr: any[]): undefined {
 }
 
 /**
+ * Represents the properties of a list item.
+ */
+export type ListItemProp = {
+  value: ReactNode;
+  rest: ListItemProp | null;
+};
+
+/**
  * Converts an array of numbers into a linked list.
  * @param arr - The array of numbers to be converted.
  * @returns The resulting linked list.
  */
-export function arrayToList(arr: ReactNode[]) {
+export function arrayToList(arr: ReactNode[]): ListItemProp | null {
   let list = null;
 
   // arr.length - 1 --> because we want to start from the last element of the array as starts from 0
   for (let i = arr.length - 1; i >= 0; i--) {
-    // list will store the result of every iteration, which is {value: 20, rest: null} so on
+    // list will store the result of every iteration, which starts on {value: 20, rest: null} so on
     list = { value: arr[i], rest: list };
   }
   return list;
@@ -94,12 +102,12 @@ export function arrayToList(arr: ReactNode[]) {
  * @param list - The linked list to convert.
  * @returns An array containing the values of the linked list.
  */
-export function listToArray(list: any) {
-  let arr = [];
+export function listToArray(list: ListItemProp | null): ReactNode[] {
+  let arr: ReactNode[] = [];
 
   // node as condition because we want to stop when node is null
   // node.rest because we want to move to the next node
-  for (let node = list; node; node = node.rest) {
+  for (let node: ListItemProp | null = list; node; node = node.rest) {
     arr.push(node.value);
   }
   return arr;
@@ -111,7 +119,10 @@ export function listToArray(list: any) {
  * @param list - The list to which the value will be prepended.
  * @returns A new list with the value prepended to it.
  */
-export function prepend(value: number | string, list: any) {
+export function prepend(
+  value: number | string,
+  list: ListItemProp | null
+): ListItemProp | null {
   // list is null when we reach the end of the list
   return { value, rest: list };
 }
@@ -122,14 +133,12 @@ export function prepend(value: number | string, list: any) {
  * @param n - The index of the element to retrieve.
  * @returns The value of the nth element in the list, or undefined if the list is empty or n is out of bounds.
  */
-export function nth(list: any, n: number): any {
+export function nth(
+  list: ListItemProp | null,
+  n: number
+): undefined | ReactNode {
   if (!list) return undefined;
   else if (n == 0) return list.value;
   // list.rest because we want to move to the next node
   else return nth(list.rest, n - 1);
 }
-
-console.log(listToArray(arrayToList([10, 20, 30])));
-// → [10, 20, 30]
-console.log(nth(arrayToList([10, 20, 30]), 2));
-// → [20]
