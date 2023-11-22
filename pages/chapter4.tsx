@@ -1,5 +1,6 @@
 import Layout from '@/components/Layout';
 import PageCard from '@/components/PageCard';
+import JSumRange from '@/components/exercises/chapter-4-jon/JSumRange';
 import ReversingAnArray from '@/components/exercises/chapter-4-oscar/ReversingAnArray';
 import SumOfARange from '@/components/exercises/chapter-4-oscar/SumOfARange';
 import chapter from '@/constants/chapter.json';
@@ -52,7 +53,7 @@ export default function Chapter3() {
                 id={devJon[0].id}
                 title={devJon[0].title}
                 details={devJon[0].details}
-                code={() => 'YOUR CODE GOES HERE'}
+                code={() => <JSumRange />}
               />
             )}
           </div>

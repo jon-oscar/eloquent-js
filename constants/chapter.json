@@ -118,8 +118,8 @@
     "devJon": [
       {
         "id": 1,
-        "title": " ",
-        "details": "This is my solution for..."
+        "title": "Sum of a range",
+        "details": "Drag the sliders to specify the range of numbers to sum"
       },
       {
         "id": 2,
