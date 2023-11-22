@@ -6,6 +6,9 @@ import Alist from '@/components/exercises/chapter-4-oscar/Alist';
 import SumOfARange from '@/components/exercises/chapter-4-oscar/SumOfARange';
 import chapter from '@/constants/chapter.json';
 import '../app/globals.css';
+import SumOfARange from '@/components/exercises/chapter-4-oscar/SumOfARange';
+import chapter from '@/constants/chapter.json';
+import '../app/globals.css';
 
 const chapterId = 4;
 
