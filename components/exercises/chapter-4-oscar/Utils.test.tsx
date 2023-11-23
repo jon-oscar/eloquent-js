@@ -10,7 +10,7 @@ import {
   ListItemProp,
   getFood,
   ListItem,
-  deepEqual,
+  checkEqual,
 } from './Utils';
 import { render, screen } from '@testing-library/react';
 
@@ -277,17 +277,17 @@ describe('getFood', () => {
   });
 });
 
-describe('deepEqual', () => {
+describe('checkEqual', () => {
   it('should return true for equal values', () => {
     const obj1 = { name: 'John', age: 30 };
     const obj2 = { name: 'John', age: 30 };
-    expect(deepEqual(obj1, obj2)).toBe(true);
+    expect(checkEqual(obj1, obj2)).toBe(true);
   });
 
   it('should return false for different values', () => {
     const obj1 = { name: 'John', age: 30 };
     const obj2 = { name: 'John', age: 25 };
-    expect(deepEqual(obj1, obj2)).toBe(false);
+    expect(checkEqual(obj1, obj2)).toBe(false);
   });
 
   it('should return true for deeply equal values', () => {
@@ -301,7 +301,7 @@ describe('deepEqual', () => {
       age: 30,
       address: { city: 'New York', country: 'USA' },
     };
-    expect(deepEqual(obj1, obj2)).toBe(true);
+    expect(checkEqual(obj1, obj2)).toBe(true);
   });
 
   it('should return false for deeply different values', () => {
@@ -315,6 +315,6 @@ describe('deepEqual', () => {
       age: 30,
       address: { city: 'Los Angeles', country: 'USA' },
     };
-    expect(deepEqual(obj1, obj2)).toBe(false);
+    expect(checkEqual(obj1, obj2)).toBe(false);
   });
 });

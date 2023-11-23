@@ -219,16 +219,71 @@ export function ListItem({ item }: { item: ListItemProp }) {
 export function checkEqual(a: any, b: any): boolean {
   if (a === b) return true;
 
+  // This check ensures that if either a or b is not an object (including arrays), they are not considered equal
   if (a == null || typeof a != 'object' || b == null || typeof b != 'object')
     return false;
 
   let keysA = Object.keys(a),
     keysB = Object.keys(b);
 
+  // It checks if the number of keys in a is not equal to the number of keys in b. If the number of keys differs, it returns false, indicating that the objects are not deeply equal.
   if (keysA.length != keysB.length) return false;
 
   for (let key of keysA) {
+    //It checks if the current key from a is not found in the keys of b, or the values associated with the current key in a and b are not deeply equal (recursive call)
     if (!keysB.includes(key) || !checkEqual(a[key], b[key])) return false;
   }
   return true;
 }
+/**
+ * Represents a list of item to work as parameters for DeepCoparison component.
+ */
+export const lastWeekList = [
+  {
+    name: '🥚 Eggs',
+    description: '6x Large class A free range eggs',
+    price: 2.5,
+  },
+  {
+    name: '🐓 Chicken',
+    description: '650gr Fresh Class A skinless chicken breast fillet portions.',
+    price: 4.7,
+  },
+  {
+    name: '🍚 Basmati rice',
+    description:
+      '1kg Aromatic & fluffy A long, slender grain grown in the foothills of the Himalayas',
+    price: 2.5,
+  },
+  {
+    name: '🥔 Potatoes',
+    description: '1kg White potatoes',
+    price: 1.5,
+  },
+];
+/**
+ * Represents a list of item to work as parameters for DeepCoparison component.
+ */
+export const currentWeekList = [
+  {
+    name: '🥚 Eggs',
+    description: '6x Large class A free range eggs',
+    price: 2.5,
+  },
+  {
+    name: '🐓 Chicken',
+    description: '650gr Fresh Class A skinless chicken breast fillet portions.',
+    price: 4.7,
+  },
+  {
+    name: '🍚 Basmati rice',
+    description:
+      '1kg Aromatic & fluffy A long, slender grain grown in the foothills of the Himalayas',
+    price: 2.5,
+  },
+  {
+    name: '🥔 Potatoes',
+    description: '1kg White potatoes',
+    price: 1.5,
+  },
+];

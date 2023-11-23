@@ -1,53 +1,11 @@
 import React, { useState } from 'react';
-import { checkEqual } from './Utils';
+import { checkEqual, lastWeekList, currentWeekList } from './Utils';
 
-const lastWeekList = [
-  {
-    name: '🥚 Eggs',
-    description: '6x Large class A free range eggs',
-    price: 2.5,
-  },
-  {
-    name: '🐓 Chicken',
-    description: '650gr Fresh Class A skinless chicken breast fillet portions.',
-    price: 4.7,
-  },
-  {
-    name: '🍚 Basmati rice',
-    description:
-      '1kg Aromatic & fluffy A long, slender grain grown in the foothills of the Himalayas',
-    price: 2.5,
-  },
-  {
-    name: '🥔 Potatoes',
-    description: '1kg White potatoes',
-    price: 1.5,
-  },
-];
-
-const currentWeekList = [
-  {
-    name: '🥚 Eggs',
-    description: '6x Large class A free range eggs',
-    price: 2.5,
-  },
-  {
-    name: '🐓 Chicken',
-    description: '650gr Fresh Class A skinless chicken breast fillet portions.',
-    price: 4.7,
-  },
-  {
-    name: '🍚 Basmati rice',
-    description:
-      '1kg Aromatic & fluffy A long, slender grain grown in the foothills of the Himalayas',
-    price: 2.5,
-  },
-  {
-    name: '🥔 Potatoes',
-    description: '1kg White potatoes',
-    price: 1.5,
-  },
-];
+type GroceryItem = {
+  name: string;
+  description: string;
+  price: number;
+};
 
 const newElement = {
   name: '🍅 Tomatoes',
@@ -55,22 +13,36 @@ const newElement = {
   price: 0.5,
 };
 
-const DeepComparison = () => {
-  const [groceryList, setGroceryList] = useState([lastWeekList, currentWeekList]);
+/**
+ * Renders a component that compares two grocery lists and allows adding/removing items.
+ */
+export function DeepComparison() {
+  const [groceryList, setGroceryList] = useState<Array<Array<GroceryItem>>>([
+    lastWeekList,
+    currentWeekList,
+  ]);
 
-  function handleClickAdd() {
-    setGroceryList((prevGroceryList) => [
-      ...prevGroceryList,
-      currentWeekList.push(newElement),
-    ]);
-  }
+  /**
+   * Handles the click event for adding a new element to the grocery list.
+   */
+  const handleClickAdd = () => {
+    setGroceryList((prevGroceryList) => {
+      const updatedGroceryList = [...prevGroceryList];
+      updatedGroceryList[1] = [...updatedGroceryList[1], newElement];
+      return updatedGroceryList;
+    });
+  };
 
-  function handleClickRemove() {
-    setGroceryList((prevGroceryList) => [
-      ...prevGroceryList,
-      currentWeekList.pop(),
-    ]);
-  }
+  /**
+   * Handles the click event for removing the last element of the grocery list.
+   */
+  const handleClickRemove = () => {
+    setGroceryList((prevGroceryList) => {
+      const updatedGroceryList = [...prevGroceryList];
+      updatedGroceryList[1] = updatedGroceryList[1].slice(0, -1);
+      return updatedGroceryList;
+    });
+  };
 
   return (
     <div className='flex flex-col'>
@@ -89,6 +61,7 @@ const DeepComparison = () => {
               </ol>
             ))}
         </div>
+
         <div className='mx-[10px] my-auto flex w-[300px] flex-1 flex-col rounded-md border-solid p-[10px] shadow-lg'>
           <div className='flex flex-row justify-between'>
             <strong>Grocery of last week</strong>
@@ -107,6 +80,7 @@ const DeepComparison = () => {
               </button>
             </div>
           </div>
+
           {groceryList &&
             groceryList[1]?.map((item) => (
               <ol key={item.name}>
@@ -119,7 +93,8 @@ const DeepComparison = () => {
             ))}
         </div>
       </div>
-      {checkEqual(lastWeekList, currentWeekList) === true ? (
+
+      {checkEqual(groceryList[0], groceryList[1]) === true ? (
         <span className='mt-4 cursor-pointer rounded-lg bg-green-300 p-2 shadow-md'>
           It is the same list
           {checkEqual(lastWeekList, currentWeekList)}
@@ -127,11 +102,11 @@ const DeepComparison = () => {
       ) : (
         <span className='cursor-pointer rounded-lg bg-red-300 p-2 shadow-md '>
           It is not the same list
-          {checkEqual(lastWeekList, currentWeekList)}
+          {checkEqual(groceryList[1], groceryList[2])}
         </span>
       )}
     </div>
   );
-};
+}
 
 export default DeepComparison;
