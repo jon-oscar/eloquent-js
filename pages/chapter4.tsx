@@ -17,7 +17,7 @@ if (!chapterMatch) {
 
 const { title, subtitle, details, devOscar, devJon } = chapterMatch;
 
-export default function Chapter3() {
+export default function Chapter4() {
   return (
     <Layout>
       <div className=' relative z-0 mx-auto mb-2 flex max-w-[1440px] gap-5 xl:flex-col'>
