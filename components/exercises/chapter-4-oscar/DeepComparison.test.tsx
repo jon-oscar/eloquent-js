@@ -9,6 +9,16 @@ jest.mock('./Utils', () => ({
 }));
 
 describe('DeepComparison', () => {
+  test('displays "It is not the same list" when the lists are not equal', () => {
+    render(<DeepComparison />);
+
+    // Click the add button to make the lists not equal
+    fireEvent.click(screen.getByText('+'));
+
+    // Assert that the "It is not the same list" message is displayed
+    expect(screen.getByText('It is not the same list')).toBeInTheDocument();
+  });
+
   beforeEach(() => {
     // Clear any previous mock calls and reset the component state
     jest.clearAllMocks();
@@ -45,15 +55,5 @@ describe('DeepComparison', () => {
 
     // You can make assertions based on the result of checkEqual
     expect(screen.getByText('It is the same list')).toBeInTheDocument();
-  });
-
-  test('displays "It is not the same list" when the lists are not equal', () => {
-    render(<DeepComparison />);
-
-    // Click the add button to make the lists not equal
-    fireEvent.click(screen.getByText('+'));
-
-    // Assert that the "It is not the same list" message is displayed
-    expect(screen.getByText('It is not the same list')).toBeInTheDocument();
   });
 });
