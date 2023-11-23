@@ -12,20 +12,20 @@ export default function Alist() {
 
   return (
     <div className='flex'>
-      <div className='p-4 max-w-lg flex-[1.8]'>
+      <div className='max-w-lg flex-[1.8] p-4'>
         <details className='mb-2'>
-          <summary className='bg-yellow-300 p-4 rounded-lg cursor-pointer shadow-md mb-4'>
+          <summary className='mb-4 cursor-pointer rounded-lg bg-yellow-300 p-4 shadow-md'>
             <span className='font-semibold'>Cities I would like to visit</span>
           </summary>
-          <ul className='ml-8 space-y-4 max-h-[366px] overflow-hidden'>
+          <ul className='ml-8 max-h-[366px] space-y-4 overflow-hidden'>
             {items && <ListItem item={items} />}
           </ul>
         </details>
-        <p className=' font-semibold mb-2'>
+        <p className='mb-2 font-semibold'>
           Countries of the listed cities above
         </p>
         <div className='flex'>
-          <div className='flex flex-col flex-1 h-[100px] overflow-hidden'>
+          <div className='flex h-[100px] flex-1 flex-col overflow-hidden'>
             {listToArray(items).map((item, index) => {
               if (item === 'Paris') {
                 return <div key={index}>{'France 🇫🇷'}</div>;
@@ -44,8 +44,8 @@ export default function Alist() {
               }
             })}
           </div>
-          <div className='flex flex-col flex-1 justify-center'>
-            <div className='bg-blue-300 p-4 rounded-md '>
+          <div className='flex flex-1 flex-col justify-center'>
+            <div className='rounded-md bg-blue-300 p-4 '>
               <span className=' font-semibold'>
                 The main dish is {getFood(items)}
               </span>
@@ -53,9 +53,9 @@ export default function Alist() {
           </div>
         </div>
       </div>
-      <div className='p-4 max-w-sm flex-[0.2]'>
+      <div className='max-w-sm flex-[0.2] p-4'>
         <button
-          className='bg-green-300 p-4 rounded-lg cursor-pointer shadow-md mb-4'
+          className='mb-4 cursor-pointer rounded-lg bg-green-300 p-4 shadow-md'
           onClick={() => {
             /**
              * Generates a random city from a predefined list of cities.
