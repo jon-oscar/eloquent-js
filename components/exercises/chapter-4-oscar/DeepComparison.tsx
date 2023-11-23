@@ -16,7 +16,7 @@ const newElement = {
 /**
  * Renders a component that compares two grocery lists and allows adding/removing items.
  */
-export function DeepComparison() {
+export default function DeepComparison() {
   const [groceryList, setGroceryList] = useState<Array<Array<GroceryItem>>>([
     lastWeekList,
     currentWeekList,
@@ -25,24 +25,24 @@ export function DeepComparison() {
   /**
    * Handles the click event for adding a new element to the grocery list.
    */
-  const handleClickAdd = () => {
+  function handleClickAdd() {
     setGroceryList((prevGroceryList) => {
       const updatedGroceryList = [...prevGroceryList];
       updatedGroceryList[1] = [...updatedGroceryList[1], newElement];
       return updatedGroceryList;
     });
-  };
+  }
 
   /**
    * Handles the click event for removing the last element of the grocery list.
    */
-  const handleClickRemove = () => {
+  function handleClickRemove() {
     setGroceryList((prevGroceryList) => {
       const updatedGroceryList = [...prevGroceryList];
       updatedGroceryList[1] = updatedGroceryList[1].slice(0, -1);
       return updatedGroceryList;
     });
-  };
+  }
 
   return (
     <div className='flex flex-col'>
@@ -108,5 +108,3 @@ export function DeepComparison() {
     </div>
   );
 }
-
-export default DeepComparison;
