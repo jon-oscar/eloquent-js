@@ -189,13 +189,13 @@ export function ListItem({ item }: { item: ListItemProp }) {
       <p className='text-gray-800'>{item.value}</p>
       {item.rest === null ? (
         <div className='mb-2'>
-          <div className='bg-red-600 p-3 rounded-lg cursor-pointer shadow'>
+          <div className='cursor-pointer rounded-lg bg-red-600 p-3 shadow'>
             <p className='font-semibold'>No more cities to visit</p>
           </div>
         </div>
       ) : (
         <details className='mb-2'>
-          <summary className='bg-yellow-600 p-3 rounded-lg cursor-pointer shadow'>
+          <summary className='cursor-pointer rounded-lg bg-yellow-600 p-3 shadow'>
             <span className='font-semibold'>
               {item.rest && Object.getOwnPropertyNames(item?.rest)[1]}
             </span>
