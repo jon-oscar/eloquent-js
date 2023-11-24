@@ -210,6 +210,69 @@ export function ListItem({ item }: { item: ListItemProp }) {
 }
 
 /**
+ * Represents the properties of a week item.
+ */
+export type WeekItem = {
+  name: string;
+  description: string;
+  price: number;
+};
+
+/**
+ * Represents a list of item to work as parameters for DeepCoparison component.
+ */
+export const lastWeekList: WeekItem[] = [
+  {
+    name: '🥚 Eggs',
+    description: '6x Large class A free range eggs',
+    price: 2.5,
+  },
+  {
+    name: '🐓 Chicken',
+    description: '650gr Fresh Class A skinless chicken breast fillet portions.',
+    price: 4.7,
+  },
+  {
+    name: '🍚 Basmati rice',
+    description:
+      '1kg Aromatic & fluffy A long, slender grain grown in the foothills of the Himalayas',
+    price: 2.5,
+  },
+  {
+    name: '🥔 Potatoes',
+    description: '1kg White potatoes',
+    price: 1.5,
+  },
+];
+/**
+ * Represents a list of item to work as parameters for DeepCoparison component.
+ */
+
+export const currentWeekList: WeekItem[] = [
+  {
+    name: '🥚 Eggs',
+    description: '6x Large class A free range eggs',
+    price: 2.5,
+  },
+  {
+    name: '🐓 Chicken',
+    description: '650gr Fresh Class A skinless chicken breast fillet portions.',
+    price: 4.7,
+  },
+  {
+    name: '🍚 Basmati rice',
+    description:
+      '1kg Aromatic & fluffy A long, slender grain grown in the foothills of the Himalayas',
+    price: 2.5,
+  },
+  {
+    name: '🥔 Potatoes',
+    description: '1kg White potatoes',
+    price: 1.5,
+  },
+];
+
+/**
  * Checks if two values are deeply equal.
  * @param a - The first value to compare.
  * @param b - The second value to compare.
@@ -235,55 +298,3 @@ export function checkEqual(a: any, b: any): boolean {
   }
   return true;
 }
-/**
- * Represents a list of item to work as parameters for DeepCoparison component.
- */
-export const lastWeekList = [
-  {
-    name: '🥚 Eggs',
-    description: '6x Large class A free range eggs',
-    price: 2.5,
-  },
-  {
-    name: '🐓 Chicken',
-    description: '650gr Fresh Class A skinless chicken breast fillet portions.',
-    price: 4.7,
-  },
-  {
-    name: '🍚 Basmati rice',
-    description:
-      '1kg Aromatic & fluffy A long, slender grain grown in the foothills of the Himalayas',
-    price: 2.5,
-  },
-  {
-    name: '🥔 Potatoes',
-    description: '1kg White potatoes',
-    price: 1.5,
-  },
-];
-/**
- * Represents a list of item to work as parameters for DeepCoparison component.
- */
-export const currentWeekList = [
-  {
-    name: '🥚 Eggs',
-    description: '6x Large class A free range eggs',
-    price: 2.5,
-  },
-  {
-    name: '🐓 Chicken',
-    description: '650gr Fresh Class A skinless chicken breast fillet portions.',
-    price: 4.7,
-  },
-  {
-    name: '🍚 Basmati rice',
-    description:
-      '1kg Aromatic & fluffy A long, slender grain grown in the foothills of the Himalayas',
-    price: 2.5,
-  },
-  {
-    name: '🥔 Potatoes',
-    description: '1kg White potatoes',
-    price: 1.5,
-  },
-];

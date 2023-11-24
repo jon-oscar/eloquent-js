@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import { checkEqual, lastWeekList, currentWeekList } from './Utils';
+import { checkEqual, lastWeekList, currentWeekList, WeekItem } from './Utils';
 
-type GroceryItem = {
-  name: string;
-  description: string;
-  price: number;
-};
+/**
+ * This represents an array of arrays of WeekItem objects, essentially creating a two-dimensional array of WeekItem objects. Each element of the outer array is an array of WeekItem objects.
+ */
+type GroceryList = WeekItem[][];
 
-const newElement = {
+const newElement: WeekItem = {
   name: '🍅 Tomatoes',
   description: '1kg Fresh tomatoes',
   price: 0.5,
@@ -16,8 +15,8 @@ const newElement = {
 /**
  * Renders a component that compares two grocery lists and allows adding/removing items.
  */
-export default function DeepComparison() {
-  const [groceryList, setGroceryList] = useState<Array<Array<GroceryItem>>>([
+export default function DeepComparison(): JSX.Element {
+  const [groceryList, setGroceryList] = useState<GroceryList>([
     lastWeekList,
     currentWeekList,
   ]);
@@ -25,9 +24,9 @@ export default function DeepComparison() {
   /**
    * Handles the click event for adding a new element to the grocery list.
    */
-  function handleClickAdd() {
+  function handleClickAdd(): void {
     setGroceryList((prevGroceryList) => {
-      const updatedGroceryList = [...prevGroceryList];
+      const updatedGroceryList: GroceryList = [...prevGroceryList];
       updatedGroceryList[1] = [...updatedGroceryList[1], newElement];
       return updatedGroceryList;
     });
@@ -36,9 +35,9 @@ export default function DeepComparison() {
   /**
    * Handles the click event for removing the last element of the grocery list.
    */
-  function handleClickRemove() {
+  function handleClickRemove(): void {
     setGroceryList((prevGroceryList) => {
-      const updatedGroceryList = [...prevGroceryList];
+      const updatedGroceryList: GroceryList = [...prevGroceryList];
       updatedGroceryList[1] = updatedGroceryList[1].slice(0, -1);
       return updatedGroceryList;
     });
