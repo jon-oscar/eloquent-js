@@ -73,25 +73,22 @@ export function reverseArrayInPlace(arr: any[]): undefined {
   }
 }
 
-/**
- * Represents the properties of a list item.
- */
-export type ListItemProp = {
+export type List = {
   value: ReactNode;
-  rest: ListItemProp | null;
+  rest: List | null;
 };
 
 /**
  * Converts an array of numbers into a linked list.
- * @param arr - The array of numbers to be converted.
+ * @param arr - The array to be converted.
  * @returns The resulting linked list.
  */
-export function arrayToList(arr: ReactNode[]): ListItemProp | null {
+export function arrayToList(arr: ReactNode[]): List | null {
   let list = null;
 
   // arr.length - 1 --> because we want to start from the last element of the array as starts from 0
   for (let i = arr.length - 1; i >= 0; i--) {
-    // list will store the result of every iteration, which starts on {value: 20, rest: null} so on
+    // list will store the result of every iteration
     list = { value: arr[i], rest: list };
   }
   return list;
@@ -102,12 +99,12 @@ export function arrayToList(arr: ReactNode[]): ListItemProp | null {
  * @param list - The linked list to convert.
  * @returns An array containing the values of the linked list.
  */
-export function listToArray(list: ListItemProp | null): ReactNode[] {
+export function listToArray(list: List | null): ReactNode[] {
   let arr: ReactNode[] = [];
 
   // node as condition because we want to stop when node is null
   // node.rest because we want to move to the next node
-  for (let node: ListItemProp | null = list; node; node = node.rest) {
+  for (let node: List | null = list; node; node = node.rest) {
     arr.push(node.value);
   }
   return arr;
@@ -121,8 +118,8 @@ export function listToArray(list: ListItemProp | null): ReactNode[] {
  */
 export function prepend(
   value: number | string,
-  list: ListItemProp | null
-): ListItemProp | null {
+  list: List | null
+): List | null {
   // list is null when we reach the end of the list
   return { value, rest: list };
 }
@@ -133,12 +130,9 @@ export function prepend(
  * @param n - The index of the element to retrieve.
  * @returns The value of the nth element in the list, or undefined if the list is empty or n is out of bounds.
  */
-export function nth(
-  list: ListItemProp | null,
-  n: number
-): undefined | ReactNode {
+export function nth(list: List | null, n: number): undefined | ReactNode {
   if (!list) return undefined;
-  else if (n == 0) return list.value;
+  else if (n === 0) return list.value;
   // list.rest because we want to move to the next node
   else return nth(list.rest, n - 1);
 }
@@ -148,7 +142,7 @@ export function nth(
  * @param items - The list of items.
  * @returns The food associated with the city.
  */
-export function getFood(items: ListItemProp | null) {
+export function getFood(items: List | null) {
   const city = nth(items, 0);
   let food = '';
 
@@ -178,33 +172,3 @@ export function getFood(items: ListItemProp | null) {
   return <p>{food}</p>;
 }
 
-/**
- * Represents a list item.
- * @param item - The item to be rendered.
- * @returns The rendered list item.
- */
-export function ListItem({ item }: { item: ListItemProp }) {
-  return (
-    <li>
-      <p className='text-gray-800'>{item.value}</p>
-      {item.rest === null ? (
-        <div className='mb-2'>
-          <div className='cursor-pointer rounded-lg bg-red-600 p-3 shadow'>
-            <p className='font-semibold'>No more cities to visit</p>
-          </div>
-        </div>
-      ) : (
-        <details className='mb-2'>
-          <summary className='cursor-pointer rounded-lg bg-yellow-600 p-3 shadow'>
-            <span className='font-semibold'>
-              {item.rest && Object.getOwnPropertyNames(item?.rest)[1]}
-            </span>
-          </summary>
-          <div className='bg-white p-4'>
-            <ListItem item={item.rest} />
-          </div>
-        </details>
-      )}
-    </li>
-  );
-}

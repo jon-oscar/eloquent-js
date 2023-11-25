@@ -7,9 +7,8 @@ import {
   listToArray,
   prepend,
   nth,
-  ListItemProp,
+  List,
   getFood,
-  ListItem,
 } from './Utils';
 import { render, screen } from '@testing-library/react';
 
@@ -104,9 +103,11 @@ describe('arrayToList', () => {
     };
     expect(arrayToList(arr)).toEqual(expectedList);
   });
-  it('should convert an array of strings into a linked list', () => {
-    const arr = ['a', 'b', 'c'];
-    const expectedList = {
+
+  it('should convert an array into a linked list', () => {
+    const arrString = ['a', 'b', 'c'];
+    const arrNum = [1, 2, 3, 4, 5];
+    const expectedListString = {
       value: 'a',
       rest: {
         value: 'b',
@@ -116,7 +117,26 @@ describe('arrayToList', () => {
         },
       },
     };
-    expect(arrayToList(arr)).toEqual(expectedList);
+
+    const expectedListNum = {
+      value: 1,
+      rest: {
+        value: 2,
+        rest: {
+          value: 3,
+          rest: {
+            value: 4,
+            rest: {
+              value: 5,
+              rest: null,
+            },
+          },
+        },
+      },
+    };
+
+    expect(arrayToList(arrString)).toEqual(expectedListString);
+    expect(arrayToList(arrNum)).toEqual(expectedListNum);
   });
 
   it('should return null for an empty array', () => {
@@ -126,7 +146,7 @@ describe('arrayToList', () => {
 
 describe('listToArray', () => {
   it('should convert a linked list to an array', () => {
-    const list = {
+    const listNum = {
       value: 1,
       rest: {
         value: 2,
@@ -136,8 +156,43 @@ describe('listToArray', () => {
         },
       },
     };
-    const expectedArray = [1, 2, 3];
-    expect(listToArray(list)).toEqual(expectedArray);
+
+    const listString = {
+      value: 'a',
+      rest: {
+        value: 'b',
+        rest: {
+          value: 'c',
+          rest: null,
+        },
+      },
+    };
+
+    const expectedLongerListString = {
+      value: 'a',
+      rest: {
+        value: 'b',
+        rest: {
+          value: 'c',
+          rest: {
+            value: 'd',
+            rest: {
+              value: 'f',
+              rest: null,
+            },
+          },
+        },
+      },
+    };
+
+    const expectedNumArray = [1, 2, 3];
+    const expectedStringArray = ['a', 'b', 'c'];
+    const expectedLongerStringArray = ['a', 'b', 'c', 'd', 'f'];
+    expect(listToArray(listNum)).toEqual(expectedNumArray);
+    expect(listToArray(listString)).toEqual(expectedStringArray);
+    expect(listToArray(expectedLongerListString)).toEqual(
+      expectedLongerStringArray
+    );
   });
 
   it('should return an empty array for a null list', () => {
@@ -216,60 +271,23 @@ describe('nth', () => {
   });
 });
 
-describe('ListItem', () => {
-  it('should render the item value', () => {
-    const item = {
-      value: 'Item 1',
-      rest: null,
-    };
-    render(<ListItem item={item} />);
-    const renderedItem = screen.getByText('Item 1');
-    expect(renderedItem).toBeInTheDocument();
-  });
-
-  it('should render the rest of the list if it exists', () => {
-    const item = {
-      value: 'Item 1',
-      rest: {
-        value: 'Item 2',
-        rest: null,
-      },
-    };
-    render(<ListItem item={item} />);
-    const renderedItem1 = screen.getByText('Item 1');
-    const renderedItem2 = screen.getByText('Item 2');
-    expect(renderedItem1).toBeInTheDocument();
-    expect(renderedItem2).toBeInTheDocument();
-  });
-
-  it('should render "No more cities to visit" if the rest of the list is null', () => {
-    const item = {
-      value: 'Item 1',
-      rest: null,
-    };
-    render(<ListItem item={item} />);
-    const renderedItem = screen.getByText('No more cities to visit');
-    expect(renderedItem).toBeInTheDocument();
-  });
-});
-
 describe('getFood', () => {
   it('should return the correct food for Paris', () => {
-    const items: ListItemProp = { value: 'Paris', rest: null };
+    const items: List = { value: 'Paris', rest: null };
     render(getFood(items));
     const foodElement = screen.getByText('Ratatouille');
     expect(foodElement).toBeInTheDocument();
   });
 
   it('should return the correct food for London', () => {
-    const items: ListItemProp = { value: 'London', rest: null };
+    const items: List = { value: 'London', rest: null };
     render(getFood(items));
     const foodElement = screen.getByText('Sunday roast');
     expect(foodElement).toBeInTheDocument();
   });
 
   it('should return the default food for an unknown city', () => {
-    const items: ListItemProp = { value: 'UnknownCity', rest: null };
+    const items: List = { value: 'UnknownCity', rest: null };
     render(getFood(items));
     const foodElement = screen.getByText('Goulash');
     expect(foodElement).toBeInTheDocument();

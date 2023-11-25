@@ -22,8 +22,8 @@ describe('Chapter4', () => {
     expect(sumOfARange).toBeInTheDocument();
     const ReversingAnArray = screen.getByText(/Reversing an array/i);
     expect(ReversingAnArray).toBeInTheDocument();
-    const AList = screen.getByText(/A list/i);
-    expect(AList).toBeInTheDocument();
+    const CityList = screen.getByText(/A list/i);
+    expect(CityList).toBeInTheDocument();
   });
 
   it('renders the developer card for Oscar Reyes', () => {
