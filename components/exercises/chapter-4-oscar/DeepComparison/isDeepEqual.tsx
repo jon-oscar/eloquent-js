@@ -4,15 +4,19 @@
  * @param b - The second value to compare.
  * @returns True if the values are deeply equal, false otherwise.
  */
-
 export function isDeepEqual(a: any, b: any): boolean {
   if (a === b) return true;
 
   // This check ensures that if either a or b is not an object (including arrays), they are not considered equal
-  if (a == null || typeof a != 'object' || b == null || typeof b != 'object')
+  if (
+    a === null ||
+    typeof a !== 'object' ||
+    b === null ||
+    typeof b !== 'object'
+  )
     return false;
 
-  let keysA = Object.keys(a),
+  const keysA = Object.keys(a),
     keysB = Object.keys(b);
 
   // It checks if the number of keys in a is not equal to the number of keys in b. If the number of keys differs, it returns false, indicating that the objects are not deeply equal.

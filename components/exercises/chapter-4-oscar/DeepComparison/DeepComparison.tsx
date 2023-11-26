@@ -103,24 +103,23 @@ export default function DeepComparison(): JSX.Element {
   return (
     <div className='flex flex-col'>
       <div className='mt-2 flex flex-row'>
-        <div className='mx-[10px] my-auto flex w-[300px] flex-1 flex-col rounded-md border-solid p-[10px] shadow-lg'>
-          <strong>Grocery of last week</strong>
+        <div className='mx-[10px] my-auto flex w-[300px] flex-1 flex-col  rounded-md border-solid p-[10px] shadow-lg'>
+          <h2 className='font-bold'>Grocery of last week</h2>
 
-          {groceryList &&
-            groceryList[0].map((item) => (
-              <ul key={item.name}>
-                <li className='relative mt-[24px] rounded-lg bg-yellow-200 p-2 pl-[16px] font-[16px] leading-[20px] text-black'>
-                  <strong>{item.name}</strong>
-                  <p className='mt-2 text-sm'>{item.description}</p>
-                  <p className='mt-1 text-right'>{item.price} $</p>
-                </li>
-              </ul>
-            ))}
+          {groceryList[0]?.map((item) => (
+            <ul key={item.name}>
+              <li className='relative mt-[24px] rounded-lg bg-yellow-200 p-2 pl-[16px] font-[16px] leading-[20px] text-black'>
+                <h3 className='font-semibold'>{item.name}</h3>
+                <p className='mt-2 text-sm'>{item.description}</p>
+                <p className='mt-1 text-right'>{item.price} $</p>
+              </li>
+            </ul>
+          ))}
         </div>
 
         <div className='mx-[10px] my-auto flex w-[300px] flex-1 flex-col rounded-md border-solid p-[10px] shadow-lg'>
           <div className='flex flex-row justify-between'>
-            <strong>Grocery of this week</strong>
+            <h2 className='font-bold'>Grocery of this week</h2>
             <div>
               <button
                 className='rounded-s-full bg-green-300 p-1'
@@ -137,20 +136,19 @@ export default function DeepComparison(): JSX.Element {
             </div>
           </div>
 
-          {groceryList &&
-            groceryList[1]?.map((item) => (
-              <ul key={item.name}>
-                <li className='relative mt-[24px] rounded-lg bg-blue-200 p-2 pl-[16px] font-[16px] leading-[20px] text-black'>
-                  <strong>{item.name}</strong>
-                  <p className='mt-2 text-sm'>{item.description}</p>
-                  <p className='mt-1 text-right'>{item.price} $</p>
-                </li>
-              </ul>
-            ))}
+          {groceryList[1]?.map((item) => (
+            <ul key={item.name}>
+              <li className='relative mt-[24px] rounded-lg bg-blue-200 p-2 pl-[16px] font-[16px] leading-[20px] text-black'>
+                <h3 className='font-semibold'>{item.name}</h3>
+                <p className='mt-2 text-sm'>{item.description}</p>
+                <p className='mt-1 text-right'>{item.price} $</p>
+              </li>
+            </ul>
+          ))}
         </div>
       </div>
 
-      {isDeepEqual(groceryList[0], groceryList[1]) === true ? (
+      {isDeepEqual(groceryList[0], groceryList[1]) ? (
         <span className='mt-4 rounded-lg bg-green-300 p-2 shadow-md'>
           It is the same list
         </span>

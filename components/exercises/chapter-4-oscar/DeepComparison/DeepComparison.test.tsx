@@ -56,4 +56,14 @@ describe('DeepComparison', () => {
     // You can make assertions based on the result of isDeepEqual
     expect(screen.getByText('It is the same list')).toBeInTheDocument();
   });
+
+  it('checks for equality and displays if it is not the same list', () => {
+    // Mock the isDeepEqual function to return true
+    jest.spyOn(require('./isDeepEqual'), 'isDeepEqual').mockReturnValue(false);
+
+    render(<DeepComparison />);
+
+    // You can make assertions based on the result of isDeepEqual
+    expect(screen.getByText('It is not the same list')).toBeInTheDocument();
+  });
 });
