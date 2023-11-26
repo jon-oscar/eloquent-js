@@ -2,13 +2,18 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import DeepComparison from './DeepComparison';
 
 // Mock the Utils module
-jest.mock('./Utils', () => ({
-  checkEqual: jest.fn(),
-  lastWeekList: [],
-  currentWeekList: [],
+jest.mock('./isDeepEqual.tsx', () => ({
+  isDeepEqual: jest.fn(),
+  lastWeekShoppingList: [],
+  currentWeekShoppingList: [],
 }));
 
 describe('DeepComparison', () => {
+  beforeEach(() => {
+    // Clear any previous mock calls and reset the component state
+    jest.clearAllMocks();
+  });
+
   test('displays "It is not the same list" when the lists are not equal', () => {
     render(<DeepComparison />);
 
@@ -17,11 +22,6 @@ describe('DeepComparison', () => {
 
     // Assert that the "It is not the same list" message is displayed
     expect(screen.getByText('It is not the same list')).toBeInTheDocument();
-  });
-
-  beforeEach(() => {
-    // Clear any previous mock calls and reset the component state
-    jest.clearAllMocks();
   });
 
   it('handles the "Add" button click correctly', () => {
@@ -48,12 +48,12 @@ describe('DeepComparison', () => {
   });
 
   it('checks for equality and displays the result', () => {
-    // Mock the checkEqual function to return true
-    jest.spyOn(require('./Utils'), 'checkEqual').mockReturnValue(true);
+    // Mock the isDeepEqual function to return true
+    jest.spyOn(require('./isDeepEqual'), 'isDeepEqual').mockReturnValue(true);
 
     render(<DeepComparison />);
 
-    // You can make assertions based on the result of checkEqual
+    // You can make assertions based on the result of isDeepEqual
     expect(screen.getByText('It is the same list')).toBeInTheDocument();
   });
 });

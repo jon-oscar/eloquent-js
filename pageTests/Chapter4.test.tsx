@@ -24,6 +24,8 @@ describe('Chapter4', () => {
     expect(ReversingAnArray).toBeInTheDocument();
     const AList = screen.getByText(/A list/i);
     expect(AList).toBeInTheDocument();
+    const DeepComparison = screen.getByText(/Deep comparison/i);
+    expect(DeepComparison).toBeInTheDocument();
   });
 
   it('renders the developer card for Oscar Reyes', () => {

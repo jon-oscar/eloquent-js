@@ -4,7 +4,7 @@ import JSumRange from '@/components/exercises/chapter-4-jon/JSumRange';
 import ReversingAnArray from '@/components/exercises/chapter-4-oscar/ReversingAnArray';
 import Alist from '@/components/exercises/chapter-4-oscar/Alist';
 import SumOfARange from '@/components/exercises/chapter-4-oscar/SumOfARange';
-import DeepComparison from '@/components/exercises/chapter-4-oscar/DeepComparison';
+import DeepComparison from '@/components/exercises/chapter-4-oscar/DeepComparison/DeepComparison';
 import chapter from '@/constants/chapter.json';
 import '../app/globals.css';
 
