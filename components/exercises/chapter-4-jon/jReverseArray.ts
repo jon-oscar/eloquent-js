@@ -3,7 +3,7 @@
  * @param array - The array to be reversed.
  * @returns The reversed array.
  */
-export default function reverseArray(array: any[]): any[] {
+export default function jReverseArray(array: any[]): any[] {
   const reversedArray = [];
   for (let i = array.length - 1; i >= 0; i--) {
     reversedArray.push(array[i]);
