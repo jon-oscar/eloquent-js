@@ -102,13 +102,13 @@ export default function DeepComparison(): JSX.Element {
 
   return (
     <div className='flex flex-col'>
-      <div className='mt-2 flex flex-row'>
-        <div className='mx-[10px] my-auto flex w-[300px] flex-1 flex-col  rounded-md border-solid p-[10px] shadow-lg'>
+      <div className='mt-2 flex'>
+        <div className='flex w-[300px] flex-1 flex-col rounded-md p-4 shadow-lg'>
           <h2 className='font-bold'>Grocery of last week</h2>
 
           {groceryList[0]?.map((item) => (
             <ul key={item.name}>
-              <li className='relative mt-[24px] rounded-lg bg-yellow-200 p-2 pl-[16px] font-[16px] leading-[20px] text-black'>
+              <li className='mt-4 rounded-lg bg-yellow-200 p-2 pl-4 font-[16px] text-black'>
                 <h3 className='font-semibold'>{item.name}</h3>
                 <p className='mt-2 text-sm'>{item.description}</p>
                 <p className='mt-1 text-right'>{item.price} $</p>
@@ -117,8 +117,8 @@ export default function DeepComparison(): JSX.Element {
           ))}
         </div>
 
-        <div className='mx-[10px] my-auto flex w-[300px] flex-1 flex-col rounded-md border-solid p-[10px] shadow-lg'>
-          <div className='flex flex-row justify-between'>
+        <div className='flex w-[300px] flex-1 flex-col rounded-md p-4 shadow-lg'>
+          <div className='flex justify-between'>
             <h2 className='font-bold'>Grocery of this week</h2>
             <div>
               <button
@@ -138,7 +138,7 @@ export default function DeepComparison(): JSX.Element {
 
           {groceryList[1]?.map((item) => (
             <ul key={item.name}>
-              <li className='relative mt-[24px] rounded-lg bg-blue-200 p-2 pl-[16px] font-[16px] leading-[20px] text-black'>
+              <li className='mt-4 rounded-lg bg-blue-200 p-2 pl-4 font-[16px] text-black'>
                 <h3 className='font-semibold'>{item.name}</h3>
                 <p className='mt-2 text-sm'>{item.description}</p>
                 <p className='mt-1 text-right'>{item.price} $</p>
