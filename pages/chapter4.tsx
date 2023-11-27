@@ -2,7 +2,7 @@ import Layout from '@/components/Layout';
 import PageCard from '@/components/PageCard';
 import JSumRange from '@/components/exercises/chapter-4-jon/JSumRange';
 import ReversingAnArray from '@/components/exercises/chapter-4-oscar/ReversingAnArray';
-import CityList from '@/components/exercises/chapter-4-oscar/CityList';
+import CityList from '@/components/exercises/chapter-4-oscar/AList/CityList';
 import SumOfARange from '@/components/exercises/chapter-4-oscar/SumOfARange';
 import chapter from '@/constants/chapter.json';
 import '../app/globals.css';

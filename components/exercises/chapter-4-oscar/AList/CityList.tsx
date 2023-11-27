@@ -1,5 +1,13 @@
-import React, { useState } from 'react';
-import { arrayToList, prepend, listToArray, getFood, List } from './Utils';
+import React, { useState, ReactNode } from 'react';
+import { arrayToList } from './arrayToList';
+import { listToArray } from './listToArray';
+import { prepend } from './prepend';
+import { getFood } from './getFood';
+
+export type List = {
+  value: string | number;
+  rest: List | null;
+};
 
 export const initialItems = arrayToList(['Paris', 'London', 'Barcelona']);
 
@@ -8,7 +16,6 @@ export const initialItems = arrayToList(['Paris', 'London', 'Barcelona']);
  * @param item - The item to be rendered.
  * @returns The rendered list item.
  */
-
 export function ListItem({ item }: { item: List }): JSX.Element {
   return (
     <li>
@@ -23,11 +30,11 @@ export function ListItem({ item }: { item: List }): JSX.Element {
         <details className='mb-2'>
           <summary className='cursor-pointer rounded-lg bg-yellow-600 p-3 shadow'>
             <span className='font-semibold'>
-              {item.rest && Object.getOwnPropertyNames(item?.rest)[1]}
+              {item.rest && `${item.rest.value} and the rest of the cities`}
             </span>
           </summary>
           <div className='bg-white p-4'>
-            <ListItem item={item.rest} />
+            {item.rest ? <ListItem item={item.rest} /> : null}
           </div>
         </details>
       )}
@@ -53,7 +60,19 @@ export default function CityList() {
       return cities[randomIndex];
     }
 
-    return setItems((prev) => prepend(randomCity(), prev));
+    // Assuming items is an array of strings, use a type assertion
+    if (items) {
+      const itemsArray = items && listToArray(items);
+
+      // Check if the randomly selected city is already in the list
+      const newCity = randomCity();
+      const cityAlreadyExists = itemsArray.includes(newCity);
+
+      if (!cityAlreadyExists) {
+        // If it doesn't exist, prepend it to the list
+        return setItems((prev) => prepend(newCity, prev));
+      }
+    }
   }
 
   return (
@@ -72,28 +91,30 @@ export default function CityList() {
         </p>
         <div className='flex'>
           <div className='flex h-[100px] flex-1 flex-col overflow-hidden'>
-            {listToArray(items).map((item, index) => {
+            {listToArray(items).map((item) => {
               if (item === 'Paris') {
-                return <div key={index}>France 🇫🇷</div>;
+                return <div key={item.toString()}>France 🇫🇷</div>;
               } else if (item === 'London') {
-                return <div key={index}>United Kingdom 🇬🇧</div>;
+                return <div key={item.toString()}>United Kingdom 🇬🇧</div>;
               } else if (item === 'Barcelona') {
-                return <div key={index}>Spain 🇪🇸</div>;
+                return <div key={item.toString()}>Spain 🇪🇸</div>;
               } else if (item === 'Porto') {
-                return <div key={index}>Portugal 🇵🇹</div>;
+                return <div key={item.toString()}>Portugal 🇵🇹</div>;
               } else if (item === 'Milan') {
-                return <div key={index}>Italy 🇮🇹</div>;
+                return <div key={item.toString()}>Italy 🇮🇹</div>;
               } else if (item === 'Geneva') {
-                return <div key={index}>Switzerland 🇨🇭</div>;
+                return <div key={item.toString()}>Switzerland 🇨🇭</div>;
+              } else if (item === 'Budapest') {
+                return <div key={item.toString()}>Hungary 🇭🇺</div>;
               } else {
-                return <div key={index}>{'Hungary 🇭🇺'}</div>;
+                return <div key={item?.toString()}>No city decided</div>;
               }
             })}
           </div>
           <div className='flex flex-1 flex-col justify-center'>
             <div className='rounded-md bg-blue-300 p-4 '>
               <span className=' font-semibold'>
-                The main dish is {getFood(items)}
+                The main dish is <p>{getFood(items)}</p>
               </span>
             </div>
           </div>
