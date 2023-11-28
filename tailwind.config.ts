@@ -33,5 +33,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require('postcss-nested'), require('tailwindcss')],
 };
