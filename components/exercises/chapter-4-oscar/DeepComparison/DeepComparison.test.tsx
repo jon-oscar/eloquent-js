@@ -1,69 +1,44 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import DeepComparison from './DeepComparison';
 
-// Mock the Utils module
-jest.mock('./isDeepEqual.tsx', () => ({
-  isDeepEqual: jest.fn(),
-  lastWeekShoppingList: [],
-  currentWeekShoppingList: [],
-}));
-
 describe('DeepComparison', () => {
-  beforeEach(() => {
-    // Clear any previous mock calls and reset the component state
-    jest.clearAllMocks();
+  it('should render the component showing Grocery of last week and Grocery of this week', () => {
+    render(<DeepComparison />);
+    const groceryLastWeek = screen.getByText('Grocery of last week');
+    const groceryThisWeek = screen.getByText('Grocery of this week');
+    expect(groceryLastWeek).toBeInTheDocument();
+    expect(groceryThisWeek).toBeInTheDocument();
   });
 
-  test('displays "It is not the same list" when the lists are not equal', () => {
+  it('should add an element to the grocery list when the "+" button is clicked', () => {
     render(<DeepComparison />);
-
-    // Click the add button to make the lists not equal
-    fireEvent.click(screen.getByText('+'));
-
-    // Assert that the "It is not the same list" message is displayed
-    expect(screen.getByText('It is not the same list')).toBeInTheDocument();
+    const addButton = screen.getByText('+');
+    fireEvent.click(addButton);
+    const groceryItems = screen.getAllByTestId('grocery-item');
+    expect(groceryItems).toHaveLength(5);
   });
 
-  it('handles the "Add" button click correctly', () => {
+  it('should remove an element from the grocery list when the "-" button is clicked', () => {
     render(<DeepComparison />);
-
-    // Find and click the "Add" button
-    fireEvent.click(screen.getByText('+'));
-
-    // You can make assertions about the updated state or rendered content
-    expect(screen.getByText('🍅 Tomatoes')).toBeInTheDocument();
+    const removeButton = screen.getByText('-');
+    fireEvent.click(removeButton);
+    const groceryItems = screen.getAllByTestId('grocery-item');
+    expect(groceryItems).toHaveLength(3);
   });
 
-  it('handles the "Remove" button click correctly', () => {
+  it('should display "It is the same list" message when lists are deeply equal', () => {
     render(<DeepComparison />);
-
-    // First, add an item
-    fireEvent.click(screen.getByText('+'));
-
-    // Then, find and click the "Remove" button
-    fireEvent.click(screen.getByText('-'));
-
-    // You can make assertions about the updated state or rendered content
-    expect(screen.queryByText('🍅 Tomatoes')).not.toBeInTheDocument();
+    const sameListMessage = screen.getByTestId('same-list-message');
+    expect(sameListMessage).toBeInTheDocument();
+    expect(sameListMessage).toHaveTextContent('It is the same list');
   });
 
-  it('checks for equality and displays the result', () => {
-    // Mock the isDeepEqual function to return true
-    jest.spyOn(require('./isDeepEqual'), 'isDeepEqual').mockReturnValue(true);
-
+  it('should display "It is not the same list" message when lists are not deeply equal', () => {
     render(<DeepComparison />);
-
-    // You can make assertions based on the result of isDeepEqual
-    expect(screen.getByText('It is the same list')).toBeInTheDocument();
-  });
-
-  it('checks for equality and displays if it is not the same list', () => {
-    // Mock the isDeepEqual function to return true
-    jest.spyOn(require('./isDeepEqual'), 'isDeepEqual').mockReturnValue(false);
-
-    render(<DeepComparison />);
-
-    // You can make assertions based on the result of isDeepEqual
-    expect(screen.getByText('It is not the same list')).toBeInTheDocument();
+    const addButton = screen.getByText('+');
+    fireEvent.click(addButton);
+    const notSameListMessage = screen.getByTestId('not-same-list-message');
+    expect(notSameListMessage).toBeInTheDocument();
+    expect(notSameListMessage).toHaveTextContent('It is not the same list');
   });
 });

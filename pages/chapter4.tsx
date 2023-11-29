@@ -2,7 +2,6 @@ import Layout from '@/components/Layout';
 import PageCard from '@/components/PageCard';
 import JSumRange from '@/components/exercises/chapter-4-jon/JSumRange';
 import ReversingAnArray from '@/components/exercises/chapter-4-oscar/ReversingAnArray';
-import Alist from '@/components/exercises/chapter-4-oscar/Alist';
 import SumOfARange from '@/components/exercises/chapter-4-oscar/SumOfARange';
 import DeepComparison from '@/components/exercises/chapter-4-oscar/DeepComparison/DeepComparison';
 import chapter from '@/constants/chapter.json';
@@ -45,12 +44,6 @@ export default function Chapter4() {
                   title={devOscar[1].title}
                   details={devOscar[1].details}
                   code={() => <ReversingAnArray />}
-                />
-                <PageCard
-                  id={devOscar[2].id}
-                  title={devOscar[2].title}
-                  details={devOscar[2].details}
-                  code={() => <Alist />}
                 />
                 <PageCard
                   id={devOscar[3].id}

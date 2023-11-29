@@ -137,7 +137,7 @@ export default function DeepComparison(): JSX.Element {
           </div>
 
           {groceryList[1]?.map((item) => (
-            <ul key={item.name}>
+            <ul key={item.name} data-testid='grocery-item'>
               <li className='mt-4 rounded-lg bg-blue-200 p-2 pl-4 font-[16px] text-black'>
                 <h3 className='font-semibold'>{item.name}</h3>
                 <p className='mt-2 text-sm'>{item.description}</p>
@@ -149,11 +149,17 @@ export default function DeepComparison(): JSX.Element {
       </div>
 
       {isDeepEqual(groceryList[0], groceryList[1]) ? (
-        <span className='mt-4 rounded-lg bg-green-300 p-2 shadow-md'>
+        <span
+          className='mt-4 rounded-lg bg-green-300 p-2 shadow-md'
+          data-testid='same-list-message'
+        >
           It is the same list
         </span>
       ) : (
-        <span className='mt-4 rounded-lg bg-red-300 p-2 shadow-md '>
+        <span
+          className='mt-4 rounded-lg bg-red-300 p-2 shadow-md'
+          data-testid='not-same-list-message'
+        >
           It is not the same list
         </span>
       )}
