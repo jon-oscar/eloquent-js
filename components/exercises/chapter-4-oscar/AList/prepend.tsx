@@ -6,10 +6,7 @@ import { List } from './CityList';
  * @param list - The list to which the value will be prepended.
  * @returns A new list with the value prepended to it.
  */
-export function prepend(
-  value: number | string,
-  list: List | null
-): List | null {
+export function prepend(value: number | string, list: List | null): List {
   // list is null when we reach the end of the list
   return { value, rest: list };
 }

@@ -1,7 +1,7 @@
 import { listToArray } from './listToArray';
 
 describe('listToArray', () => {
-  it('should convert a linked list to an array', () => {
+  it('should convert a linked list to an array of numbers', () => {
     const listNum = {
       value: 1,
       rest: {
@@ -12,7 +12,11 @@ describe('listToArray', () => {
         },
       },
     };
+    const expectedNumArray = [1, 2, 3];
+    expect(listToArray(listNum)).toEqual(expectedNumArray);
+  });
 
+  it('should convert a linked list to an array of strings', () => {
     const listString = {
       value: 'a',
       rest: {
@@ -23,7 +27,11 @@ describe('listToArray', () => {
         },
       },
     };
+    const expectedStringArray = ['a', 'b', 'c'];
+    expect(listToArray(listString)).toEqual(expectedStringArray);
+  });
 
+  it('should convert a linked list to an array of strings of 5 positions', () => {
     const expectedLongerListString = {
       value: 'a',
       rest: {
@@ -40,12 +48,7 @@ describe('listToArray', () => {
         },
       },
     };
-
-    const expectedNumArray = [1, 2, 3];
-    const expectedStringArray = ['a', 'b', 'c'];
     const expectedLongerStringArray = ['a', 'b', 'c', 'd', 'f'];
-    expect(listToArray(listNum)).toEqual(expectedNumArray);
-    expect(listToArray(listString)).toEqual(expectedStringArray);
     expect(listToArray(expectedLongerListString)).toEqual(
       expectedLongerStringArray
     );

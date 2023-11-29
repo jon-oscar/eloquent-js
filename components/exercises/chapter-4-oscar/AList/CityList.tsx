@@ -1,6 +1,7 @@
-import React, { useState, ReactNode } from 'react';
+import React, { useState } from 'react';
 import { arrayToList } from './arrayToList';
 import { listToArray } from './listToArray';
+import { randomCity } from './randomCity';
 import { prepend } from './prepend';
 import { getFood } from './getFood';
 
@@ -12,7 +13,7 @@ export type List = {
 export const initialItems = arrayToList(['Paris', 'London', 'Barcelona']);
 
 /**
- * Represents a list item.
+ * Represents a recursive list.
  * @param item - The item to be rendered.
  * @returns The rendered list item.
  */
@@ -43,24 +44,16 @@ export function ListItem({ item }: { item: List }): JSX.Element {
 }
 
 /**
- * CityList component displays a list of cities and their corresponding countries.
+ * It displays a list of cities and their corresponding main food.
  * It allows adding new cities to the list randomly.
  */
 export default function CityList() {
   const [items, setItems] = useState(initialItems);
 
+  /**
+   * It adds a new city.
+   */
   function handleClick(): void {
-    /**
-     * Generates a random city from a predefined list of cities.
-     * @returns {string} The randomly selected city.
-     */
-    function randomCity(): string {
-      const cities = ['Porto', 'Milan', 'Geneva', 'Budapest'];
-      const randomIndex = Math.floor(Math.random() * cities.length);
-      return cities[randomIndex];
-    }
-
-    // Assuming items is an array of strings, use a type assertion
     if (items) {
       const itemsArray = items && listToArray(items);
 
@@ -68,8 +61,8 @@ export default function CityList() {
       const newCity = randomCity();
       const cityAlreadyExists = itemsArray.includes(newCity);
 
+      // If the city is not in the list, add it
       if (!cityAlreadyExists) {
-        // If it doesn't exist, prepend it to the list
         return setItems((prev) => prepend(newCity, prev));
       }
     }
@@ -90,30 +83,71 @@ export default function CityList() {
           Countries of the listed cities above
         </p>
         <div className='flex'>
-          <div className='flex h-[100px] flex-1 flex-col overflow-hidden'>
+          <div className='flex h-[200px] flex-1 flex-col'>
             {listToArray(items).map((item) => {
               if (item === 'Paris') {
-                return <div key={item.toString()}>France 🇫🇷</div>;
+                return (
+                  <div data-testid='France' key={item.toString()}>
+                    France 🇫🇷
+                  </div>
+                );
               } else if (item === 'London') {
-                return <div key={item.toString()}>United Kingdom 🇬🇧</div>;
+                return (
+                  <div data-testid='UK' key={item.toString()}>
+                    United Kingdom 🇬🇧
+                  </div>
+                );
               } else if (item === 'Barcelona') {
-                return <div key={item.toString()}>Spain 🇪🇸</div>;
+                return (
+                  <div data-testid='Spain' key={item.toString()}>
+                    Spain 🇪🇸
+                  </div>
+                );
               } else if (item === 'Porto') {
-                return <div key={item.toString()}>Portugal 🇵🇹</div>;
+                return (
+                  <div data-testid='Portugal' key={item.toString()}>
+                    Portugal 🇵🇹
+                  </div>
+                );
               } else if (item === 'Milan') {
-                return <div key={item.toString()}>Italy 🇮🇹</div>;
+                return (
+                  <div data-testid='Italy' key={item.toString()}>
+                    Italy 🇮🇹
+                  </div>
+                );
               } else if (item === 'Geneva') {
-                return <div key={item.toString()}>Switzerland 🇨🇭</div>;
+                return (
+                  <div data-testid='Switzerland' key={item.toString()}>
+                    Switzerland 🇨🇭
+                  </div>
+                );
               } else if (item === 'Budapest') {
-                return <div key={item.toString()}>Hungary 🇭🇺</div>;
+                return (
+                  <div data-testid='Hungary' key={item.toString()}>
+                    Hungary 🇭🇺
+                  </div>
+                );
               } else {
-                return <div key={item?.toString()}>No city decided</div>;
+                return (
+                  <div data-testid='None' key={item?.toString()}>
+                    No city decided
+                  </div>
+                );
               }
             })}
+            {listToArray(items).length === 7 ? (
+              <span className=' bg-red-300 p-2 text-white text-sm mt-2 rounded-md'>
+                No more cities to add
+              </span>
+            ) : (
+              <span className=' bg-green-300 p-2 text-black text-sm mt-2 rounded-md'>
+                There are more cities to add!
+              </span>
+            )}
           </div>
-          <div className='flex flex-1 flex-col justify-center'>
-            <div className='rounded-md bg-blue-300 p-4 '>
-              <span className=' font-semibold'>
+          <div className='flex flex-1 justify-center items-start'>
+            <div className='rounded-md bg-blue-300 p-5'>
+              <span className='font-semibold' data-testid='main-dish'>
                 The main dish is <p>{getFood(items)}</p>
               </span>
             </div>
@@ -124,6 +158,7 @@ export default function CityList() {
         <button
           className='mb-4 cursor-pointer rounded-lg bg-green-300 p-4 shadow-md'
           onClick={handleClick}
+          data-testid='add-button'
         >
           +
         </button>

@@ -16,9 +16,8 @@ describe('arrayToList', () => {
     expect(arrayToList(arr)).toEqual(expectedList);
   });
 
-  it('should convert an array into a linked list', () => {
+  it('should convert an array of strings into a linked list', () => {
     const arrString = ['a', 'b', 'c'];
-    const arrNum = [1, 2, 3, 4, 5];
     const expectedListString = {
       value: 'a',
       rest: {
@@ -29,8 +28,12 @@ describe('arrayToList', () => {
         },
       },
     };
+    expect(arrayToList(arrString)).toEqual(expectedListString);
+  });
 
-    const expectedListNum = {
+  it('should convert an array of 5 positions into a linked list', () => {
+    const arrFive = [1, 2, 3, 4, 5];
+    const expectedListFive = {
       value: 1,
       rest: {
         value: 2,
@@ -46,9 +49,7 @@ describe('arrayToList', () => {
         },
       },
     };
-
-    expect(arrayToList(arrString)).toEqual(expectedListString);
-    expect(arrayToList(arrNum)).toEqual(expectedListNum);
+    expect(arrayToList(arrFive)).toEqual(expectedListFive);
   });
 
   it('should return null for an empty array', () => {

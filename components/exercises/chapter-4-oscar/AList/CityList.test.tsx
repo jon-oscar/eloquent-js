@@ -1,5 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import CityList, { ListItem } from './CityList';
+import userEvent from '@testing-library/user-event';
+import CityList, { ListItem, List, initialItems } from './CityList';
+import { arrayToList } from './arrayToList';
 
 describe('ListItem', () => {
   it('should render the item value', () => {
@@ -39,20 +41,28 @@ describe('ListItem', () => {
 describe('CityList component', () => {
   test('renders the list of cities', () => {
     render(<CityList />);
-    const cityList = screen.getByRole('list');
-    expect(cityList).toBeInTheDocument();
+    expect(screen.getByText('Paris')).toBeInTheDocument();
+    expect(screen.getByText('London')).toBeInTheDocument();
+    expect(screen.getByText('Barcelona')).toBeInTheDocument();
   });
 
-  test('renders the countries of the listed cities', () => {
+  test('displays the countries of the listed cities', () => {
     render(<CityList />);
-    const countryList = screen.getByRole('list');
-    expect(countryList).toBeInTheDocument();
+    expect(screen.getByText('France 🇫🇷')).toBeInTheDocument();
+    expect(screen.getByText('United Kingdom 🇬🇧')).toBeInTheDocument();
+    expect(screen.getByText('Spain 🇪🇸')).toBeInTheDocument();
   });
 
-  test('displays the main dish', () => {
+  test('displays the actual dish', () => {
     render(<CityList />);
-    const mainDish = screen.getByText(/The main dish is/i);
-    expect(mainDish).toBeInTheDocument();
+    const mainDishElement = screen.getByTestId('main-dish');
+    expect(mainDishElement).toBeInTheDocument();
+  });
+
+  test('displays "There are more cities to add!" when there are less than 7 cities', () => {
+    render(<CityList />);
+    const moreCitiesMessage = screen.getByText('There are more cities to add!');
+    expect(moreCitiesMessage).toBeInTheDocument();
   });
 
   test('adds a new city when the "+" button is clicked', () => {
