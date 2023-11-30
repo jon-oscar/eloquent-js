@@ -1,7 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import CityList, { ListItem, List, initialItems } from './CityList';
-import { arrayToList } from './arrayToList';
+import CityList, { ListItem } from './CityList';
 
 describe('ListItem', () => {
   it('should render the item value', () => {
@@ -42,15 +40,11 @@ describe('CityList component', () => {
   test('renders the list of cities', () => {
     render(<CityList />);
     expect(screen.getByText('Paris')).toBeInTheDocument();
-    expect(screen.getByText('London')).toBeInTheDocument();
-    expect(screen.getByText('Barcelona')).toBeInTheDocument();
   });
 
   test('displays the countries of the listed cities', () => {
     render(<CityList />);
     expect(screen.getByText('France 🇫🇷')).toBeInTheDocument();
-    expect(screen.getByText('United Kingdom 🇬🇧')).toBeInTheDocument();
-    expect(screen.getByText('Spain 🇪🇸')).toBeInTheDocument();
   });
 
   test('displays the actual dish', () => {
@@ -59,36 +53,50 @@ describe('CityList component', () => {
     expect(mainDishElement).toBeInTheDocument();
   });
 
+  test('adds new cities when the "+" button and displays the correct main dish', () => {
+    render(<CityList />);
+    const addButton = screen.getByTestId('add-button');
+
+    // Define the expected dish for France
+    const expectedDish1 = 'Ratatouille';
+    const mainDish1 = screen.getByTestId('main-dish');
+    expect(mainDish1).toHaveTextContent(`The main dish is ${expectedDish1}`);
+
+    fireEvent.click(addButton);
+
+    // Define the expected dish for United Kingdom
+    const expectedDish2 = 'Sunday roast';
+    const mainDish2 = screen.getByTestId('main-dish');
+    expect(mainDish2).toHaveTextContent(`The main dish is ${expectedDish2}`);
+
+    fireEvent.click(addButton);
+
+    // Define the expected dish for Spain
+    const expectedDish3 = 'Paella';
+    const mainDish3 = screen.getByTestId('main-dish');
+    expect(mainDish3).toHaveTextContent(`The main dish is ${expectedDish3}`);
+  });
+
   test('displays "There are more cities to add!" when there are less than 7 cities', () => {
     render(<CityList />);
     const moreCitiesMessage = screen.getByText('There are more cities to add!');
     expect(moreCitiesMessage).toBeInTheDocument();
   });
 
-  test('adds a new city when the "+" button is clicked', () => {
+  test('displays "No more cities to add" when there are exactly 7 cities', () => {
     render(<CityList />);
-    const addButton = screen.getByRole('button', { name: '+' });
-    fireEvent.click(addButton);
+    const addButton = screen.getByTestId('add-button');
+
+    // Simulate clicking the "+" button until there are 7 cities
+    for (let i = 0; i < 6; i++) {
+      fireEvent.click(addButton);
+    }
 
     // Use a more specific query to get the list items
     const cityListItems = screen.getAllByRole('listitem');
-    expect(cityListItems.length).toBeGreaterThan(0);
-  });
+    expect(cityListItems.length).toBe(7);
 
-  test('does not add a city if it already exists in the list', () => {
-    render(<CityList />);
-    const addButton = screen.getByRole('button', { name: '+' });
-    fireEvent.click(addButton);
-
-    // Use a more specific query to get the list items
-    const cityListItems = screen.getAllByRole('listitem');
-    const existingCity = cityListItems[cityListItems.length - 1].textContent;
-    fireEvent.click(addButton);
-
-    // Check if the existing city is still the last item in the list
-    const updatedCityListItems = screen.getAllByRole('listitem');
-    const lastCity =
-      updatedCityListItems[updatedCityListItems.length - 1].textContent;
-    expect(lastCity).toBe(existingCity);
+    // Check if the "No more cities to add" message is displayed after adding 7 cities
+    expect(screen.getByTestId('no-more-cities-message')).toBeInTheDocument();
   });
 });

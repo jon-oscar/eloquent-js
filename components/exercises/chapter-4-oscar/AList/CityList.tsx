@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { arrayToList } from './arrayToList';
 import { listToArray } from './listToArray';
-import { randomCity } from './randomCity';
+import { cityGenerator } from './cityGenerator';
 import { prepend } from './prepend';
 import { getFood } from './getFood';
 
@@ -10,7 +10,7 @@ export type List = {
   rest: List | null;
 };
 
-export const initialItems = arrayToList(['Paris', 'London', 'Barcelona']);
+export const initialItems = arrayToList(['Paris']);
 
 /**
  * Represents a recursive list.
@@ -43,9 +43,11 @@ export function ListItem({ item }: { item: List }): JSX.Element {
   );
 }
 
+export const cityGen = cityGenerator();
+
 /**
  * It displays a list of cities and their corresponding main food.
- * It allows adding new cities to the list randomly.
+ * It allows adding new cities to the list.
  */
 export default function CityList() {
   const [items, setItems] = useState(initialItems);
@@ -55,15 +57,15 @@ export default function CityList() {
    */
   function handleClick(): void {
     if (items) {
-      const itemsArray = items && listToArray(items);
+      const itemsArray = listToArray(items);
 
-      // Check if the randomly selected city is already in the list
-      const newCity = randomCity();
-      const cityAlreadyExists = itemsArray.includes(newCity);
+      // Check if the current city is already in the list
+      const currentCity = cityGen(); // Get the next city in the sequence
+      const cityAlreadyExists = itemsArray.includes(currentCity);
 
       // If the city is not in the list, add it
       if (!cityAlreadyExists) {
-        return setItems((prev) => prepend(newCity, prev));
+        setItems((prev) => prepend(currentCity, prev));
       }
     }
   }
@@ -93,7 +95,7 @@ export default function CityList() {
                 );
               } else if (item === 'London') {
                 return (
-                  <div data-testid='UK' key={item.toString()}>
+                  <div data-testid='United-Kingdom' key={item.toString()}>
                     United Kingdom 🇬🇧
                   </div>
                 );
@@ -136,11 +138,17 @@ export default function CityList() {
               }
             })}
             {listToArray(items).length === 7 ? (
-              <span className=' bg-red-300 p-2 text-white text-sm mt-2 rounded-md'>
+              <span
+                data-testid='no-more-cities-message'
+                className=' bg-red-300 p-2 text-white text-sm mt-2 rounded-md'
+              >
                 No more cities to add
               </span>
             ) : (
-              <span className=' bg-green-300 p-2 text-black text-sm mt-2 rounded-md'>
+              <span
+                data-testid='more-clicks-message'
+                className=' bg-green-300 p-2 text-black text-sm mt-2 rounded-md'
+              >
                 There are more cities to add!
               </span>
             )}
