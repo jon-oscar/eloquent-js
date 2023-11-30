@@ -140,20 +140,20 @@ export default function CityList() {
             {listToArray(items).length === 7 ? (
               <span
                 data-testid='no-more-cities-message'
-                className=' bg-red-300 p-2 text-white text-sm mt-2 rounded-md'
+                className=' mt-2 rounded-md bg-red-300 p-2 text-sm text-white'
               >
                 No more cities to add
               </span>
             ) : (
               <span
                 data-testid='more-clicks-message'
-                className=' bg-green-300 p-2 text-black text-sm mt-2 rounded-md'
+                className=' mt-2 rounded-md bg-green-300 p-2 text-sm text-black'
               >
                 There are more cities to add!
               </span>
             )}
           </div>
-          <div className='flex flex-1 justify-center items-start'>
+          <div className='flex flex-1 items-start justify-center'>
             <div className='rounded-md bg-blue-300 p-5'>
               <span className='font-semibold' data-testid='main-dish'>
                 The main dish is <p>{getFood(items)}</p>
