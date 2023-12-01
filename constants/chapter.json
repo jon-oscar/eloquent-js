@@ -138,9 +138,9 @@
     "title": "Chapter 5",
     "subtitle": "Higher-order Functions",
     "image": "/chapter-5.jpg",
-    "exercises": "",
+    "exercises": "Flattening, Your own loop, Everything, Dominant writing direction",
     "link": "/chapter5",
-    "details": "Flattening, Your own loop, Everything, Dominant writing direction",
+    "details": "Being able to pass function values to other functions is a deeply useful aspect of JavaScript. It allows us to write functions that model computations with “gaps” in them.",
     "devOscar": [
       {
         "id": 1,
