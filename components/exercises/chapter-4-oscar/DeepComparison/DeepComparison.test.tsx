@@ -12,6 +12,8 @@ describe('DeepComparison', () => {
 
   it('should add an element to the grocery list when the "+" button is clicked', () => {
     render(<DeepComparison />);
+    const initialElements = screen.getAllByTestId('grocery-item');
+    expect(initialElements).toHaveLength(4);
     const addButton = screen.getByText('+');
     fireEvent.click(addButton);
     const groceryItems = screen.getAllByTestId('grocery-item');
@@ -20,6 +22,8 @@ describe('DeepComparison', () => {
 
   it('should remove an element from the grocery list when the "-" button is clicked', () => {
     render(<DeepComparison />);
+    const initialElements = screen.getAllByTestId('grocery-item');
+    expect(initialElements).toHaveLength(4);
     const removeButton = screen.getByText('-');
     fireEvent.click(removeButton);
     const groceryItems = screen.getAllByTestId('grocery-item');
@@ -28,17 +32,15 @@ describe('DeepComparison', () => {
 
   it('should display "It is the same list" message when lists are deeply equal', () => {
     render(<DeepComparison />);
-    const sameListMessage = screen.getByTestId('same-list-message');
+    const sameListMessage = screen.getByText('It is the same list');
     expect(sameListMessage).toBeInTheDocument();
-    expect(sameListMessage).toHaveTextContent('It is the same list');
   });
 
   it('should display "It is not the same list" message when lists are not deeply equal', () => {
     render(<DeepComparison />);
     const addButton = screen.getByText('+');
     fireEvent.click(addButton);
-    const notSameListMessage = screen.getByTestId('not-same-list-message');
+    const notSameListMessage = screen.getByText('It is not the same list');
     expect(notSameListMessage).toBeInTheDocument();
-    expect(notSameListMessage).toHaveTextContent('It is not the same list');
   });
 });

@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import { isDeepEqual } from './isDeepEqual';
 
-/**
- * Represents the properties of a week item.
- */
 export type ShopItem = {
   name: string;
   description: string;
@@ -11,7 +8,7 @@ export type ShopItem = {
 };
 
 /**
- * This represents an array of arrays of WeekItem objects, essentially creating a two-dimensional array of WeekItem objects. Each element of the outer array is an array of WeekItem objects.
+ * This represents an array of arrays of ShopItem objects, essentially creating a two-dimensional array of ShopItem objects. Each element of the outer array is an array of ShopItem objects.
  */
 type GroceryList = ShopItem[][];
 
@@ -70,7 +67,7 @@ export const currentWeekShoppingList: ShopItem[] = [
 ];
 
 /**
- * Renders a component that compares two grocery lists and allows adding/removing items and checks for deep equality of both grocery lists.
+ * Renders a component that compares two grocery lists, allows adding/removing items and checks for deep equality of both grocery lists.
  */
 export default function DeepComparison(): JSX.Element {
   const [groceryList, setGroceryList] = useState<GroceryList>([
