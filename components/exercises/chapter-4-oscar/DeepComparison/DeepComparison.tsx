@@ -146,17 +146,11 @@ export default function DeepComparison(): JSX.Element {
       </div>
 
       {isDeepEqual(groceryList[0], groceryList[1]) ? (
-        <span
-          className='mt-4 rounded-lg bg-green-300 p-2 shadow-md'
-          data-testid='same-list-message'
-        >
+        <span className='mt-4 rounded-lg bg-green-300 p-2 shadow-md'>
           It is the same list
         </span>
       ) : (
-        <span
-          className='mt-4 rounded-lg bg-red-300 p-2 shadow-md'
-          data-testid='not-same-list-message'
-        >
+        <span className='mt-4 rounded-lg bg-red-300 p-2 shadow-md'>
           It is not the same list
         </span>
       )}
