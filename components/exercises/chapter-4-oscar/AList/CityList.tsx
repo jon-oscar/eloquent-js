@@ -84,79 +84,41 @@ export default function CityList() {
         <p className=' mb-2 font-semibold'>
           Countries of the listed cities above
         </p>
-        <div className='flex'>
+        <div className='flex gap-2'>
           <div className='flex h-[200px] flex-1 flex-col'>
             {listToArray(items).map((item) => {
               if (item === 'Paris') {
-                return (
-                  <div data-testid='France' key={item.toString()}>
-                    France 🇫🇷
-                  </div>
-                );
+                return <div key={item.toString()}>France 🇫🇷</div>;
               } else if (item === 'London') {
-                return (
-                  <div data-testid='United-Kingdom' key={item.toString()}>
-                    United Kingdom 🇬🇧
-                  </div>
-                );
+                return <div key={item.toString()}>United Kingdom 🇬🇧</div>;
               } else if (item === 'Barcelona') {
-                return (
-                  <div data-testid='Spain' key={item.toString()}>
-                    Spain 🇪🇸
-                  </div>
-                );
+                return <div key={item.toString()}>Spain 🇪🇸</div>;
               } else if (item === 'Porto') {
-                return (
-                  <div data-testid='Portugal' key={item.toString()}>
-                    Portugal 🇵🇹
-                  </div>
-                );
+                return <div key={item.toString()}>Portugal 🇵🇹</div>;
               } else if (item === 'Milan') {
-                return (
-                  <div data-testid='Italy' key={item.toString()}>
-                    Italy 🇮🇹
-                  </div>
-                );
+                return <div key={item.toString()}>Italy 🇮🇹</div>;
               } else if (item === 'Geneva') {
-                return (
-                  <div data-testid='Switzerland' key={item.toString()}>
-                    Switzerland 🇨🇭
-                  </div>
-                );
+                return <div key={item.toString()}>Switzerland 🇨🇭</div>;
               } else if (item === 'Budapest') {
-                return (
-                  <div data-testid='Hungary' key={item.toString()}>
-                    Hungary 🇭🇺
-                  </div>
-                );
+                return <div key={item.toString()}>Hungary 🇭🇺</div>;
               } else {
-                return (
-                  <div data-testid='None' key={item?.toString()}>
-                    No city decided
-                  </div>
-                );
+                return <div key={item?.toString()}>No city decided</div>;
               }
             })}
             {listToArray(items).length === 7 ? (
-              <span
-                data-testid='no-more-cities-message'
-                className=' mt-2 rounded-md bg-red-300 p-2 text-sm text-white'
-              >
+              <span className='mt-2 rounded-md bg-red-300 p-2 text-sm text-white'>
                 No more cities to add
               </span>
             ) : (
-              <span
-                data-testid='more-clicks-message'
-                className=' mt-2 rounded-md bg-green-300 p-2 text-sm text-black'
-              >
+              <span className='mt-2 rounded-md bg-green-300 p-2 text-sm text-black'>
                 There are more cities to add!
               </span>
             )}
           </div>
           <div className='flex flex-1 items-start justify-center'>
             <div className='rounded-md bg-blue-300 p-5'>
-              <span className='font-semibold' data-testid='main-dish'>
-                The main dish is <p>{getFood(items)}</p>
+              <span className='font-semibold'>
+                The main dish is {getFood(items)}
               </span>
             </div>
           </div>

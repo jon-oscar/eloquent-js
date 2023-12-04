@@ -49,43 +49,37 @@ describe('CityList component', () => {
 
   test('displays the actual dish', () => {
     render(<CityList />);
-    const mainDishElement = screen.getByTestId('main-dish');
-    expect(mainDishElement).toBeInTheDocument();
+    const mainDish = screen.getByText('The main dish is Ratatouille');
+    expect(mainDish).toBeInTheDocument();
   });
 
   test('adds new cities when the "+" button and displays the correct main dish', () => {
     render(<CityList />);
-    const addButton = screen.getByTestId('add-button');
-
-    // Define the expected dish for France
-    const expectedDish1 = 'Ratatouille';
-    const mainDish1 = screen.getByTestId('main-dish');
-    expect(mainDish1).toHaveTextContent(`The main dish is ${expectedDish1}`);
+    const addButton = screen.getByText('+');
 
     fireEvent.click(addButton);
 
-    // Define the expected dish for United Kingdom
-    const expectedDish2 = 'Sunday roast';
-    const mainDish2 = screen.getByTestId('main-dish');
-    expect(mainDish2).toHaveTextContent(`The main dish is ${expectedDish2}`);
+    // Expected main  dish for United Kingdom
+    const expectedDish2 = screen.getByText('The main dish is Sunday roast');
+    expect(expectedDish2).toBeInTheDocument();
 
     fireEvent.click(addButton);
 
-    // Define the expected dish for Spain
-    const expectedDish3 = 'Paella';
-    const mainDish3 = screen.getByTestId('main-dish');
-    expect(mainDish3).toHaveTextContent(`The main dish is ${expectedDish3}`);
+    // Expected main  dish for Spain
+    const expectedDish3 = screen.getByText('The main dish is Paella');
+    expect(expectedDish3).toBeInTheDocument();
   });
 
   test('displays "There are more cities to add!" when there are less than 7 cities', () => {
     render(<CityList />);
-    const moreCitiesMessage = screen.getByText('There are more cities to add!');
-    expect(moreCitiesMessage).toBeInTheDocument();
+    expect(
+      screen.getByText('There are more cities to add!')
+    ).toBeInTheDocument();
   });
 
   test('displays "No more cities to add" when there are exactly 7 cities', () => {
     render(<CityList />);
-    const addButton = screen.getByTestId('add-button');
+    const addButton = screen.getByText('+');
 
     // Simulate clicking the "+" button until there are 7 cities
     for (let i = 0; i < 6; i++) {
@@ -97,6 +91,6 @@ describe('CityList component', () => {
     expect(cityListItems.length).toBe(7);
 
     // Check if the "No more cities to add" message is displayed after adding 7 cities
-    expect(screen.getByTestId('no-more-cities-message')).toBeInTheDocument();
+    expect(screen.getByText('No more cities to add')).toBeInTheDocument();
   });
 });
