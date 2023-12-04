@@ -1,7 +1,7 @@
 import Layout from '@/components/Layout';
 import PageCard from '@/components/PageCard';
 import chapter from '@/constants/chapter.json';
-import Flattening from '@/components/exercises/chapter-5-oscar/Flattening';
+import Flattening from '@/components/exercises/chapter-5-oscar/Flattening/Flattening';
 import '../app/globals.css';
 
 const chapterId = 5;
