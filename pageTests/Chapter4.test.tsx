@@ -16,7 +16,7 @@ describe('Chapter4', () => {
     expect(details).toBeInTheDocument();
   });
 
-  it('renders the The sum of a range, reversing an array, a list exercises', () => {
+  it('renders the The sum of a range, reversing an array, a list and deep comparison exercises', () => {
     render(<Chapter4 />);
     const sumOfARange = screen.getByText(/The sum of a range/i);
     expect(sumOfARange).toBeInTheDocument();
@@ -24,6 +24,8 @@ describe('Chapter4', () => {
     expect(ReversingAnArray).toBeInTheDocument();
     const CityList = screen.getByText(/A list/i);
     expect(CityList).toBeInTheDocument();
+    const DeepComparison = screen.getByText(/Deep comparison/i);
+    expect(DeepComparison).toBeInTheDocument();
   });
 
   it('renders the developer card for Oscar Reyes', () => {
