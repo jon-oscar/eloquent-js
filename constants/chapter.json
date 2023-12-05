@@ -106,13 +106,13 @@
       },
       {
         "id": 3,
-        "title": "A list",
+        "title": "",
         "details": ""
       },
       {
         "id": 4,
         "title": "Deep comparison",
-        "details": ""
+        "details": "Compare two objects representing 2 lists and return true only if they have the same properties and values. Use the +/- buttons to add or remove properties"
       }
     ],
     "devJon": [

@@ -3,6 +3,7 @@ import PageCard from '@/components/PageCard';
 import JSumRange from '@/components/exercises/chapter-4-jon/JSumRange';
 import ReversingAnArray from '@/components/exercises/chapter-4-oscar/ReversingAnArray';
 import SumOfARange from '@/components/exercises/chapter-4-oscar/SumOfARange';
+import DeepComparison from '@/components/exercises/chapter-4-oscar/DeepComparison/DeepComparison';
 import chapter from '@/constants/chapter.json';
 import '../app/globals.css';
 
@@ -16,7 +17,7 @@ if (!chapterMatch) {
 
 const { title, subtitle, details, devOscar, devJon } = chapterMatch;
 
-export default function Chapter3() {
+export default function Chapter4() {
   return (
     <Layout>
       <div className=' relative z-0 mx-auto mb-2 flex max-w-[1440px] gap-5 xl:flex-col'>
@@ -43,6 +44,12 @@ export default function Chapter3() {
                   title={devOscar[1].title}
                   details={devOscar[1].details}
                   code={() => <ReversingAnArray />}
+                />
+                <PageCard
+                  id={devOscar[3].id}
+                  title={devOscar[3].title}
+                  details={devOscar[3].details}
+                  code={() => <DeepComparison />}
                 />
               </>
             )}
