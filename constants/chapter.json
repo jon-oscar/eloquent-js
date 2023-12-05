@@ -92,7 +92,7 @@
     "image": "/chapter-4.jpg",
     "exercises": "The sum of a range, reversing an array, a list, deep comparison",
     "link": "/chapter4",
-    "details": "Objects and arrays (which are a specific kind of object) provide ways to group several values into a single value. Conceptually, this allows us to put a bunch of related things in a bag and run around with the bag, instead of wrapping our arms around all of the individual things and trying to hold on to them separately.",
+    "details": "Objects and arrays (which are a specific kind of object) provide ways to group several values into a single value. Conceptually, this allows us to put a bunch of related things in a bag and run around with the bag, instead of wrapping our arms around all of the individual things and trying to hold on to them separately",
     "devOscar": [
       {
         "id": 1,
@@ -106,9 +106,10 @@
       },
       {
         "id": 3,
-        "title": "",
-        "details": ""
+        "title": "A list",
+        "details": "The first tab in yellow shows a dropdown with cities, and then the green button randomly adds a new city at the beginning of the list. Under, it renders the countries and flags of every city listed above. On the right in blue color, displays the main dish recommended for the first element of the list"
       },
+
       {
         "id": 4,
         "title": "Deep comparison",
