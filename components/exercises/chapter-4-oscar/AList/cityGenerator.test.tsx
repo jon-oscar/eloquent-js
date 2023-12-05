@@ -14,6 +14,7 @@ describe('cityGenerator', () => {
       'Milan',
       'Geneva',
       'Budapest',
+      'Paris',
     ];
     const generator = cityGenerator();
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { arrayToList } from './arrayToList';
 import { listToArray } from './listToArray';
-import { cityGenerator } from './cityGenerator';
+import { cityGenerator, cities } from './cityGenerator';
 import { prepend } from './prepend';
 import { getFood } from './getFood';
 
@@ -35,7 +35,7 @@ export function ListItem({ item }: { item: List }): JSX.Element {
             </span>
           </summary>
           <div className='bg-white p-4'>
-            {item.rest ? <ListItem item={item.rest} /> : null}
+            {item.rest && <ListItem item={item.rest} />}
           </div>
         </details>
       )}
@@ -105,7 +105,7 @@ export default function CityList() {
                 return <div key={item?.toString()}>No city decided</div>;
               }
             })}
-            {listToArray(items).length === 7 ? (
+            {listToArray(items).length === cities.length ? (
               <span className='mt-2 rounded-md bg-red-300 p-2 text-sm text-white'>
                 No more cities to add
               </span>

@@ -1,4 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
+import { cities } from './cityGenerator';
 import CityList, { ListItem } from './CityList';
 
 describe('ListItem', () => {
@@ -82,13 +83,13 @@ describe('CityList component', () => {
     const addButton = screen.getByText('+');
 
     // Simulate clicking the "+" button until there are 7 cities
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 7; i++) {
       fireEvent.click(addButton);
     }
 
     // Use a more specific query to get the list items
     const cityListItems = screen.getAllByRole('listitem');
-    expect(cityListItems.length).toBe(7);
+    expect(cityListItems.length).toBe(cities.length);
 
     // Check if the "No more cities to add" message is displayed after adding 7 cities
     expect(screen.getByText('No more cities to add')).toBeInTheDocument();
