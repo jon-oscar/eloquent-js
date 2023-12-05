@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { getFlattenedArray } from './getFlattenedArray';
 
 const arrays = [
@@ -26,45 +26,42 @@ const phrases = [
     phrase: 'Keep moving forward, you are closer to your goals than you think.',
   },
 ];
-
-const arrayToEvaluate = [];
-arrayToEvaluate.push(arrays[0]);
-arrayToEvaluate.push(arrays[1]);
-console.log(arrayToEvaluate);
-
-const getPhrase = getFlattenedArray(arrayToEvaluate).map((icon, index) => {
-  const matchingIcon = phrases.find((phrase) => phrase.icon === icon);
-  if (matchingIcon) {
-    return (
-      <div className='bg-white m-5 p-2' key={index}>
-        {matchingIcon.phrase}
-      </div>
-    );
-  }
-  return null;
-});
-console.log(getPhrase);
+const mockedData = [];
+mockedData.push(arrays[0]);
+mockedData.push(arrays[1]);
 
 export default function Flattening() {
+  const [phraseBoard, setPhraseBoard] = useState(mockedData);
+
+  const getPhrase = getFlattenedArray(phraseBoard).map((icon, index) => {
+    const matchingIcon = phrases.find((phrase) => phrase.icon === icon);
+    if (matchingIcon) {
+      return (
+        <div className='bg-white m-5 p-4 rounded-sm' key={index}>
+          {matchingIcon.phrase}
+        </div>
+      );
+    }
+    return null;
+  });
+
   return (
-    <div>
+    <div className='flex flex-col items-center'>
       <div className='upper bg-orange-300 max-w-lg rounded-md'>
-        <div className='paramwrapper p-4 flex gap-2'>
-          <div className='iteration-1 flex justify-between border-solid p-2 border-2 rounded-sm'>
+        <div className='paramwrapper p-4 flex'>
+          <div className='iteration-1 flex justify-between border-solid gap-2 border-2 rounded-sm'>
             {arrays.map((icons) => {
               return (
-                <div className='innerArrayParam-2' key={icons}>
+                <span className='bg-white p-3 rounded-md' key={icons}>
                   <span>{icons}</span>
-                </div>
+                </span>
               );
             })}
           </div>
         </div>
       </div>
       <div className='bottom bg-red-300 max-w-lg rounded-md mt-2'>
-        <div className='paramwrapper p-4 flex gap-2'>
-          <div className='p-2 rounded-sm'>{getPhrase}</div>
-        </div>
+        <div className='paramwrapper p-4 flex flex-col gap-2'>{getPhrase}</div>
       </div>
     </div>
   );
