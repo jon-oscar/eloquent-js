@@ -1,9 +1,11 @@
 import React from 'react';
+import { getFlattenedArray } from './getFlattenedArray';
 
 const arrays = [
   ['❤️✨👍', '🚀🌟', '💭💪'],
   ['🌅🔄', '💪😃'],
   ['🚫🙅‍♂️', '💪🏆'],
+  ['💪🏋️‍♂️', '📈🔑', '🏃‍♂️🎯'],
 ];
 
 const phrases = [
@@ -25,51 +27,43 @@ const phrases = [
   },
 ];
 
-export function getFlattenedArray(
-  arrays: (string | number)[][]
-): (string | number)[] {
-  return arrays.reduce((acc, curr) => acc.concat(curr), []);
-}
+const arrayToEvaluate = [];
+arrayToEvaluate.push(arrays[0]);
+arrayToEvaluate.push(arrays[1]);
+console.log(arrayToEvaluate);
 
-console.log(getFlattenedArray(arrays));
+const getPhrase = getFlattenedArray(arrayToEvaluate).map((icon, index) => {
+  const matchingIcon = phrases.find((phrase) => phrase.icon === icon);
+  if (matchingIcon) {
+    return (
+      <div className='bg-white m-5 p-2' key={index}>
+        {matchingIcon.phrase}
+      </div>
+    );
+  }
+  return null;
+});
+console.log(getPhrase);
 
 export default function Flattening() {
   return (
     <div>
       <div className='upper bg-orange-300 max-w-lg rounded-md'>
         <div className='paramwrapper p-4 flex gap-2'>
-          <div className='iteration-1 flex border-solid p-2 border-2 rounded-sm'>
-            <div className='innerArrayParam-1'>
-              <span>❤️‍🔥</span>
-            </div>
-            <div className='innerArrayParam-2'>
-              <span>❤️‍🔥</span>
-            </div>
-            <div className='innerArrayParam-3'>
-              <span>❤️‍🔥</span>
-            </div>
-          </div>
-          <div className='iteration-2 flex border-solid p-2 border-2 rounded-sm'>
-            <div className='innerArrayParam-1'>
-              <span>❤️‍🔥</span>
-            </div>
-            <div className='innerArrayParam-2'>
-              <span>❤️‍🔥</span>
-            </div>
-            <div className='innerArrayParam-3'>
-              <span>❤️‍🔥</span>
-            </div>
+          <div className='iteration-1 flex justify-between border-solid p-2 border-2 rounded-sm'>
+            {arrays.map((icons) => {
+              return (
+                <div className='innerArrayParam-2' key={icons}>
+                  <span>{icons}</span>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
       <div className='bottom bg-red-300 max-w-lg rounded-md mt-2'>
         <div className='paramwrapper p-4 flex gap-2'>
-          <div className=' bg-white p-2 rounded-sm'>
-            <span>This is an example of sentence</span>
-          </div>
-          <div className=' bg-white p-2 rounded-sm'>
-            <span>This is an example of sentence</span>
-          </div>
+          <div className='p-2 rounded-sm'>{getPhrase}</div>
         </div>
       </div>
     </div>
