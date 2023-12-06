@@ -1,10 +1,11 @@
 import Layout from '@/components/Layout';
 import PageCard from '@/components/PageCard';
+import JArrayReversion from '@/components/exercises/chapter-4-jon/JArrayReversion';
 import JSumRange from '@/components/exercises/chapter-4-jon/JSumRange';
-import ReversingAnArray from '@/components/exercises/chapter-4-oscar/ReversingAnArray';
 import CityList from '@/components/exercises/chapter-4-oscar/AList/CityList';
-import SumOfARange from '@/components/exercises/chapter-4-oscar/SumOfARange';
 import DeepComparison from '@/components/exercises/chapter-4-oscar/DeepComparison/DeepComparison';
+import ReversingAnArray from '@/components/exercises/chapter-4-oscar/ReversingAnArray';
+import SumOfARange from '@/components/exercises/chapter-4-oscar/SumOfARange';
 import chapter from '@/constants/chapter.json';
 import '../app/globals.css';
 
@@ -63,12 +64,20 @@ export default function Chapter4() {
           </div>
           <div className='flex flex-col'>
             {devJon && (
-              <PageCard
-                id={devJon[0].id}
-                title={devJon[0].title}
-                details={devJon[0].details}
-                code={() => <JSumRange />}
-              />
+              <>
+                <PageCard
+                  id={devJon[0].id}
+                  title={devJon[0].title}
+                  details={devJon[0].details}
+                  code={() => <JSumRange />}
+                />
+                <PageCard
+                  id={devJon[1].id}
+                  title={devJon[1].title}
+                  details={devJon[1].details}
+                  code={() => <JArrayReversion />}
+                />
+              </>
             )}
           </div>
         </div>

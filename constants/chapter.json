@@ -124,8 +124,8 @@
       },
       {
         "id": 2,
-        "title": " ",
-        "details": "This is my solution for..."
+        "title": "Reversion arrays",
+        "details": "First button creates a new array with the elements in the inverse order. Second button reverses the array in place"
       },
       {
         "id": 3,
