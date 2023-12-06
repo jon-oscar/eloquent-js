@@ -13,8 +13,8 @@ export const INITIAL_EMOJIS_2 = ['🍊', '🍈', '🍉', '🍋', '🍓'];
  * @returns A JSX element representing the component.
  */
 export default function JArrayReversion(): React.JSX.Element {
-  const [emojis1, setEmojis1] = useState<any[]>(INITIAL_EMOJIS_1);
-  const [emojis2, setEmojis2] = useState<any[]>(INITIAL_EMOJIS_2);
+  const [emojis1, setEmojis1] = useState<string[]>(INITIAL_EMOJIS_1);
+  const [emojis2, setEmojis2] = useState<string[]>(INITIAL_EMOJIS_2);
   const [hasClickedReverseInPlaceButton, setHasClickedReverseInPlaceButton] =
     useState<boolean>(false);
 
@@ -28,12 +28,15 @@ export default function JArrayReversion(): React.JSX.Element {
 
     /**
      * This is a hack to force a re-render, since the emojis2 array is mutated in place,
-     * current and previous array references are the same so React doesn't render
+     * current and previous array references are the same so React doesn't re-render
      * because it doesn't detect a change.
      * By changing the state of a boolean, we force a re-render.
      */
     setHasClickedReverseInPlaceButton(!hasClickedReverseInPlaceButton);
   };
+
+  const buttonStyles =
+    'bg-[#B2980B] text-white rounded-full mt-2 min-w-[222px]';
 
   return (
     <div data-testid='j-array-reversion'>
@@ -45,7 +48,7 @@ export default function JArrayReversion(): React.JSX.Element {
         </p>
         <CustomButton
           title='Reverse'
-          containerStyles='bg-[#B2980B] text-white rounded-full mt-2 min-w-[222px]'
+          containerStyles={buttonStyles}
           handleClick={handleReverseButtonClick}
         />
       </div>
@@ -57,7 +60,7 @@ export default function JArrayReversion(): React.JSX.Element {
         </p>
         <CustomButton
           title='Reverse in place'
-          containerStyles='bg-[#B2980B] text-white rounded-full mt-2 min-w-[222px]'
+          containerStyles={buttonStyles}
           handleClick={handleReverseInPlaceButtonClick}
         />
       </div>
