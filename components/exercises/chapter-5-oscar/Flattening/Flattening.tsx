@@ -1,15 +1,13 @@
-import React, { useState } from 'react';
 import { getFlattenedArray } from './getFlattenedArray';
 
 const arrays = [
-  ['❤️✨👍', '🚀🌟', '💭💪'],
+  ['❤️✨', '🚀🌟', '💭💪'],
   ['🌅🔄', '💪😃'],
   ['🚫🙅‍♂️', '💪🏆'],
-  ['💪🏋️‍♂️', '📈🔑', '🏃‍♂️🎯'],
 ];
 
 const phrases = [
-  { icon: '❤️✨👍', phrase: 'Believe in yourself, and you are halfway there.' },
+  { icon: '❤️✨', phrase: 'Believe in yourself, and you are halfway there.' },
   { icon: '🚀🌟', phrase: 'Success is a journey, not a destination.' },
   { icon: '💭💪', phrase: 'Dream big and dare to fail.' },
   { icon: '🌅🔄', phrase: 'Every setback is a setup for a comeback.' },
@@ -19,40 +17,40 @@ const phrases = [
     icon: '💪🏆',
     phrase: 'Hard work beats talent when talent does not work hard.',
   },
-  { icon: '💪🏋️‍♂️', phrase: 'Embrace the challenges; they make you stronger.' },
-  { icon: '📈🔑', phrase: 'Progress, not perfection, is the key to success.' },
-  {
-    icon: '🏃‍♂️🎯',
-    phrase: 'Keep moving forward, you are closer to your goals than you think.',
-  },
 ];
-const mockedData = [];
-mockedData.push(arrays[0]);
-mockedData.push(arrays[1]);
 
-export default function Flattening() {
-  const [phraseBoard, setPhraseBoard] = useState(mockedData);
-
-  const getPhrase = getFlattenedArray(phraseBoard).map((icon, index) => {
+export default function Flattening(): JSX.Element {
+  /**
+   * Retrieves the flattened array of phrases from the given array of arrays, and maps each phrase to a JSX element containing the corresponding icon and phrase.
+   * @param arrays - The array of arrays to be flattened.
+   * @returns An array of JSX elements representing the flattened phrases.
+   */
+  const getPhrase = getFlattenedArray(arrays).map((icon, index) => {
     const matchingIcon = phrases.find((phrase) => phrase.icon === icon);
-    if (matchingIcon) {
-      return (
-        <div className='bg-white m-5 p-4 rounded-sm' key={index}>
+    return (
+      matchingIcon && (
+        <div
+          className='m-2 rounded-sm bg-white p-4'
+          data-testid={`phrase-${matchingIcon.icon}`}
+          key={matchingIcon.icon}
+        >
           {matchingIcon.phrase}
         </div>
-      );
-    }
-    return null;
+      )
+    );
   });
 
   return (
     <div className='flex flex-col items-center'>
-      <div className='upper bg-orange-300 max-w-lg rounded-md'>
-        <div className='paramwrapper p-4 flex'>
-          <div className='iteration-1 flex justify-between border-solid gap-2 border-2 rounded-sm'>
+      <div className='max-w-lg rounded-md bg-blue-300'>
+        <div className='flex p-4'>
+          <div className=' flex justify-between gap-2 rounded-sm'>
             {arrays.map((icons) => {
               return (
-                <span className='bg-white p-3 rounded-md' key={icons}>
+                <span
+                  className='rounded-md bg-white p-3'
+                  key={icons.toString()}
+                >
                   <span>{icons}</span>
                 </span>
               );
@@ -60,8 +58,8 @@ export default function Flattening() {
           </div>
         </div>
       </div>
-      <div className='bottom bg-red-300 max-w-lg rounded-md mt-2'>
-        <div className='paramwrapper p-4 flex flex-col gap-2'>{getPhrase}</div>
+      <div className='mt-2 max-w-lg rounded-md bg-green-300'>
+        <div className='flex flex-col gap-2 p-4'>{getPhrase}</div>
       </div>
     </div>
   );
