@@ -16,10 +16,10 @@ describe('Chapter5', () => {
     expect(details).toBeInTheDocument();
   });
 
-  it('renders the flattering exercise', () => {
+  it('renders the flattening exercise', () => {
     render(<Chapter5 />);
-    const flattering = screen.getByText(/Flattening/i);
-    expect(flattering).toBeInTheDocument();
+    const flattening = screen.getByText(/Flattening/i);
+    expect(flattening).toBeInTheDocument();
   });
 
   it('renders the developer card for Oscar Reyes', () => {
