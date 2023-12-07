@@ -27,7 +27,7 @@ export default function Flattening(): JSX.Element {
   /**
    * Retrieves the flattened array of phrases from the given array of arrays, and maps each phrase to a JSX element containing the corresponding icon and phrase.
    * @param arrays - The array of arrays to be flattened.
-   * @returns An array of JSX elements representing the flattened phrases.
+   * @returns An array of JSX elements representing the phrases for the flattened icons. 
    */
   const getPhrase = getFlattenedArray(arrays).map((icon, index) => {
     const matchingIcon = phrases.find((phrase) => phrase.icon === icon);
