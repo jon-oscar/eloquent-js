@@ -1,6 +1,6 @@
 import Layout from '@/components/Layout';
 import PageCard from '@/components/PageCard';
-import JArrayReversion from '@/components/exercises/chapter-4-jon/JArrayReversion';
+import JArrayReversion from '@/components/exercises/chapter-4-jon/arrayReversion/JArrayReversion';
 import JSumRange from '@/components/exercises/chapter-4-jon/range/JSumRange';
 import CityList from '@/components/exercises/chapter-4-oscar/AList/CityList';
 import DeepComparison from '@/components/exercises/chapter-4-oscar/DeepComparison/DeepComparison';
