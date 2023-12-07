@@ -1,4 +1,4 @@
-import { List } from './types';
+import { List, createList } from './List';
 
 /**
  * Converts an array to a linked list.
@@ -8,7 +8,7 @@ import { List } from './types';
 export default function arrayToList<T>(arr: T[]): List<T> | null {
   let list: List<T> | null = null;
   for (let i = arr.length - 1; i >= 0; i--) {
-    list = { value: arr[i], rest: list };
+    list = createList(arr[i], list);
   }
   return list;
 }

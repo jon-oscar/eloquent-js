@@ -1,4 +1,4 @@
-import { List } from './types';
+import { List } from './List';
 
 /**
  * Converts a linked list to an array.

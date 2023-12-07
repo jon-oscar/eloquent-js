@@ -1,5 +1,5 @@
 import listToArray from './jListToArray';
-import { List } from './types';
+import { List } from './List';
 
 describe('listToArray', () => {
   it('converts a linked list of strings to an array', () => {
