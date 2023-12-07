@@ -6,7 +6,7 @@ const arrays = [
   ['🚫🙅‍♂️', '💪🏆'],
 ];
 
-const phrases = [
+export const phrases = [
   { icon: '❤️✨', phrase: 'Believe in yourself, and you are halfway there.' },
   { icon: '🚀🌟', phrase: 'Success is a journey, not a destination.' },
   { icon: '💭💪', phrase: 'Dream big and dare to fail.' },
@@ -19,6 +19,10 @@ const phrases = [
   },
 ];
 
+/**
+ * Renders a component that displays flattened phrases from an array of arrays.
+ * Each phrase is represented by a JSX element containing an icon and a corresponding phrase.
+ */
 export default function Flattening(): JSX.Element {
   /**
    * Retrieves the flattened array of phrases from the given array of arrays, and maps each phrase to a JSX element containing the corresponding icon and phrase.
@@ -29,12 +33,9 @@ export default function Flattening(): JSX.Element {
     const matchingIcon = phrases.find((phrase) => phrase.icon === icon);
     return (
       matchingIcon && (
-        <div
-          className='m-2 rounded-sm bg-white p-4'
-          data-testid={`phrase-${matchingIcon.icon}`}
-          key={matchingIcon.icon}
-        >
-          {matchingIcon.phrase}
+        <div className='m-2 rounded-sm bg-white p-4' key={matchingIcon.icon}>
+          <span className='mr-2'>{matchingIcon.icon}</span>
+          <span>{matchingIcon.phrase}</span>
         </div>
       )
     );

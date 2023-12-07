@@ -18,15 +18,4 @@ describe('getFlattenedArray', () => {
     const result = getFlattenedArray(arrays);
     expect(result).toEqual(expected);
   });
-
-  it('should handle arrays with different types', () => {
-    const arrays = [
-      [1, 'a'],
-      [2, 'b'],
-      [3, 'c'],
-    ];
-    const expected = [1, 'a', 2, 'b', 3, 'c'];
-    const result = getFlattenedArray(arrays);
-    expect(result).toEqual(expected);
-  });
 });

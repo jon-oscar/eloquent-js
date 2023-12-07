@@ -145,8 +145,8 @@
     "devOscar": [
       {
         "id": 1,
-        "title": "Flattering",
-        "details": "The header board is a representation of an array of arrays. The board below, concatenates all the elements of the header board into a single array and replace the emojis by a motivational phrase."
+        "title": "Flattening",
+        "details": "The header board is a representation of an array of arrays. The board below concatenates all the elements of the header board into a single array and includes a meaningful motivational phrase."
       },
       {
         "id": 2,
