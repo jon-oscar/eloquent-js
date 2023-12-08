@@ -1,7 +1,7 @@
 import { JList } from './JList';
-import listToArray from './jListToArray';
+import jListToArray from './jListToArray';
 
-describe('listToArray', () => {
+describe('jListToArray', () => {
   it('converts a linked list of strings to an array', () => {
     const list: JList<string> = {
       value: 'a',
@@ -14,7 +14,7 @@ describe('listToArray', () => {
       },
     };
     const expectedArray = ['a', 'b', 'c'];
-    const result = listToArray(list);
+    const result = jListToArray(list);
     expect(result).toEqual(expectedArray);
   });
 
@@ -36,14 +36,14 @@ describe('listToArray', () => {
       },
     };
     const expectedArray = [1, 2, 3, 4, 5];
-    const result = listToArray(list);
+    const result = jListToArray(list);
     expect(result).toEqual(expectedArray);
   });
 
   it('returns an empty array when given a null list', () => {
     const list = null;
     const expectedArray: any[] = [];
-    const result = listToArray(list);
+    const result = jListToArray(list);
     expect(result).toEqual(expectedArray);
   });
 });

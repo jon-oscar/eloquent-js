@@ -1,7 +1,7 @@
-import arrayToList from './jArrayToList';
+import jArrayToList from './jArrayToList';
 import { JList } from './JList';
 
-describe('arrayToList', () => {
+describe('jArrayToList', () => {
   it('converts an array of strings to a linked list', () => {
     const array = ['a', 'b', 'c'];
     const expectedList: JList<string> = {
@@ -14,7 +14,7 @@ describe('arrayToList', () => {
         },
       },
     };
-    const result = arrayToList(array);
+    const result = jArrayToList(array);
     expect(result).toEqual(expectedList);
   });
 
@@ -36,13 +36,13 @@ describe('arrayToList', () => {
         },
       },
     };
-    const result = arrayToList(array);
+    const result = jArrayToList(array);
     expect(result).toEqual(expectedList);
   });
 
   it('returns null when given an empty array', () => {
     const array: any[] = [];
-    const result = arrayToList(array);
+    const result = jArrayToList(array);
     expect(result).toBeNull();
   });
 });

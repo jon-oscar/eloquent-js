@@ -5,7 +5,7 @@ import { JList } from './JList';
  * @param list The linked list to convert.
  * @returns An array containing the values from the linked list.
  */
-export default function listToArray<T>(list: JList<T> | null): T[] {
+export default function jListToArray<T>(list: JList<T> | null): T[] {
   const array: T[] = [];
   let current: JList<T> | null = list;
   while (current) {

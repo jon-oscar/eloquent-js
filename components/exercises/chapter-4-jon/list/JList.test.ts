@@ -1,6 +1,6 @@
 import { JList, jCreateList } from './JList';
 
-describe('createList', () => {
+describe('jCreateList', () => {
   it('creates a list with a value and rest', () => {
     const value = 'a';
     const rest: JList<string> = {
