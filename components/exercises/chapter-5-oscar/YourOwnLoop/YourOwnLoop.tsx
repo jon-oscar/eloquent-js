@@ -1,5 +1,11 @@
 import React from 'react';
 
+let timer = {
+  work: 25,
+  break: 5,
+  seconds: '00',
+};
+
 export default function YourOwnLoop() {
   return (
     <div className='flex h-max items-center'>
@@ -10,9 +16,9 @@ export default function YourOwnLoop() {
         </div>
 
         <div className='flex h-60 w-60 items-center justify-center rounded-full shadow-lg'>
-          <p className='text-5xl'>25</p>
+          <p className='text-5xl'>{timer.work}</p>
           <p className='text-2xl'>:</p>
-          <p className='text-5xl'>00</p>
+          <p className='text-5xl'>{timer.seconds}</p>
           <p></p>
           <p></p>
         </div>
