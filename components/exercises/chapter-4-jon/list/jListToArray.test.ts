@@ -1,9 +1,9 @@
+import { JList } from './JList';
 import listToArray from './jListToArray';
-import { List } from './List';
 
 describe('listToArray', () => {
   it('converts a linked list of strings to an array', () => {
-    const list: List<string> = {
+    const list: JList<string> = {
       value: 'a',
       rest: {
         value: 'b',
@@ -19,7 +19,7 @@ describe('listToArray', () => {
   });
 
   it('converts a linked list of numbers to an array', () => {
-    const list: List<number> = {
+    const list: JList<number> = {
       value: 1,
       rest: {
         value: 2,

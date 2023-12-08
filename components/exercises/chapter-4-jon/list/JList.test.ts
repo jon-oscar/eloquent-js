@@ -1,31 +1,31 @@
-import { List, createList } from './List';
+import { JList, jCreateList } from './JList';
 
 describe('createList', () => {
   it('creates a list with a value and rest', () => {
     const value = 'a';
-    const rest: List<string> = {
+    const rest: JList<string> = {
       value: 'b',
       rest: {
         value: 'c',
         rest: null,
       },
     };
-    const expectedList: List<string> = {
+    const expectedList: JList<string> = {
       value,
       rest,
     };
-    const result = createList(value, rest);
+    const result = jCreateList(value, rest);
     expect(result).toEqual(expectedList);
   });
 
   it('creates a list with a value and null rest', () => {
     const value = 1;
     const rest = null;
-    const expectedList: List<number> = {
+    const expectedList: JList<number> = {
       value,
       rest,
     };
-    const result = createList(value, rest);
+    const result = jCreateList(value, rest);
     expect(result).toEqual(expectedList);
   });
 });

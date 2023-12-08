@@ -1,9 +1,9 @@
+import { JList } from './JList';
 import prepend from './jPrepend';
-import { List } from './List';
 
 describe('prepend', () => {
   it('adds an element to the beginning of a list', () => {
-    const list: List<number> = {
+    const list: JList<number> = {
       value: 2,
       rest: {
         value: 3,
@@ -14,7 +14,7 @@ describe('prepend', () => {
       },
     };
     const element = 1;
-    const expectedList: List<number> = {
+    const expectedList: JList<number> = {
       value: 1,
       rest: {
         value: 2,
@@ -34,7 +34,7 @@ describe('prepend', () => {
   it('adds an element to the beginning of an empty list', () => {
     const list = null;
     const element = 1;
-    const expectedList: List<number> = {
+    const expectedList: JList<number> = {
       value: 1,
       rest: null,
     };
@@ -43,12 +43,12 @@ describe('prepend', () => {
   });
 
   it('adds an element to the beginning of a list with one element', () => {
-    const list: List<number> = {
+    const list: JList<number> = {
       value: 2,
       rest: null,
     };
     const element = 1;
-    const expectedList: List<number> = {
+    const expectedList: JList<number> = {
       value: 1,
       rest: {
         value: 2,

@@ -1,6 +1,6 @@
-export type List<T> = {
+export type JList<T> = {
   value: T;
-  rest: List<T> | null;
+  rest: JList<T> | null;
 };
 
 /**
@@ -9,7 +9,7 @@ export type List<T> = {
  * @param rest - The rest of the list.
  * @returns The new list.
  */
-export function createList<T>(value: T, rest: List<T> | null): List<T> {
+export function jCreateList<T>(value: T, rest: JList<T> | null): JList<T> {
   return {
     value,
     rest,

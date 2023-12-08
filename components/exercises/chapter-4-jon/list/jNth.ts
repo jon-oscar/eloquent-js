@@ -1,4 +1,4 @@
-import { List } from './List';
+import { JList } from './JList';
 
 /**
  * Returns the nth value in a linked list.
@@ -7,7 +7,7 @@ import { List } from './List';
  * @returns The nth value in the list.
  */
 export default function jNth<T>(
-  list: List<T> | null,
+  list: JList<T> | null,
   n: number
 ): T | undefined {
   if (n < 0 || list === null) {

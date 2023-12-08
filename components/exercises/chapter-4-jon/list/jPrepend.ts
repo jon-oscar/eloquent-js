@@ -1,4 +1,4 @@
-import { List, createList } from './List';
+import { JList, jCreateList } from './JList';
 
 /**
  * Prepends an element to a linked list.
@@ -6,6 +6,9 @@ import { List, createList } from './List';
  * @param list - The list to prepend to.
  * @returns A new list with the element prepended.
  */
-export default function prepend<T>(element: T, list: List<T> | null): List<T> {
-  return createList(element, list);
+export default function prepend<T>(
+  element: T,
+  list: JList<T> | null
+): JList<T> {
+  return jCreateList(element, list);
 }

@@ -1,10 +1,10 @@
 import arrayToList from './jArrayToList';
-import { List } from './List';
+import { JList } from './JList';
 
 describe('arrayToList', () => {
   it('converts an array of strings to a linked list', () => {
     const array = ['a', 'b', 'c'];
-    const expectedList: List<string> = {
+    const expectedList: JList<string> = {
       value: 'a',
       rest: {
         value: 'b',
@@ -20,7 +20,7 @@ describe('arrayToList', () => {
 
   it('converts an array of numbers to a linked list', () => {
     const array = [1, 2, 3, 4, 5];
-    const expectedList: List<number> = {
+    const expectedList: JList<number> = {
       value: 1,
       rest: {
         value: 2,
