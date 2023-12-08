@@ -6,7 +6,10 @@ import { List } from './List';
  * @param n - The index of the value to return.
  * @returns The nth value in the list.
  */
-export default function nth<T>(list: List<T> | null, n: number): T | undefined {
+export default function jNth<T>(
+  list: List<T> | null,
+  n: number
+): T | undefined {
   if (n < 0 || list === null) {
     return undefined;
   }

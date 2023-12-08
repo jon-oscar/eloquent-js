@@ -1,6 +1,6 @@
-import nth from './nth';
+import jNth from './jNth';
 
-describe('nth', () => {
+describe('jNth', () => {
   it('returns the element at the specified index', () => {
     const list = {
       value: 1,
@@ -12,9 +12,9 @@ describe('nth', () => {
         },
       },
     };
-    expect(nth(list, 0)).toBe(1);
-    expect(nth(list, 1)).toBe(2);
-    expect(nth(list, 2)).toBe(3);
+    expect(jNth(list, 0)).toBe(1);
+    expect(jNth(list, 1)).toBe(2);
+    expect(jNth(list, 2)).toBe(3);
   });
 
   it('returns undefined if the index is out of range', () => {
@@ -28,12 +28,12 @@ describe('nth', () => {
         },
       },
     };
-    expect(nth(list, -1)).toBeUndefined();
-    expect(nth(list, 3)).toBeUndefined();
+    expect(jNth(list, -1)).toBeUndefined();
+    expect(jNth(list, 3)).toBeUndefined();
   });
 
   it('returns undefined if the list is empty', () => {
     const list = null;
-    expect(nth(list, 0)).toBeUndefined();
+    expect(jNth(list, 0)).toBeUndefined();
   });
 });
