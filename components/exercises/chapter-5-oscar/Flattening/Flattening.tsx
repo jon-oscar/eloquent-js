@@ -1,12 +1,12 @@
 import { getFlattenedArray } from './getFlattenedArray';
 
-const arrays = [
+const arraysOfIcons = [
   ['❤️✨', '🚀🌟', '💭💪'],
   ['🌅🔄', '💪😃'],
   ['🚫🙅‍♂️', '💪🏆'],
 ];
 
-export const phrases = [
+export const iconsWithPhrases = [
   { icon: '❤️✨', phrase: 'Believe in yourself, and you are halfway there.' },
   { icon: '🚀🌟', phrase: 'Success is a journey, not a destination.' },
   { icon: '💭💪', phrase: 'Dream big and dare to fail.' },
@@ -27,15 +27,20 @@ export default function Flattening(): JSX.Element {
   /**
    * Retrieves the flattened array of phrases from the given array of arrays, and maps each phrase to a JSX element containing the corresponding icon and phrase.
    * @param arrays - The array of arrays to be flattened.
-   * @returns An array of JSX elements representing the phrases for the flattened icons. 
+   * @returns An array of JSX elements representing the phrases for the flattened icons.
    */
-  const getPhrase = getFlattenedArray(arrays).map((icon, index) => {
-    const matchingIcon = phrases.find((phrase) => phrase.icon === icon);
+  const getPhrase = getFlattenedArray(arraysOfIcons).map((icon) => {
+    const matchingIconWithPhrase = iconsWithPhrases.find(
+      (iconWitPhraseObject) => iconWitPhraseObject.icon === icon
+    );
     return (
-      matchingIcon && (
-        <div className='m-2 rounded-sm bg-white p-4' key={matchingIcon.icon}>
-          <span className='mr-2'>{matchingIcon.icon}</span>
-          <span>{matchingIcon.phrase}</span>
+      matchingIconWithPhrase && (
+        <div
+          className='m-2 rounded-sm bg-white p-4'
+          key={matchingIconWithPhrase.icon}
+        >
+          <span className='mr-2'>{matchingIconWithPhrase.icon}</span>
+          <span>{matchingIconWithPhrase.phrase}</span>
         </div>
       )
     );
@@ -46,7 +51,7 @@ export default function Flattening(): JSX.Element {
       <div className='max-w-lg rounded-md bg-blue-300'>
         <div className='flex p-4'>
           <div className=' flex justify-between gap-2 rounded-sm'>
-            {arrays.map((icons) => {
+            {arraysOfIcons.map((icons) => {
               return (
                 <span
                   className='rounded-md bg-white p-3'

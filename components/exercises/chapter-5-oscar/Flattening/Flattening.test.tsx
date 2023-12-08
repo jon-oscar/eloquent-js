@@ -1,19 +1,19 @@
 import { render, screen } from '@testing-library/react';
-import Flattening, { phrases } from './Flattening';
+import Flattening, { iconsWithPhrases } from './Flattening';
 
 describe('Flattening', () => {
   it('should render the correct number of phrases', () => {
     render(<Flattening />);
-    for (const phrase of phrases) {
-      const phraseElement = screen.getByText(phrase.phrase);
+    for (const phraseObject of iconsWithPhrases) {
+      const phraseElement = screen.getByText(phraseObject.phrase);
       expect(phraseElement).toBeInTheDocument();
     }
   });
 
   it('should render the correct number of icons', () => {
     render(<Flattening />);
-    for (const phrase of phrases) {
-      const phraseElement = screen.getByText(phrase.icon);
+    for (const phraseObject of iconsWithPhrases) {
+      const phraseElement = screen.getByText(phraseObject.icon);
       expect(phraseElement).toBeInTheDocument();
     }
   });
