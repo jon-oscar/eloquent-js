@@ -1,12 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-let timer = {
+let initialTimer = {
   work: 25,
   break: 5,
   seconds: '00',
 };
 
 export default function YourOwnLoop() {
+  const [timer, setTimer] = useState(initialTimer);
+
+  function start() {
+    let seconds = 59;
+    let workMinutes = timer.work - 1;
+    let breakMinutes = timer.break - 1;
+    let breakCount = 0;
+
+    let timerFunction = () => {
+      seconds = seconds - 1;
+
+      if (seconds === 0) {
+        workMinutes = workMinutes - 1;
+      }
+    };
+
+    setInterval(timerFunction, 1000);
+  }
+
   return (
     <div className='flex h-max items-center'>
       <div className='container flex max-w-[592px] flex-col items-center justify-center bg-red-300 p-2'>
