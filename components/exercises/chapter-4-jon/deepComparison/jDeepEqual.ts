@@ -5,7 +5,7 @@
  * @param b - The second value to compare.
  * @returns True if the values are deeply equal, false otherwise.
  */
-export default function jDeepEqual(a: any, b: any): boolean {
+export default function jDeepEqual<T>(a: T, b: T): boolean {
   if (a === b) {
     return true;
   }
@@ -27,7 +27,10 @@ export default function jDeepEqual(a: any, b: any): boolean {
   }
 
   for (let key of keysA) {
-    if (!keysB.includes(key) || !jDeepEqual(a[key], b[key])) {
+    if (
+      !keysB.includes(key) ||
+      !jDeepEqual(a[key as keyof typeof a], b[key as keyof typeof b])
+    ) {
       return false;
     }
   }
