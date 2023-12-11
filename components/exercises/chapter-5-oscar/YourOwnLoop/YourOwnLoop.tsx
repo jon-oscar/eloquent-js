@@ -1,50 +1,28 @@
 import React, { useEffect, useState } from 'react';
+import { loop } from './loop';
 
-let initialTimer = {
-  minutes: 25,
-  seconds: 0,
-};
+let initialTimer = 10;
 
 /**
  * YourOwnLoop is a React component that displays a countdown timer and provides
- * controls to start and reset the timer. When the timer reaches 00:00, it automatically stops.
+ * controls to start and reset the timer. When the timer reaches 0, it automatically stops.
  */
-export default function YourOwnLoop(): React.JSX.Element {
+export default function YourOwnLoop(): JSX.Element {
   const [isRunning, setIsRunning] = useState(false);
   const [timer, setTimer] = useState(initialTimer);
 
   useEffect(() => {
-    let interval: string | number | NodeJS.Timeout | undefined;
-
-    // Start or reset the timer interval based on the 'isRunning' state
-    if (isRunning) {
-      interval = setInterval(() => {
-        setTimer((prevTimer) => {
-          let newTimer = { ...prevTimer };
-
-          // Update timer values each second
-          if (newTimer.seconds > 0) {
-            newTimer.seconds--;
-          } else if (newTimer.minutes > 0) {
-            newTimer.minutes--;
-            newTimer.seconds = 59;
-          } else {
-            // When the timer reaches 00:00, stop the interval and set 'isRunning' to false
-            clearInterval(interval);
-            setIsRunning(false);
-          }
-          return newTimer;
-        });
-      }, 1000);
-    } else {
-      // Clear the interval when 'isRunning' becomes false
-      clearInterval(interval);
-    }
-    // Clean up the interval when the component unmounts or 'isRunning' changes
-    return () => {
-      clearInterval(interval);
-    };
-  }, [isRunning]);
+    loop(
+      timer,
+      (n: number) => n >= 0,
+      (n: number) => n - 1,
+      (n: number) => {
+        if (isRunning) {
+          setTimer(n);
+        }
+      }
+    );
+  }, [timer, isRunning]);
 
   // starts the timer
   function startTimer(): void {
@@ -64,15 +42,8 @@ export default function YourOwnLoop(): React.JSX.Element {
           className='mt-3 flex h-60 w-60 items-center justify-center rounded-full shadow-lg'
           data-testid='timer-display'
         >
-          <p className='text-5xl'>{timer.minutes}</p>
-          <p className='text-2xl'>:</p>
-          <p className='text-5xl'>
-            {timer.seconds < 10 ? `0${timer.seconds}` : timer.seconds}
-          </p>
-          <p></p>
-          <p></p>
+          <p className='text-[6rem]'>{timer}</p>
         </div>
-
         <div className='mt-3'>
           <div className='m-5 grid w-40 grid-cols-2 rounded-lg p-1 text-center shadow-md'>
             <button className='cursor-pointer text-3xl' onClick={startTimer}>
