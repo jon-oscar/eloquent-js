@@ -129,8 +129,8 @@
       },
       {
         "id": 3,
-        "title": " ",
-        "details": "This is my solution for..."
+        "title": "Prepend to linked list",
+        "details": "Add new items as the first element of the linked list and see how the list changes below"
       }
     ]
   },
