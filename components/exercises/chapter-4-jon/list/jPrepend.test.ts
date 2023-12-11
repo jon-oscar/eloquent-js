@@ -1,7 +1,7 @@
 import { JList } from './JList';
-import prepend from './jPrepend';
+import jPrepend from './jPrepend';
 
-describe('prepend', () => {
+describe('jPrepend', () => {
   it('adds an element to the beginning of a list', () => {
     const list: JList<number> = {
       value: 2,
@@ -27,7 +27,7 @@ describe('prepend', () => {
         },
       },
     };
-    const result = prepend(element, list);
+    const result = jPrepend(element, list);
     expect(result).toEqual(expectedList);
   });
 
@@ -38,7 +38,7 @@ describe('prepend', () => {
       value: 1,
       rest: null,
     };
-    const result = prepend(element, list);
+    const result = jPrepend(element, list);
     expect(result).toEqual(expectedList);
   });
 
@@ -55,7 +55,7 @@ describe('prepend', () => {
         rest: null,
       },
     };
-    const result = prepend(element, list);
+    const result = jPrepend(element, list);
     expect(result).toEqual(expectedList);
   });
 });
