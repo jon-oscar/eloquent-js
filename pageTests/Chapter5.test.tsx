@@ -22,7 +22,7 @@ describe('Chapter5', () => {
     expect(flattening).toBeInTheDocument();
   });
 
-  it('renders the flattening exercise', () => {
+  it('renders the your own loop exercise', () => {
     render(<Chapter5 />);
     const yourOwnLoop = screen.getByText(/Your Own Loop/i);
     expect(yourOwnLoop).toBeInTheDocument();
