@@ -30,6 +30,8 @@ describe('Chapter4', () => {
     expect(jArrayReversion).toBeInTheDocument();
     const jAList = screen.getByText(/Prepend to linked list/i);
     expect(jAList).toBeInTheDocument();
+    const jDeepComparison = screen.getByText(/Compare two texts/i);
+    expect(jDeepComparison).toBeInTheDocument();
   });
 
   it('renders the developer card for Oscar Reyes', () => {

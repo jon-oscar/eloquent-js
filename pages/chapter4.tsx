@@ -1,6 +1,7 @@
 import Layout from '@/components/Layout';
 import PageCard from '@/components/PageCard';
 import JArrayReversion from '@/components/exercises/chapter-4-jon/arrayReversion/JArrayReversion';
+import JDeepComparison from '@/components/exercises/chapter-4-jon/deepComparison/JDeepComparison';
 import JAList from '@/components/exercises/chapter-4-jon/list/JAList';
 import JSumRange from '@/components/exercises/chapter-4-jon/range/JSumRange';
 import CityList from '@/components/exercises/chapter-4-oscar/AList/CityList';
@@ -83,6 +84,12 @@ export default function Chapter4() {
                   title={devJon[2].title}
                   details={devJon[2].details}
                   code={() => <JAList />}
+                />
+                <PageCard
+                  id={devJon[3].id}
+                  title={devJon[3].title}
+                  details={devJon[3].details}
+                  code={() => <JDeepComparison />}
                 />
               </>
             )}
