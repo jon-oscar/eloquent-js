@@ -131,6 +131,11 @@
         "id": 3,
         "title": "Prepend to linked list",
         "details": "Add new items as the first element of the linked list and see how the list changes below"
+      },
+      {
+        "id": 4,
+        "title": "Compare two texts",
+        "details": "Tap on each text to randomly change their styles and see if they are equal"
       }
     ]
   },
@@ -150,8 +155,8 @@
       },
       {
         "id": 2,
-        "title": "Your own loop",
-        "details": "In the center, you will find a timer, press the button ▶️ to start the countdown and press the button 🔄 to reset the counter. The timer stops when it reaches 0."
+        "title": "",
+        "details": ""
       },
       {
         "id": 3,
@@ -178,7 +183,7 @@
       {
         "id": 3,
         "title": " ",
-        "details": "This is my solution for..."
+        "details": ""
       }
     ]
   },
