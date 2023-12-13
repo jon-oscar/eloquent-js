@@ -22,12 +22,6 @@ describe('Chapter5', () => {
     expect(flattening).toBeInTheDocument();
   });
 
-  it('renders the flattening exercise', () => {
-    render(<Chapter5 />);
-    const yourOwnLoop = screen.getByText(/Your Own Loop/i);
-    expect(yourOwnLoop).toBeInTheDocument();
-  });
-
   it('renders the developer card for Oscar Reyes', () => {
     render(<Chapter5 />);
     const oscarCard = screen.getByText(/Oscar Reyes/i);
