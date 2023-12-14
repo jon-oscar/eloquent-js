@@ -21,7 +21,7 @@ type WeatherData = {
 
 const API_KEY = '297cdcb5306dab20d8338f39e1459828';
 
-export default function WeatherApp() {
+export default function WeatherApp(): JSX.Element {
   const [data, setData] = useState<WeatherData>({});
   const [location, setLocation] = useState<string>('');
   const [error, setError] = useState<string | null>(null);
@@ -55,7 +55,7 @@ export default function WeatherApp() {
 
   return (
     <div className='wrapper relative bg-black bg-opacity-40 text-white'>
-      <div className='items container relative z-10 flex flex-col justify-between p-8'>
+      <div className='container relative z-10 flex flex-col justify-between p-8'>
         <div className='py-1'>
           <input
             className='rounded-md border border-white bg-transparent  bg-opacity-30 p-1 text-white outline-none placeholder:text-white'
@@ -76,19 +76,19 @@ export default function WeatherApp() {
               )}
               <div>
                 {data.main && (
-                  <h1 className='text-xs'>
+                  <p className='text-xs'>
                     feels {data.main.feels_like.toFixed()} ºC
-                  </h1>
+                  </p>
                 )}
                 {data.main && (
-                  <h1 className='text-xs'>
+                  <p className='text-xs'>
                     min {data.main.temp_min.toFixed()} ºC
-                  </h1>
+                  </p>
                 )}
                 {data.main && (
-                  <h1 className='text-xs'>
+                  <p className='text-xs'>
                     max {data.main.temp_max.toFixed()} ºC
-                  </h1>
+                  </p>
                 )}
               </div>
             </div>
@@ -102,7 +102,7 @@ export default function WeatherApp() {
           </div>
           {data.name != undefined && (
             <div className='flex-1'>
-              <div className=' mt-2 mb-2 flex gap-2 text-center'>
+              <div className=' my-2 flex items-center justify-between gap-2 text-center'>
                 <div>
                   {data.main && <p className='text-lg'>{data.main.pressure}</p>}
                   <p className='text-sm'>Pressure</p>
