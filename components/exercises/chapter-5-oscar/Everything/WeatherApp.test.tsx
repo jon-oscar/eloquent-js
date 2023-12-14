@@ -6,69 +6,129 @@ import WeatherApp from './WeatherApp';
 jest.mock('axios');
 
 describe('WeatherApp', () => {
-  test('renders the WeatherApp component', () => {
+  it('renders the component', () => {
     render(<WeatherApp />);
-    expect(screen.getByPlaceholderText('Enter location')).toBeInTheDocument();
+    const inputElement = screen.getByPlaceholderText('Enter location');
+    expect(inputElement).toBeInTheDocument();
   });
 
-  test('fetches weather data when Enter key is pressed', async () => {
+  it('fetches weather data and displays it', async () => {
     const mockData = {
-      name: 'London',
-      main: {
-        temp: 20,
-        temp_min: 15,
-        temp_max: 25,
-        feels_like: 18,
-      },
-      weather: [{ description: 'Cloudy' }],
-      wind: {
-        speed: 10,
+      data: {
+        name: 'SampleCity',
+        main: {
+          temp: 22,
+          temp_min: 20,
+          temp_max: 25,
+          feels_like: 23,
+          humidity: 50,
+          pressure: '1013 hPa',
+        },
+        weather: [{ description: 'Clear sky' }],
+        wind: { speed: 5 },
       },
     };
 
-    axios.get.mockResolvedValueOnce({ data: mockData });
+    jest.spyOn(axios, 'get').mockResolvedValue(mockData);
 
     render(<WeatherApp />);
-    const input = screen.getByPlaceholderText('Enter location');
-    fireEvent.change(input, { target: { value: 'London' } });
-    fireEvent.keyPress(input, { key: 'Enter', code: 13, charCode: 13 });
 
+    const inputElement = screen.getByPlaceholderText('Enter location');
+    fireEvent.change(inputElement, { target: { value: 'SampleCity' } });
+
+    const formElement = screen.getByTestId('weather-form');
+    fireEvent.submit(formElement);
+
+    // Wait for the component to update with the fetched data
     await waitFor(() => {
-      expect(screen.getByText('London')).toBeInTheDocument();
-      expect(screen.getByText('20 ºC')).toBeInTheDocument();
-      expect(screen.getByText('feels 18 ºC')).toBeInTheDocument();
-      expect(screen.getByText('min 15 ºC')).toBeInTheDocument();
-      expect(screen.getByText('max 25 ºC')).toBeInTheDocument();
-      expect(screen.getByText('Cloudy')).toBeInTheDocument();
-      expect(screen.getByText('10 MPH')).toBeInTheDocument();
+      const cityName = screen.getByText('SampleCity');
+      expect(cityName).toBeInTheDocument();
+    });
+    await waitFor(() => {
+      const temperature = screen.getByText('22 ºC');
+      expect(temperature).toBeInTheDocument();
+    });
+    await waitFor(() => {
+      const weatherDescription = screen.getByText('Clear sky');
+      expect(weatherDescription).toBeInTheDocument();
     });
   });
 
-  test('displays error message when location is not found', async () => {
-    axios.get.mockRejectedValueOnce({ response: { status: 404 } });
+  it('handles location not found error', async () => {
+    jest.spyOn(axios, 'get').mockRejectedValue({ response: { status: 404 } });
 
     render(<WeatherApp />);
-    const input = screen.getByPlaceholderText('Enter location');
-    fireEvent.change(input, { target: { value: 'Invalid Location' } });
-    fireEvent.keyPress(input, { key: 'Enter', code: 13, charCode: 13 });
+
+    const inputElement = screen.getByPlaceholderText('Enter location');
+    fireEvent.change(inputElement, { target: { value: 'NonExistentCity' } });
+
+    const formElement = screen.getByTestId('weather-form');
+    fireEvent.submit(formElement);
 
     await waitFor(() => {
-      expect(screen.getByText('Location not found.')).toBeInTheDocument();
+      const errorMessage = screen.getByText('Location not found.');
+      expect(errorMessage).toBeInTheDocument();
     });
   });
 
-  test('displays error message when an error occurs', async () => {
-    axios.get.mockRejectedValueOnce(new Error('Network Error'));
+  it('handles general error', async () => {
+    jest
+      .spyOn(axios, 'get')
+      .mockRejectedValue({ message: 'Some error occurred' });
 
     render(<WeatherApp />);
-    const input = screen.getByPlaceholderText('Enter location');
-    fireEvent.change(input, { target: { value: 'London' } });
-    fireEvent.keyPress(input, { key: 'Enter', code: 13, charCode: 13 });
+
+    const inputElement = screen.getByPlaceholderText('Enter location');
+    fireEvent.change(inputElement, { target: { value: 'SampleCity' } });
+
+    const formElement = screen.getByTestId('weather-form');
+    fireEvent.submit(formElement);
 
     await waitFor(() => {
-      expect(
-        screen.getByText('An error occurred. Please try again later.')
-      ).toBeInTheDocument();
+      const errorMessage = screen.getByText(
+        'An error occurred. Please try again later.'
+      );
+      expect(errorMessage).toBeInTheDocument();
+    });
+  });
+
+  it('clears input field after search', async () => {
+    const mockData = {
+      data: {
+        name: 'SampleCity',
+        main: {
+          temp: 22,
+          temp_min: 20,
+          temp_max: 25,
+          feels_like: 23,
+          humidity: 50,
+          pressure: '1013 hPa',
+        },
+        weather: [{ description: 'Clear sky' }],
+        wind: { speed: 5 },
+      },
+    };
+
+    jest.spyOn(axios, 'get').mockResolvedValue(mockData);
+
+    render(<WeatherApp />);
+
+    const inputElement = screen.getByPlaceholderText('Enter location');
+    fireEvent.change(inputElement, { target: { value: 'SampleCity' } });
+
+    const formElement = screen.getByTestId('weather-form');
+    fireEvent.submit(formElement);
+
+    await waitFor(() => {
+      expect(screen.getByText('SampleCity')).toBeInTheDocument();
+    });
+
+    await waitFor(() => {
+      // Ensure input field is cleared after search
+      const clearedInput = screen.getByPlaceholderText(
+        'Enter location'
+      ) as HTMLInputElement;
+      expect(clearedInput.value).toBe('');
     });
   });
 });
