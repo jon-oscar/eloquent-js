@@ -22,6 +22,12 @@ describe('Chapter5', () => {
     expect(flattening).toBeInTheDocument();
   });
 
+  it('renders the your own loop exercise', () => {
+    render(<Chapter5 />);
+    const yourOwnLoop = screen.getByText(/Your Own Loop/i);
+    expect(yourOwnLoop).toBeInTheDocument();
+  });
+
   it('renders the everything exercise', () => {
     render(<Chapter5 />);
     const everything = screen.getByText(/Everything/i);
