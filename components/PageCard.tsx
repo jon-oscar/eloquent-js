@@ -11,8 +11,8 @@ const PageCard = ({ id, title, details, code }: Info) => {
   return (
     <>
       <div
-        key={id}
         className=' mb-5 flex w-[40rem] flex-1 flex-col items-start justify-center rounded-3xl bg-[#FEFCF3] p-6 text-black-100 hover:bg-white hover:shadow-md'
+        key={id}
       >
         <div className='chapter-card__content'>
           <h2 className='chapter-card__content-title'>{title}</h2>

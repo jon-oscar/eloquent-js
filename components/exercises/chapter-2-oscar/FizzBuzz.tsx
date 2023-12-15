@@ -28,12 +28,12 @@ const FizzBuzz = ({ phraseValue }: FizzBuzzProps) => {
     <div className='flex flex-col items-center gap-2 text-center'>
       <h1 className='font-semibold'>Live typing display</h1>
       <input
+        aria-label='Phrase'
+        className='h-[50px] w-full rounded-3xl border-2 bg-[#FEFCF3] text-center'
+        onChange={(e) => setState(e.target.value)}
+        placeholder='Enter your phrase here'
         type='text'
         value={state}
-        placeholder='Enter your phrase here'
-        onChange={(e) => setState(e.target.value)}
-        className='h-[50px] w-full rounded-3xl border-2 bg-[#FEFCF3] text-center'
-        aria-label='Phrase'
       />
       <span className='h-[50px] w-full overflow-hidden rounded-3xl border-2 border-[#B2980B] bg-white text-center'>
         {getPhrase(state)}

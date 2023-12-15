@@ -45,24 +45,24 @@ export default function Recursion() {
     if (isEven(timeRemaining) === false) {
       petals.push(
         <div
+          className=' petal-rotating absolute inset-x-0 top-0 m-auto h-24 w-24 origin-custom rounded-full bg-[#b2990b9f]'
           data-testid='petal'
           key={`petal + ${timeRemaining}`}
-          className=' petal-rotating absolute inset-x-0 top-0 m-auto h-24 w-24 origin-custom rounded-full bg-[#b2990b9f]'
         />
       );
     } else {
       petals.push(
         <div
+          className='petal-rotating absolute inset-x-0 top-0 m-auto h-24 w-24 origin-custom rounded-full bg-[#b2430b9f]'
           data-testid='petal'
           key={`petal + ${timeRemaining}`}
-          className='petal-rotating absolute inset-x-0 top-0 m-auto h-24 w-24 origin-custom rounded-full bg-[#b2430b9f]'
         />
       );
     }
   };
 
   return (
-    <div data-testid='recursion' className='relative h-[300px] min-w-max'>
+    <div className='relative h-[300px] min-w-max' data-testid='recursion'>
       {petals.map((petal) => petal)}
       <div className='absolute inset-x-0 top-12 m-auto h-52 w-52 rounded-full bg-[#b2980b]' />
     </div>

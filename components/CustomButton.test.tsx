@@ -10,7 +10,7 @@ describe('CustomButton', () => {
   it('calls the handleClick function when clicked', () => {
     const handleClick = jest.fn();
     const getByTextResult = render(
-      <CustomButton title='Click me' handleClick={handleClick} />
+      <CustomButton handleClick={handleClick} title='Click me' />
     ).getByText;
     fireEvent.click(getByTextResult('Click me'));
     expect(handleClick).toHaveBeenCalledTimes(1);
@@ -19,7 +19,7 @@ describe('CustomButton', () => {
   it('calls the handleMouseDown function when mouse is pressed down', () => {
     const handleMouseDown = jest.fn();
     const getByTextResult = render(
-      <CustomButton title='Click me' handleMouseDown={handleMouseDown} />
+      <CustomButton handleMouseDown={handleMouseDown} title='Click me' />
     ).getByText;
     fireEvent.mouseDown(getByTextResult('Click me'));
     expect(handleMouseDown).toHaveBeenCalledTimes(1);
@@ -28,7 +28,7 @@ describe('CustomButton', () => {
   it('calls the handleMouseUp function when mouse is released', () => {
     const handleMouseUp = jest.fn();
     const getByTextResult = render(
-      <CustomButton title='Click me' handleMouseUp={handleMouseUp} />
+      <CustomButton handleMouseUp={handleMouseUp} title='Click me' />
     ).getByText;
     fireEvent.mouseUp(getByTextResult('Click me'));
     expect(handleMouseUp).toHaveBeenCalledTimes(1);

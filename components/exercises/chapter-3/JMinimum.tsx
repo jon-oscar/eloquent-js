@@ -80,16 +80,16 @@ function BugCounter({
     <div className='flex flex-col items-center'>
       <div className='flex items-center justify-center'>
         <CustomButton
+          containerStyles={buttonStyles}
           handleMouseDown={() => setIncrementMouseDown(true)}
           handleMouseUp={handleIncrementMouseUp}
           title='+'
-          containerStyles={buttonStyles}
         />
         <CustomButton
+          containerStyles={buttonStyles}
           handleMouseDown={() => setDecrementMouseDown(true)}
           handleMouseUp={handleDecrementMouseUp}
           title='-'
-          containerStyles={buttonStyles}
         />
       </div>
       <div
@@ -98,8 +98,8 @@ function BugCounter({
       >
         {bugs.map((bug, i) => (
           <div
-            key={`${i}-${bug.x}-${bug.y}-${bug.rotation}`}
             className='absolute'
+            key={`${i}-${bug.x}-${bug.y}-${bug.rotation}`}
             style={{
               left: bug.x,
               top: bug.y,
@@ -174,32 +174,32 @@ export default function JMinimum() {
   return (
     <div className='flex flex-col items-center' data-testid='j-minimum'>
       <div
-        data-testid='bug-counter-1'
         className={
           minimumBugCounter === 1 ? minBorderStyles : defaultBorderStyles
         }
+        data-testid='bug-counter-1'
       >
         <BugCounter
           bugs={bugs1}
-          incrementBugs={handleIncrementBugs1}
           decrementBugs={handleDecrementBugs1}
+          incrementBugs={handleIncrementBugs1}
         />
       </div>
       <CustomButton
+        containerStyles='text-white rounded-full bg-[#B2980B] m-6'
         handleClick={handleMinButtonClick}
         title='Which code has fewer bugs?'
-        containerStyles='text-white rounded-full bg-[#B2980B] m-6'
       />
       <div
-        data-testid='bug-counter-2'
         className={
           minimumBugCounter === 2 ? minBorderStyles : defaultBorderStyles
         }
+        data-testid='bug-counter-2'
       >
         <BugCounter
           bugs={bugs2}
-          incrementBugs={handleIncrementBugs2}
           decrementBugs={handleDecrementBugs2}
+          incrementBugs={handleIncrementBugs2}
         />
       </div>
     </div>

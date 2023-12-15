@@ -53,8 +53,8 @@ export default function JRecursiveIsEven(): JSX.Element {
 
   return (
     <div
-      data-testid='j-recursive-is-even'
       className='flex flex-col items-center justify-center'
+      data-testid='j-recursive-is-even'
     >
       <p className='mb-8 text-4xl font-bold'>{message}</p>
       <div className='mb-8 flex space-x-4'>
@@ -71,9 +71,9 @@ export default function JRecursiveIsEven(): JSX.Element {
       </div>
       <CustomButton
         containerStyles='text-white rounded-full bg-[#B2980B]'
-        title={is0 || is1 ? 'Tap + or -' : `${count} - 2`}
-        isDisabled={is0 || is1}
         handleClick={handleClick}
+        isDisabled={is0 || is1}
+        title={is0 || is1 ? 'Tap + or -' : `${count} - 2`}
       />
     </div>
   );

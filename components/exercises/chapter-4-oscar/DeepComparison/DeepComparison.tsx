@@ -134,7 +134,7 @@ export default function DeepComparison(): JSX.Element {
           </div>
 
           {groceryList[1]?.map((item) => (
-            <ul key={item.name} data-testid='grocery-item'>
+            <ul data-testid='grocery-item' key={item.name}>
               <li className='mt-4 rounded-lg bg-blue-200 p-2 pl-4 font-[16px] text-black'>
                 <h3 className='font-semibold'>{item.name}</h3>
                 <p className='mt-2 text-sm'>{item.description}</p>

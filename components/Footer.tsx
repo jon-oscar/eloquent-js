@@ -8,11 +8,11 @@ const Footer = () => {
       <div className='max-md: flex flex-col flex-wrap justify-between gap-5 px-6 py-10 sm:px-16'>
         <div className='flex flex-col items-start justify-start gap-6'>
           <Image
-            src='/logo.png'
             alt='oreyesdev logo'
-            width={300}
-            height={45}
             className='object-contain'
+            height={45}
+            src='/logo.png'
+            width={300}
           ></Image>
           <p className='text-base text-gray-700'>
             Project by Oscar Reyes <br />
@@ -22,14 +22,14 @@ const Footer = () => {
 
         <div className='footer__links'>
           {footerLinks.map((item) => (
-            <div key={item.title} className='footer__link'>
+            <div className='footer__link' key={item.title}>
               <h3 className='font-bold'>{item.title}</h3>
               <div className='flex flex-col gap-5'>
                 {item.links.map((link) => (
                   <Link
-                    key={link.title}
-                    href={link.url}
                     className='text-gray-500'
+                    href={link.url}
+                    key={link.title}
                   >
                     {link.title}
                   </Link>
@@ -44,10 +44,10 @@ const Footer = () => {
         <p>oreyesdev. All rights reserved</p>
 
         <div className='footer__copyrights-link'>
-          <Link href='/' className='text-gray-500'>
+          <Link className='text-gray-500' href='/'>
             Privacy & Policy
           </Link>
-          <Link href='/' className='text-gray-500'>
+          <Link className='text-gray-500' href='/'>
             Terms & Condition
           </Link>
         </div>

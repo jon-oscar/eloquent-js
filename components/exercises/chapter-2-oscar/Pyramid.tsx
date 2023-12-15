@@ -34,7 +34,6 @@ const Pyramid = ({ rows }: PyramidProps) => {
         {state < 8 && (
           <>
             <CustomButton
-              title='Add a row'
               btnType='button'
               containerStyles='text-white rounded-full bg-[#B2980B] min-w-[150px] max-h-[48px]'
               handleClick={() =>
@@ -42,10 +41,10 @@ const Pyramid = ({ rows }: PyramidProps) => {
                   prevState === 8 ? prevState : prevState + 1
                 )
               }
+              title='Add a row'
             />
 
             <CustomButton
-              title='Remove a row'
               btnType='button'
               containerStyles='text-white rounded-full bg-[#B2980B] min-w-[150px] max-h-[48px]'
               handleClick={() =>
@@ -53,6 +52,7 @@ const Pyramid = ({ rows }: PyramidProps) => {
                   prevState === 0 ? prevState : prevState - 1
                 )
               }
+              title='Remove a row'
             />
           </>
         )}
@@ -61,7 +61,6 @@ const Pyramid = ({ rows }: PyramidProps) => {
           <>
             <>
               <CustomButton
-                title='Start over?'
                 btnType='button'
                 containerStyles='text-white rounded-full bg-[#B2980B] min-w-[150px] max-h-[48px]'
                 handleClick={() =>
@@ -69,6 +68,7 @@ const Pyramid = ({ rows }: PyramidProps) => {
                     return (prevState = 0);
                   })
                 }
+                title='Start over?'
               />
               <span className=' mt-2 gap-2 text-center text-[14px] font-semibold leading-[17px] text-red-600'>
                 Max rows reached!

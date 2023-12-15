@@ -34,11 +34,11 @@ const ChapterCard = ({
 
       <div className='relative my-3 h-40 w-full object-contain'>
         <Image
-          src={image}
           alt='chapter image'
+          className='object-contain'
           fill
           priority
-          className='object-contain'
+          src={image}
         />
       </div>
 
@@ -51,12 +51,12 @@ const ChapterCard = ({
           </div>
         </div>
 
-        <Link href={link} className='chapter-card__btn-container'>
+        <Link className='chapter-card__btn-container' href={link}>
           <CustomButton
-            title='View More'
             containerStyles='w-full py-[16px] rounded-full bg-[#B2980B]'
-            textStyles='text-white text-[14px] leading-[17px] font-bold'
             rightIcon='/right-arrow.svg'
+            textStyles='text-white text-[14px] leading-[17px] font-bold'
+            title='View More'
           />
         </Link>
       </div>

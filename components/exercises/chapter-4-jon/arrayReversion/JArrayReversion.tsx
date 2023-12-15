@@ -41,27 +41,27 @@ export default function JArrayReversion(): React.JSX.Element {
   return (
     <div data-testid='j-array-reversion'>
       <div className='mb-8'>
-        <p data-testid='emojis1-container' className='text-xl'>
+        <p className='text-xl' data-testid='emojis1-container'>
           {emojis1.map((emoji) => (
             <span key={emoji}>{emoji}</span>
           ))}
         </p>
         <CustomButton
-          title='Reverse'
           containerStyles={buttonStyles}
           handleClick={handleReverseButtonClick}
+          title='Reverse'
         />
       </div>
       <div>
-        <p data-testid='emojis2-container' className='text-xl'>
+        <p className='text-xl' data-testid='emojis2-container'>
           {emojis2.map((emoji) => (
             <span key={emoji}>{emoji}</span>
           ))}
         </p>
         <CustomButton
-          title='Reverse in place'
           containerStyles={buttonStyles}
           handleClick={handleReverseInPlaceButtonClick}
+          title='Reverse in place'
         />
       </div>
     </div>

@@ -41,22 +41,22 @@ export default function Chapter2() {
             {devOscar && (
               <>
                 <PageCard
+                  code={() => <Pyramid rows={0} />}
+                  details={devOscar[0].details}
                   id={devOscar[0].id}
                   title={devOscar[0].title}
-                  details={devOscar[0].details}
-                  code={() => <Pyramid rows={0} />}
                 />
                 <PageCard
+                  code={() => <FizzBuzz phraseValue={''} />}
+                  details={devOscar[1].details}
                   id={devOscar[1].id}
                   title={devOscar[1].title}
-                  details={devOscar[1].details}
-                  code={() => <FizzBuzz phraseValue={''} />}
                 />
                 <PageCard
+                  code={() => <Chessboard size={8} />}
+                  details={devOscar[2].details}
                   id={devOscar[2].id}
                   title={devOscar[2].title}
-                  details={devOscar[2].details}
-                  code={() => <Chessboard size={8} />}
                 />
               </>
             )}
@@ -65,22 +65,22 @@ export default function Chapter2() {
             {devJon && (
               <>
                 <PageCard
+                  code={() => <JPyramid />}
+                  details={devJon[0].details}
                   id={devJon[0].id}
                   title={devJon[0].title}
-                  details={devJon[0].details}
-                  code={() => <JPyramid />}
                 />
                 <PageCard
+                  code={() => <JFizzBuzz />}
+                  details={devJon[1].details}
                   id={devJon[1].id}
                   title={devJon[1].title}
-                  details={devJon[1].details}
-                  code={() => <JFizzBuzz />}
                 />
                 <PageCard
+                  code={() => <JChessBoard />}
+                  details={devJon[2].details}
                   id={devJon[2].id}
                   title={devJon[2].title}
-                  details={devJon[2].details}
-                  code={() => <JChessBoard />}
                 />
               </>
             )}
