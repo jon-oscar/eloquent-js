@@ -8,5 +8,8 @@
     }
   ],
   "plugins": ["testing-library"],
-  "root": true
+  "root": true,
+  "rules": {
+    "react/jsx-sort-props": "error"
+  }
 }
