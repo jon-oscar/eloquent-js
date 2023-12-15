@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { every } from './every';
 import './styles.css';
 
@@ -19,6 +18,7 @@ export type WeatherData = {
   };
 };
 
+// This key is free and public so there's no harm on leaving it right here
 const API_KEY = '297cdcb5306dab20d8338f39e1459828';
 
 /**
@@ -43,15 +43,16 @@ export default function WeatherApp(): JSX.Element {
     event.preventDefault();
     try {
       // Fetch weather data from the API using Axios
-      const response = await axios.get<WeatherData>(apiUrl);
-      setWeatherData(response.data);
-      setError(null);
-    } catch (error: any) {
-      if (error.response && error.response.status === 404) {
-        setError('Location not found.');
+      const response = await fetch(apiUrl);
+      if (response.ok) {
+        const data: WeatherData = await response.json();
+        setWeatherData(data);
+        setError(null);
       } else {
-        setError('An error occurred. Please try again later.');
+        setError('Location not found');
       }
+    } catch (error) {
+      setError('An error occurred. Please try again later.');
     }
 
     // Clear the input field after search
@@ -117,7 +118,7 @@ export default function WeatherApp(): JSX.Element {
               )}
             </div>
           </div>
-          {weatherData.name != undefined && (
+          {weatherData.name && (
             <div className='flex-1'>
               <div className=' my-2 flex items-center justify-between gap-2 text-center'>
                 <div>
