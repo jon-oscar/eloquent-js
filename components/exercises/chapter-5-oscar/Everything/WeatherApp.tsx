@@ -20,15 +20,11 @@ export type WeatherData = {
 // This key is free and public so there's no harm on leaving it right here
 const API_KEY = '297cdcb5306dab20d8338f39e1459828';
 
-//The background photo for the WeatherApp component.
-const backgroundPhoto = 'weather';
-
 /**
  * Allows users to search for weather information based on a location input. It fetches data from the OpenWeatherMap API
- * and displays it to the user. Also, compare the temperatures and provide a conditional message based on the temperature feeling.
+ * and displays it to the user. Also, compare the maximum temperature with the feel temperature and provide a conditional message.
  * If an error occurs an error message is displayed.
- * @returns - The WeatherApp component returns a user interface that
- * allows users to input a location and view weather information.
+ * @returns A user interface that allows users to input a location and view weather information.
  */
 export default function WeatherApp(): JSX.Element {
   const [weatherData, setWeatherData] = useState<WeatherData>({});
@@ -73,10 +69,10 @@ export default function WeatherApp(): JSX.Element {
       <div
         className='absolute inset-0 bg-cover bg-center'
         style={{
-          backgroundImage: `url(https://source.unsplash.com/1600x900/?${backgroundPhoto})`,
+          backgroundImage: `url(https://source.unsplash.com/1600x900/?${weatherData.name})`,
           opacity: 0.5,
         }}
-      ></div>
+      />
       <div className='container relative z-10 flex flex-col justify-between rounded-md p-8'>
         <div className='py-1'>
           <form onSubmit={handleFormSubmit} data-testid='weather-form'>
@@ -103,17 +99,17 @@ export default function WeatherApp(): JSX.Element {
               </div>
               <div className='flex-1'>
                 {weatherData.main && (
-                  <p className='text-xs'>
+                  <p className='text-sm font-semibold'>
                     feels {weatherData.main.feels_like.toFixed()} ºC
                   </p>
                 )}
                 {weatherData.main && (
-                  <p className='text-xs'>
+                  <p className='text-sm font-semibold'>
                     min {weatherData.main.temp_min.toFixed()} ºC
                   </p>
                 )}
                 {weatherData.main && (
-                  <p className='text-xs'>
+                  <p className='text-sm font-semibold'>
                     max {weatherData.main.temp_max.toFixed()} ºC
                   </p>
                 )}
@@ -152,11 +148,7 @@ export default function WeatherApp(): JSX.Element {
                 </div>
               </div>
               {every(
-                [
-                  Number(weatherData.main?.temp.toFixed()) ?? 0,
-                  Number(weatherData.main?.temp_min.toFixed()) ?? 0,
-                  Number(weatherData.main?.feels_like.toFixed()) ?? 0,
-                ],
+                [Number(weatherData.main?.feels_like.toFixed()) ?? 0],
                 (n) => n <= (Number(weatherData.main?.temp_max) ?? 0)
               ) ? (
                 <span>👍 The temperature does not feel over the maximum</span>
