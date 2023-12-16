@@ -4,7 +4,5 @@
  * @param callback The testing function.
  * @returns `true` if at least one element satisfies the testing function, otherwise `false`.
  */
-export const some = (
-  arr: number[],
-  callback: (arg: number) => boolean
-): boolean => !arr.some((n) => !callback(n));
+export const some = <T>(arr: T[], callback: (arg: T) => boolean): boolean =>
+  !arr.some((n) => !callback(n));

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { every } from './every';
-import './styles.css';
 
 export type WeatherData = {
   name?: string;
@@ -20,6 +19,9 @@ export type WeatherData = {
 
 // This key is free and public so there's no harm on leaving it right here
 const API_KEY = '297cdcb5306dab20d8338f39e1459828';
+
+//The background photo for the WeatherApp component.
+const backgroundPhoto = 'weather';
 
 /**
  * Allows users to search for weather information based on a location input. It fetches data from the OpenWeatherMap API
@@ -67,7 +69,14 @@ export default function WeatherApp(): JSX.Element {
   }
 
   return (
-    <div className='wrapper relative rounded-md bg-black text-white opacity-70'>
+    <div className='relative rounded-md  bg-black text-white opacity-70'>
+      <div
+        className='absolute inset-0 bg-cover bg-center'
+        style={{
+          backgroundImage: `url(https://source.unsplash.com/1600x900/?${backgroundPhoto})`,
+          opacity: 0.5,
+        }}
+      ></div>
       <div className='container relative z-10 flex flex-col justify-between rounded-md p-8'>
         <div className='py-1'>
           <form onSubmit={handleFormSubmit} data-testid='weather-form'>
@@ -148,7 +157,7 @@ export default function WeatherApp(): JSX.Element {
                   Number(weatherData.main?.temp_min.toFixed()) ?? 0,
                   Number(weatherData.main?.feels_like.toFixed()) ?? 0,
                 ],
-                (n) => n <= (Number(weatherData.main?.temp_max.toFixed()) ?? 0)
+                (n) => n <= (Number(weatherData.main?.temp_max) ?? 0)
               ) ? (
                 <span>👍 The temperature does not feel over the maximum</span>
               ) : (

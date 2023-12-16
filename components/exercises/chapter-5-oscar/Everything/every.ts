@@ -4,10 +4,7 @@
  * @param callback - The condition function to apply to each element.
  * @returns `true` if every element satisfies the condition, `false` otherwise.
  */
-export const every = (
-  arr: number[],
-  callback: (arg: number) => boolean
-): boolean => {
+export const every = <T>(arr: T[], callback: (arg: T) => boolean): boolean => {
   for (let i = 0; i < arr.length; i++) {
     if (!callback(arr[i])) {
       return false;
