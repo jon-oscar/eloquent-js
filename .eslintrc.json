@@ -1,14 +1,24 @@
 {
-  "extends": ["next/core-web-vitals", "plugin:tailwindcss/recommended"],
+  "extends": [
+    "eslint:recommended",
+    "next",
+    "next/core-web-vitals",
+    "plugin:tailwindcss/recommended"
+  ],
   "overrides": [
     // Only uses Testing Library lint rules in test files
     {
       "extends": ["plugin:testing-library/react"],
-      "files": ["**/?(*.)+(test).ts?(x)"]
+      "files": ["**/?(*.)+(test).ts?(x)"],
+      "env": { "jest": true }
     }
   ],
   "plugins": ["testing-library"],
   "root": true,
+  "globals": {
+    "React": "writable", // injected by Next.js
+    "JSX": "writable" // injected by Next.js
+  },
   "rules": {
     "react/jsx-sort-props": "error"
   }
