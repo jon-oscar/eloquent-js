@@ -64,8 +64,8 @@ const Pyramid = ({ rows }: PyramidProps) => {
                 btnType='button'
                 containerStyles='text-white rounded-full bg-[#B2980B] min-w-[150px] max-h-[48px]'
                 handleClick={() =>
-                  setState((prevState) => {
-                    return (prevState = 0);
+                  setState(() => {
+                    return 0;
                   })
                 }
                 title='Start over?'
