@@ -3,6 +3,7 @@ import PageCard from '@/components/PageCard';
 import chapter from '@/constants/chapter.json';
 import Flattening from '@/components/exercises/chapter-5-oscar/Flattening/Flattening';
 import YourOwnLoop from '@/components/exercises/chapter-5-oscar/YourOwnLoop/YourOwnLoop';
+import WeatherApp from '@/components/exercises/chapter-5-oscar/Everything/WeatherApp';
 import '../app/globals.css';
 
 const chapterId = 5;
@@ -42,6 +43,12 @@ export default function Chapter5() {
                   details={devOscar[1].details}
                   id={devOscar[1].id}
                   title={devOscar[1].title}
+                />
+                <PageCard
+                  id={devOscar[2].id}
+                  title={devOscar[2].title}
+                  details={devOscar[2].details}
+                  code={() => <WeatherApp />}
                 />
               </>
             )}

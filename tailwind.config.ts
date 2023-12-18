@@ -31,6 +31,12 @@ module.exports = {
       transformOrigin: {
         custom: 'center 150px',
       },
+      opacity: {
+        '15': '0.15',
+        '35': '0.35',
+        '40': '0.4',
+        '65': '0.65',
+      },
     },
   },
   plugins: [require('postcss-nested'), require('tailwindcss')],

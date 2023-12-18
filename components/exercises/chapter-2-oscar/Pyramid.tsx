@@ -1,5 +1,4 @@
 import CustomButton from '@/components/CustomButton';
-import 'app/globals.css';
 import { useState } from 'react';
 
 interface PyramidProps {
