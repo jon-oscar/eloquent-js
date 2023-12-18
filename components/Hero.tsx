@@ -16,19 +16,19 @@ const Hero = () => {
           collaboration with a senior engineer, using real world practices.
         </p>
         <CustomButton
-          title='Explore chapters'
           containerStyles='bg-[#B2980B] text-white rounded-full mt-10'
           handleClick={handleScroll}
+          title='Explore chapters'
         />
       </div>
 
       <div className='hero__image-container'>
         <div className='hero__image'>
           <Image
-            className='object-contain'
-            src='/hero.png'
             alt='hero image'
+            className='object-contain'
             fill
+            src='/hero.png'
           />
         </div>
         <div className='hero__image-overlay' />

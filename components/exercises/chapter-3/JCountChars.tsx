@@ -18,17 +18,17 @@ export default function JCountChars() {
   return (
     <div data-testid='j-count-chars'>
       <div className='w-full'>
-        <RadioGroup value={countedCharacter} onChange={setCountedCharacter}>
+        <RadioGroup onChange={setCountedCharacter} value={countedCharacter}>
           <div className='flex justify-center space-x-2'>
             {COUNTED_CHARACTERS.map((char) => (
               <RadioGroup.Option
-                key={char}
-                value={char}
-                data-testid={`j-count-chars-${char}-radio`}
                 className={({ checked }) =>
                   `${checked ? 'bg-[#B2980B] text-white' : 'bg-white'}
               relative flex cursor-pointer rounded-full px-5 py-4 shadow-md focus:outline-none`
                 }
+                data-testid={`j-count-chars-${char}-radio`}
+                key={char}
+                value={char}
               >
                 {({ checked }) => (
                   <div className='flex w-10 items-center justify-between'>
@@ -59,10 +59,10 @@ export default function JCountChars() {
         <table className='w-full text-left text-sm text-gray-500 dark:text-gray-400'>
           <thead className='bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400'>
             <tr>
-              <th scope='col' className='px-6 py-3'>
+              <th className='px-6 py-3' scope='col'>
                 Word
               </th>
-              <th scope='col' className='px-6 py-3'>
+              <th className='px-6 py-3' scope='col'>
                 Count
               </th>
             </tr>
@@ -70,14 +70,14 @@ export default function JCountChars() {
           <tbody>
             {WORDS.map((word) => (
               <tr
-                key={word}
                 className='border-b bg-white dark:border-gray-700 dark:bg-gray-800'
                 data-testid={`j-count-chars-${word}-row`}
+                key={word}
               >
                 <th
-                  scope='row'
                   className='whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white'
                   data-testid={`j-count-chars-${word}-word`}
+                  scope='row'
                 >
                   {word}
                 </th>

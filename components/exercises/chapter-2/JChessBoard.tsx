@@ -13,10 +13,10 @@ const MAX_ROWS_SHOWN = 5;
 function Cell({ color }: { color: 'white' | 'black' }): JSX.Element {
   return (
     <div
-      data-testid={`j-chess-board-${color}-cell`}
       className={`h-10 w-10 ${
         color === 'white' ? 'bg-[#FEFCF3]' : 'bg-[#B2980B]'
       }`}
+      data-testid={`j-chess-board-${color}-cell`}
     ></div>
   );
 }
@@ -52,27 +52,27 @@ export default function JChessBoard(): JSX.Element {
       <div className='flex flex-col items-center'>
         <div className='flex justify-center'>
           <CustomButton
+            containerStyles={buttonStyles}
             handleClick={handleDecrease}
             title='-'
-            containerStyles={buttonStyles}
           />
           <CustomButton
+            containerStyles={buttonStyles}
             handleClick={handleIncrease}
             title='+'
-            containerStyles={buttonStyles}
           />
         </div>
         <div className='h-[13rem] w-[13rem]'>
           {chessBoard.split('\n').map((row, i) => (
             <div
-              key={`row-${i}`}
               className='flex'
               data-testid='j-chess-board-row'
+              key={`row-${i}`}
             >
               {row.split('').map((square, j) => (
                 <Cell
-                  key={`cell-${i}-${j}`}
                   color={square === ' ' ? 'white' : 'black'}
+                  key={`cell-${i}-${j}`}
                 />
               ))}
             </div>

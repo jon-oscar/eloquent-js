@@ -47,9 +47,9 @@ export default function ReversingAnArray(): JSX.Element {
           <p className='text-4xl tracking-widest'>{arrays[0].value}</p>
         </div>
         <CustomButton
-          title='Click to reverse'
           containerStyles='bg-[#B2980B] text-white rounded-full mt-2 min-w-[222px]'
           handleClick={handleReverse}
+          title='Click to reverse'
         />
       </div>
       <div className='flex flex-1 flex-col items-center justify-center'>
@@ -57,9 +57,9 @@ export default function ReversingAnArray(): JSX.Element {
           <p className='text-4xl tracking-widest'>{arrays[1].value}</p>
         </div>
         <CustomButton
-          title='Click to reverse in place'
           containerStyles='bg-[#B2980B] text-white rounded-full mt-2 min-w-[222px]'
           handleClick={handleReverseInPlace}
+          title='Click to reverse in place'
         />
       </div>
     </div>

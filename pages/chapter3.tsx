@@ -41,22 +41,22 @@ export default function Chapter3() {
             {devOscar && (
               <>
                 <PageCard
+                  code={() => <Minimum />}
+                  details={devOscar[0].details}
                   id={devOscar[0].id}
                   title={devOscar[0].title}
-                  details={devOscar[0].details}
-                  code={() => <Minimum />}
                 />
                 <PageCard
+                  code={() => <Recursion />}
+                  details={devOscar[1].details}
                   id={devOscar[1].id}
                   title={devOscar[1].title}
-                  details={devOscar[1].details}
-                  code={() => <Recursion />}
                 />
                 <PageCard
+                  code={() => <BeanCounting phraseValue={''} />}
+                  details={devOscar[2].details}
                   id={devOscar[2].id}
                   title={devOscar[2].title}
-                  details={devOscar[2].details}
-                  code={() => <BeanCounting phraseValue={''} />}
                 />
               </>
             )}
@@ -65,22 +65,22 @@ export default function Chapter3() {
             {devJon && (
               <>
                 <PageCard
+                  code={() => <JMinimum />}
+                  details={devJon[0].details}
                   id={devJon[0].id}
                   title={devJon[0].title}
-                  details={devJon[0].details}
-                  code={() => <JMinimum />}
                 />
                 <PageCard
+                  code={() => <JRecursiveIsEven />}
+                  details={devJon[1].details}
                   id={devJon[1].id}
                   title={devJon[1].title}
-                  details={devJon[1].details}
-                  code={() => <JRecursiveIsEven />}
                 />
                 <PageCard
+                  code={() => <JCountChars />}
+                  details={devJon[2].details}
                   id={devJon[2].id}
                   title={devJon[2].title}
-                  details={devJon[2].details}
-                  code={() => <JCountChars />}
                 />
               </>
             )}

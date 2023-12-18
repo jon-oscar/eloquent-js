@@ -24,13 +24,13 @@ const Chessboard = ({ size }: Props) => {
           <div data-testid='gridrow' key={y}>
             {row.split('').map((cell, x) => (
               <div
-                data-testid='gridcell'
-                key={x}
                 className={
                   cell === ' '
                     ? 'h-5 w-5 bg-white'
                     : 'h-5 w-5 animate-bounce bg-[#B2980B]'
                 }
+                data-testid='gridcell'
+                key={x}
               ></div>
             ))}
           </div>

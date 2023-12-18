@@ -12,7 +12,7 @@ function ListNode({ list }: { list: JList<ReactNode> | null }): ReactNode {
   if (list === null) return null;
   return (
     <>
-      <div role='listitem' className='m-2 rounded border border-gray-500 p-2'>
+      <div className='m-2 rounded border border-gray-500 p-2' role='listitem'>
         {list.value}
       </div>
       {list.rest && (
@@ -58,22 +58,22 @@ export default function JAList(): ReactNode {
       {/* Input form */}
       <div className='w-full max-w-xs'>
         <form
-          onSubmit={handleAddItem}
           className='mb-4 rounded bg-white px-8 pb-8 pt-6 shadow-md'
+          onSubmit={handleAddItem}
         >
           <div className='mb-4'>
             <label
-              htmlFor='newItem'
               className='mb-2 block text-sm font-bold text-gray-700'
+              htmlFor='newItem'
             >
               New item
             </label>
             <input
               className='w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none'
-              type='text'
               id='newItem'
-              value={newItem}
               onChange={(e) => setNewItem(e.target.value)}
+              type='text'
+              value={newItem}
             />
           </div>
           <div className='flex items-center justify-between'>

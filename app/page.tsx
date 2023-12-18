@@ -19,12 +19,12 @@ export default function Home() {
           {chapter.map(({ title, subtitle, image, exercises, link }) => {
             return (
               <ChapterCard
-                key={title}
-                title={title}
-                subtitle={subtitle}
-                image={image}
                 exercises={exercises}
+                image={image}
+                key={title}
                 link={link}
+                subtitle={subtitle}
+                title={title}
               />
             );
           })}

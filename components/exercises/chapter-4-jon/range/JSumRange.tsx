@@ -38,11 +38,11 @@ export default function JSumRange(): React.JSX.Element {
           </label>
           <input
             id='min'
-            type='range'
-            min={MIN_VALUE}
             max={MAX_VALUE}
-            value={minValue}
+            min={MIN_VALUE}
             onChange={handleMinChange}
+            type='range'
+            value={minValue}
           />
         </div>
         <div className='flex flex-col align-middle'>
@@ -51,11 +51,11 @@ export default function JSumRange(): React.JSX.Element {
           </label>
           <input
             id='max'
-            type='range'
-            min={MIN_VALUE}
             max={MAX_VALUE}
-            value={maxValue}
+            min={MIN_VALUE}
             onChange={handleMaxChange}
+            type='range'
+            value={maxValue}
           />
         </div>
       </div>

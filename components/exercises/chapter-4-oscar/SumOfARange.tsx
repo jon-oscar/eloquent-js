@@ -76,10 +76,10 @@ export default function SumOfARange(): React.JSX.Element {
                 key={animals[num - 1].name}
               >
                 <Image
-                  width={60}
+                  alt={animals[num - 1].name}
                   height={60}
                   src={animals[num - 1].img}
-                  alt={animals[num - 1].name}
+                  width={60}
                 />
                 <figcaption>{animals[num - 1].name}</figcaption>
               </figure>
@@ -94,10 +94,10 @@ export default function SumOfARange(): React.JSX.Element {
             <div className='flex flex-row items-center justify-between'>
               <div className='relative w-40'>
                 <select
-                  data-testid='Start'
-                  value={range.start}
-                  onChange={handleChangeStart}
                   className='block w-full appearance-none rounded border border-gray-300 bg-white px-4 py-2 pr-8 leading-tight shadow hover:border-gray-400 focus:border-blue-500 focus:outline-none focus:ring'
+                  data-testid='Start'
+                  onChange={handleChangeStart}
+                  value={range.start}
                 >
                   {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
                     <option key={num + ' start'} value={num}>
@@ -108,8 +108,8 @@ export default function SumOfARange(): React.JSX.Element {
                 <div className='pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700'>
                   <svg
                     className='h-4 w-4 fill-current'
-                    xmlns='http://www.w3.org/2000/svg'
                     viewBox='0 0 20 20'
+                    xmlns='http://www.w3.org/2000/svg'
                   >
                     <path d='M6.293 9.293a1 1 0 011.414 0L10 11.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z' />
                   </svg>
@@ -118,10 +118,10 @@ export default function SumOfARange(): React.JSX.Element {
               <p>to</p>
               <div className='relative w-40'>
                 <select
-                  data-testid='End'
-                  value={range.end}
-                  onChange={handleChangeEnd}
                   className='block w-full appearance-none rounded border border-gray-300 bg-white px-4 py-2 pr-8 leading-tight shadow hover:border-gray-400 focus:border-blue-500 focus:outline-none focus:ring'
+                  data-testid='End'
+                  onChange={handleChangeEnd}
+                  value={range.end}
                 >
                   {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
                     <option key={num + ' end'} value={num}>
@@ -132,8 +132,8 @@ export default function SumOfARange(): React.JSX.Element {
                 <div className='pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700'>
                   <svg
                     className='h-4 w-4 fill-current'
-                    xmlns='http://www.w3.org/2000/svg'
                     viewBox='0 0 20 20'
+                    xmlns='http://www.w3.org/2000/svg'
                   >
                     <path d='M6.293 9.293a1 1 0 011.414 0L10 11.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z' />
                   </svg>

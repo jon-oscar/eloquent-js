@@ -32,16 +32,16 @@ export default function Chapter5() {
             {devOscar && (
               <>
                 <PageCard
+                  code={() => <Flattening />}
+                  details={devOscar[0].details}
                   id={devOscar[0].id}
                   title={devOscar[0].title}
-                  details={devOscar[0].details}
-                  code={() => <Flattening />}
                 />
                 <PageCard
+                  code={() => <YourOwnLoop />}
+                  details={devOscar[1].details}
                   id={devOscar[1].id}
                   title={devOscar[1].title}
-                  details={devOscar[1].details}
-                  code={() => <YourOwnLoop />}
                 />
               </>
             )}
@@ -49,10 +49,10 @@ export default function Chapter5() {
           <div className='flex flex-col'>
             {devJon && (
               <PageCard
+                code={() => 'CODE GOES HERE'}
+                details={devJon[0].details}
                 id={devJon[0].id}
                 title={devJon[0].title}
-                details={devJon[0].details}
-                code={() => 'CODE GOES HERE'}
               />
             )}
           </div>

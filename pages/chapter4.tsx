@@ -38,28 +38,28 @@ export default function Chapter4() {
             {devOscar && (
               <>
                 <PageCard
+                  code={() => <SumOfARange />}
+                  details={devOscar[0].details}
                   id={devOscar[0].id}
                   title={devOscar[0].title}
-                  details={devOscar[0].details}
-                  code={() => <SumOfARange />}
                 />
                 <PageCard
+                  code={() => <ReversingAnArray />}
+                  details={devOscar[1].details}
                   id={devOscar[1].id}
                   title={devOscar[1].title}
-                  details={devOscar[1].details}
-                  code={() => <ReversingAnArray />}
                 />
                 <PageCard
+                  code={() => <CityList />}
+                  details={devOscar[2].details}
                   id={devOscar[2].id}
                   title={devOscar[2].title}
-                  details={devOscar[2].details}
-                  code={() => <CityList />}
                 />
                 <PageCard
+                  code={() => <DeepComparison />}
+                  details={devOscar[3].details}
                   id={devOscar[3].id}
                   title={devOscar[3].title}
-                  details={devOscar[3].details}
-                  code={() => <DeepComparison />}
                 />
               </>
             )}
@@ -68,28 +68,28 @@ export default function Chapter4() {
             {devJon && (
               <>
                 <PageCard
+                  code={() => <JSumRange />}
+                  details={devJon[0].details}
                   id={devJon[0].id}
                   title={devJon[0].title}
-                  details={devJon[0].details}
-                  code={() => <JSumRange />}
                 />
                 <PageCard
+                  code={() => <JArrayReversion />}
+                  details={devJon[1].details}
                   id={devJon[1].id}
                   title={devJon[1].title}
-                  details={devJon[1].details}
-                  code={() => <JArrayReversion />}
                 />
                 <PageCard
+                  code={() => <JAList />}
+                  details={devJon[2].details}
                   id={devJon[2].id}
                   title={devJon[2].title}
-                  details={devJon[2].details}
-                  code={() => <JAList />}
                 />
                 <PageCard
+                  code={() => <JDeepComparison />}
+                  details={devJon[3].details}
                   id={devJon[3].id}
                   title={devJon[3].title}
-                  details={devJon[3].details}
-                  code={() => <JDeepComparison />}
                 />
               </>
             )}
