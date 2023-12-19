@@ -6,9 +6,9 @@ import '../app/globals.css';
 import Chessboard from '@/components/exercises/chapter-2-oscar/Chessboard';
 import FizzBuzz from '@/components/exercises/chapter-2-oscar/FizzBuzz';
 import Pyramid from '@/components/exercises/chapter-2-oscar/Pyramid';
-import JChessBoard from '@/components/exercises/chapter-2/JChessBoard';
-import JFizzBuzz from '@/components/exercises/chapter-2/JFizzBuzz';
-import JPyramid from '@/components/exercises/chapter-2/JPyramid';
+import JChessBoard from '@/components/exercises/chapter-2-jon/JChessBoard';
+import JFizzBuzz from '@/components/exercises/chapter-2-jon/JFizzBuzz';
+import JPyramid from '@/components/exercises/chapter-2-jon/JPyramid';
 
 /**
  * Renders the content for Chapter 2 page.
