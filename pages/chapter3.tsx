@@ -6,9 +6,9 @@ import '../app/globals.css';
 import BeanCounting from '@/components/exercises/chapter-3-oscar/BeanCounting';
 import Minimum from '@/components/exercises/chapter-3-oscar/Minimum';
 import Recursion from '@/components/exercises/chapter-3-oscar/Recursion';
-import JCountChars from '@/components/exercises/chapter-3/JCountChars';
-import JMinimum from '@/components/exercises/chapter-3/JMinimum';
-import JRecursiveIsEven from '@/components/exercises/chapter-3/JRecursiveIsEven';
+import JCountChars from '@/components/exercises/chapter-3-jon/JCountChars';
+import JMinimum from '@/components/exercises/chapter-3-jon/JMinimum';
+import JRecursiveIsEven from '@/components/exercises/chapter-3-jon/JRecursiveIsEven';
 
 const chapterId = 3;
 
