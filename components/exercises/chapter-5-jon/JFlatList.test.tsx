@@ -31,7 +31,7 @@ describe('JFlatList', () => {
     });
   });
 
-  it('changes the word when a prefixes and suffixes are deselected and selected', async () => {
+  it('changes the word when prefixes and suffixes are deselected and selected', async () => {
     render(<JFlatList />);
     await clickButtonAndExpectResult('un', 'likely');
     await clickButtonAndExpectResult('ly', 'like');
