@@ -15,7 +15,7 @@ type ButtonGroupProps = {
 
 /**
  * Renders a group of buttons that can be selected. Has different styling based on selected state.
- * @returns
+ * @returns {JSX.Element}
  */
 function ButtonGroup({
   color,
@@ -29,7 +29,9 @@ function ButtonGroup({
 
   const handleClick = (item: string) => {
     if (selectedItems.includes(item)) {
-      setSelectedItems(selectedItems.filter((p) => p !== item));
+      setSelectedItems(
+        selectedItems.filter((selectedItem) => selectedItem !== item)
+      );
     } else {
       setSelectedItems([...selectedItems, item]);
     }
@@ -59,7 +61,7 @@ function ButtonGroup({
 
 /**
  * Renders a list of prefixes and suffixes that can be selected to create a new word.
- * @returns {JSX.Element} The rendered
+ * @returns {JSX.Element}
  */
 export default function JFlatList(): JSX.Element {
   const [selectedPrefixes, setSelectedPrefixes] = useState<string[]>(['un']);
