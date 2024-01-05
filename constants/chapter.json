@@ -142,9 +142,9 @@
     "details": "Being able to pass function values to other functions is a deeply useful aspect of JavaScript. It allows us to write functions that model computations with “gaps” in them.",
     "devJon": [
       {
-        "details": "",
+        "details": "Select prefixes and suffixes to update the result word.",
         "id": 1,
-        "title": ""
+        "title": "Compound words"
       },
       {
         "details": "",
