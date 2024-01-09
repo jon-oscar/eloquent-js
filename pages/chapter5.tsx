@@ -5,6 +5,7 @@ import Flattening from '@/components/exercises/chapter-5-oscar/Flattening/Flatte
 import YourOwnLoop from '@/components/exercises/chapter-5-oscar/YourOwnLoop/YourOwnLoop';
 import '../app/globals.css';
 import JFlatList from '@/components/exercises/chapter-5-jon/JFlatList';
+import JOrbit from '@/components/exercises/chapter-5-jon/JOrbit';
 
 const chapterId = 5;
 
@@ -49,12 +50,20 @@ export default function Chapter5() {
           </div>
           <div className='flex flex-col'>
             {devJon && (
-              <PageCard
-                code={() => <JFlatList />}
-                details={devJon[0].details}
-                id={devJon[0].id}
-                title={devJon[0].title}
-              />
+              <>
+                <PageCard
+                  code={() => <JFlatList />}
+                  details={devJon[0].details}
+                  id={devJon[0].id}
+                  title={devJon[0].title}
+                />
+                <PageCard
+                  code={() => <JOrbit />}
+                  details={devJon[1].details}
+                  id={devJon[1].id}
+                  title={devJon[1].title}
+                />
+              </>
             )}
           </div>
         </div>

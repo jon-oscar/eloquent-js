@@ -28,6 +28,8 @@ describe('Chapter5', () => {
     render(<Chapter5 />);
     const yourOwnLoop = screen.getByText(/Your Own Loop/i);
     expect(yourOwnLoop).toBeInTheDocument();
+    const orbitingPlanets = screen.getByText(/Orbiting planets/i);
+    expect(orbitingPlanets).toBeInTheDocument();
   });
 
   it('renders the developer card for Oscar Reyes', () => {
