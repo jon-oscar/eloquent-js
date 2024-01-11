@@ -6,6 +6,7 @@ import YourOwnLoop from '@/components/exercises/chapter-5-oscar/YourOwnLoop/Your
 import '../app/globals.css';
 import JFlatList from '@/components/exercises/chapter-5-jon/JFlatList';
 import JOrbit from '@/components/exercises/chapter-5-jon/JOrbit';
+import JHerbivore from '@/components/exercises/chapter-5-jon/JHerbivore';
 
 const chapterId = 5;
 
@@ -62,6 +63,12 @@ export default function Chapter5() {
                   details={devJon[1].details}
                   id={devJon[1].id}
                   title={devJon[1].title}
+                />
+                <PageCard
+                  code={() => <JHerbivore />}
+                  details={devJon[2].details}
+                  id={devJon[2].id}
+                  title={devJon[2].title}
                 />
               </>
             )}

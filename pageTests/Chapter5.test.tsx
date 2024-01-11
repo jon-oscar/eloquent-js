@@ -32,6 +32,12 @@ describe('Chapter5', () => {
     expect(orbitingPlanets).toBeInTheDocument();
   });
 
+  it('renders the every exercise', () => {
+    render(<Chapter5 />);
+    const animals = screen.getByText(/find herbivore animals/i);
+    expect(animals).toBeInTheDocument();
+  });
+
   it('renders the developer card for Oscar Reyes', () => {
     render(<Chapter5 />);
     const oscarCard = screen.getByText(/Oscar Reyes/i);
