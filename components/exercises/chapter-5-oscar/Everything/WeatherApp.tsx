@@ -40,7 +40,7 @@ export default function WeatherApp(): JSX.Element {
   ): Promise<void> {
     event.preventDefault();
     try {
-      // Fetch weather data from the API using Axios
+      // Fetch weather data from the API
       const response = await fetch(apiUrl);
       if (response.ok) {
         const data: WeatherData = await response.json();
