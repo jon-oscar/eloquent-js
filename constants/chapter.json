@@ -152,9 +152,9 @@
         "title": "Orbiting planets"
       },
       {
-        "details": "This is my solution for...",
+        "details": "Press button to change animals until every animal shown is herbivore",
         "id": 3,
-        "title": " "
+        "title": "Find herbivore animals"
       }
     ],
     "devOscar": [
