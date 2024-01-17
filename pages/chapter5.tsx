@@ -7,6 +7,7 @@ import WeatherApp from '@/components/exercises/chapter-5-oscar/Everything/Weathe
 import '../app/globals.css';
 import JFlatList from '@/components/exercises/chapter-5-jon/JFlatList';
 import JOrbit from '@/components/exercises/chapter-5-jon/JOrbit';
+import JHerbivore from '@/components/exercises/chapter-5-jon/JHerbivore';
 
 const chapterId = 5;
 
@@ -47,10 +48,10 @@ export default function Chapter5() {
                   title={devOscar[1].title}
                 />
                 <PageCard
+                  code={() => <WeatherApp />}
+                  details={devOscar[2].details}
                   id={devOscar[2].id}
                   title={devOscar[2].title}
-                  details={devOscar[2].details}
-                  code={() => <WeatherApp />}
                 />
               </>
             )}
@@ -69,6 +70,12 @@ export default function Chapter5() {
                   details={devJon[1].details}
                   id={devJon[1].id}
                   title={devJon[1].title}
+                />
+                <PageCard
+                  code={() => <JHerbivore />}
+                  details={devJon[2].details}
+                  id={devJon[2].id}
+                  title={devJon[2].title}
                 />
               </>
             )}

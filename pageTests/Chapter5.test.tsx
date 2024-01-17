@@ -36,6 +36,8 @@ describe('Chapter5', () => {
     render(<Chapter5 />);
     const everything = screen.getByText(/Everything/i);
     expect(everything).toBeInTheDocument();
+    const animals = screen.getByText(/find herbivore animals/i);
+    expect(animals).toBeInTheDocument();
   });
 
   it('renders the developer card for Oscar Reyes', () => {
