@@ -8,6 +8,7 @@ import '../app/globals.css';
 import JFlatList from '@/components/exercises/chapter-5-jon/JFlatList';
 import JOrbit from '@/components/exercises/chapter-5-jon/JOrbit';
 import JHerbivore from '@/components/exercises/chapter-5-jon/JHerbivore';
+import JTextAnalyzer from '@/components/exercises/chapter-5-jon/JTextAnalyzer';
 
 const chapterId = 5;
 
@@ -76,6 +77,12 @@ export default function Chapter5() {
                   details={devJon[2].details}
                   id={devJon[2].id}
                   title={devJon[2].title}
+                />
+                <PageCard
+                  code={() => <JTextAnalyzer />}
+                  details={devJon[3].details}
+                  id={devJon[3].id}
+                  title={devJon[3].title}
                 />
               </>
             )}

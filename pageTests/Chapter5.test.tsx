@@ -40,6 +40,14 @@ describe('Chapter5', () => {
     expect(animals).toBeInTheDocument();
   });
 
+  it('renders the writing direction exercise', () => {
+    render(<Chapter5 />);
+    const exercise = screen.getByText(
+      /Enter any text to see the writing direction of the majority of the text/i
+    );
+    expect(exercise).toBeInTheDocument();
+  });
+
   it('renders the developer card for Oscar Reyes', () => {
     render(<Chapter5 />);
     const oscarCard = screen.getByText(/Oscar Reyes/i);
