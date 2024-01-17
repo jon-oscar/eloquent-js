@@ -721,7 +721,7 @@
     "year": -100
   },
   {
-    "direction": "ltr",
+    "direction": "ttb",
     "link": "https://en.wikipedia.org/wiki/Hiragana",
     "living": true,
     "name": "Hiragana",
