@@ -36,14 +36,14 @@ export default function JPyramid(): JSX.Element {
       <div className='flex flex-col items-center'>
         <div className='flex justify-center'>
           <CustomButton
+            containerStyles={buttonStyles}
             handleClick={handleDecrease}
             title='-'
-            containerStyles={buttonStyles}
           />
           <CustomButton
+            containerStyles={buttonStyles}
             handleClick={handleIncrease}
             title='+'
-            containerStyles={buttonStyles}
           />
         </div>
         <div className='h-[15rem] w-[15rem]'>
@@ -52,9 +52,9 @@ export default function JPyramid(): JSX.Element {
             char === '#' ? (
               // inline rounded div that looks like a dot
               <div
+                className='m-1 inline-block h-[2em] w-[2em] rounded-full bg-[#B2980B] hover:animate-pulse'
                 data-testid='j-pyramid-dot'
                 key={index}
-                className='m-1 inline-block h-[2em] w-[2em] rounded-full bg-[#B2980B] hover:animate-pulse'
               />
             ) : (
               <br key={index} />

@@ -61,15 +61,15 @@ export default function JDeepComparison(): JSX.Element {
       <div className='flex items-center justify-center'>
         <button
           className={buttonClassNames}
-          style={text1Style}
           onClick={handleText1Click}
+          style={text1Style}
         >
           {"I don't do fashion."}
         </button>
         <button
           className={buttonClassNames}
-          style={text2Style}
           onClick={handleText2Click}
+          style={text2Style}
         >
           {'I am fashion.'}
         </button>

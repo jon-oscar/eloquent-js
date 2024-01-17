@@ -5,6 +5,8 @@ import Flattening from '@/components/exercises/chapter-5-oscar/Flattening/Flatte
 import YourOwnLoop from '@/components/exercises/chapter-5-oscar/YourOwnLoop/YourOwnLoop';
 import WeatherApp from '@/components/exercises/chapter-5-oscar/Everything/WeatherApp';
 import '../app/globals.css';
+import JFlatList from '@/components/exercises/chapter-5-jon/JFlatList';
+import JOrbit from '@/components/exercises/chapter-5-jon/JOrbit';
 
 const chapterId = 5;
 
@@ -33,16 +35,16 @@ export default function Chapter5() {
             {devOscar && (
               <>
                 <PageCard
+                  code={() => <Flattening />}
+                  details={devOscar[0].details}
                   id={devOscar[0].id}
                   title={devOscar[0].title}
-                  details={devOscar[0].details}
-                  code={() => <Flattening />}
                 />
                 <PageCard
+                  code={() => <YourOwnLoop />}
+                  details={devOscar[1].details}
                   id={devOscar[1].id}
                   title={devOscar[1].title}
-                  details={devOscar[1].details}
-                  code={() => <YourOwnLoop />}
                 />
                 <PageCard
                   id={devOscar[2].id}
@@ -55,12 +57,20 @@ export default function Chapter5() {
           </div>
           <div className='flex flex-col'>
             {devJon && (
-              <PageCard
-                id={devJon[0].id}
-                title={devJon[0].title}
-                details={devJon[0].details}
-                code={() => 'CODE GOES HERE'}
-              />
+              <>
+                <PageCard
+                  code={() => <JFlatList />}
+                  details={devJon[0].details}
+                  id={devJon[0].id}
+                  title={devJon[0].title}
+                />
+                <PageCard
+                  code={() => <JOrbit />}
+                  details={devJon[1].details}
+                  id={devJon[1].id}
+                  title={devJon[1].title}
+                />
+              </>
             )}
           </div>
         </div>

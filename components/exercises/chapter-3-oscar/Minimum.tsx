@@ -45,20 +45,20 @@ export default function Minimum() {
   const [people, setPeople] = useState(initialPeople);
 
   return (
-    <div data-testid='minimum' className='flex flex-col'>
+    <div className='flex flex-col' data-testid='minimum'>
       <div className='flex flex-row justify-between'>
         {people.map((item) => (
           <div
-            key={item.name}
             className='m-2 flex flex-1 flex-col items-center justify-center'
+            key={item.name}
           >
             <div className='h-32 w-32'>
               <Image
-                src={item.image}
                 alt={`Avatar for ${item.name}}`}
-                width={128}
-                height={128}
                 className='rounded-full'
+                height={128}
+                src={item.image}
+                width={128}
               />
             </div>
             <p className='mt-2 text-center'>{item.phrase}</p>
@@ -67,10 +67,10 @@ export default function Minimum() {
       </div>
       <>
         <CustomButton
-          title='Click me'
           btnType='button'
           containerStyles='text-white rounded-full bg-[#B2980B] min-w-[150px] max-h-[48px]'
           handleClick={() => setPeople(stateFiltered)}
+          title='Click me'
         />
       </>
     </div>

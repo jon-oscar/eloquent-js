@@ -47,12 +47,12 @@ export default function BeanCounting({
   return (
     <div data-testid='bean counting'>
       <input
+        aria-label='Phrase'
+        className='h-[50px] w-full rounded-3xl border-2 bg-[#FEFCF3] text-center'
+        onChange={(e) => setState(e.target.value)}
+        placeholder='Enter your phrase here'
         type='text'
         value={state}
-        placeholder='Enter your phrase here'
-        onChange={(e) => setState(e.target.value)}
-        className='h-[50px] w-full rounded-3xl border-2 bg-[#FEFCF3] text-center'
-        aria-label='Phrase'
       />
       <div className='mt-2 flex flex-row'>
         <div className='flex-1 text-center'>

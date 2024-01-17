@@ -6,9 +6,9 @@ import '../app/globals.css';
 import BeanCounting from '@/components/exercises/chapter-3-oscar/BeanCounting';
 import Minimum from '@/components/exercises/chapter-3-oscar/Minimum';
 import Recursion from '@/components/exercises/chapter-3-oscar/Recursion';
-import JCountChars from '@/components/exercises/chapter-3/JCountChars';
-import JMinimum from '@/components/exercises/chapter-3/JMinimum';
-import JRecursiveIsEven from '@/components/exercises/chapter-3/JRecursiveIsEven';
+import JCountChars from '@/components/exercises/chapter-3-jon/JCountChars';
+import JMinimum from '@/components/exercises/chapter-3-jon/JMinimum';
+import JRecursiveIsEven from '@/components/exercises/chapter-3-jon/JRecursiveIsEven';
 
 const chapterId = 3;
 
@@ -41,22 +41,22 @@ export default function Chapter3() {
             {devOscar && (
               <>
                 <PageCard
+                  code={() => <Minimum />}
+                  details={devOscar[0].details}
                   id={devOscar[0].id}
                   title={devOscar[0].title}
-                  details={devOscar[0].details}
-                  code={() => <Minimum />}
                 />
                 <PageCard
+                  code={() => <Recursion />}
+                  details={devOscar[1].details}
                   id={devOscar[1].id}
                   title={devOscar[1].title}
-                  details={devOscar[1].details}
-                  code={() => <Recursion />}
                 />
                 <PageCard
+                  code={() => <BeanCounting phraseValue={''} />}
+                  details={devOscar[2].details}
                   id={devOscar[2].id}
                   title={devOscar[2].title}
-                  details={devOscar[2].details}
-                  code={() => <BeanCounting phraseValue={''} />}
                 />
               </>
             )}
@@ -65,22 +65,22 @@ export default function Chapter3() {
             {devJon && (
               <>
                 <PageCard
+                  code={() => <JMinimum />}
+                  details={devJon[0].details}
                   id={devJon[0].id}
                   title={devJon[0].title}
-                  details={devJon[0].details}
-                  code={() => <JMinimum />}
                 />
                 <PageCard
+                  code={() => <JRecursiveIsEven />}
+                  details={devJon[1].details}
                   id={devJon[1].id}
                   title={devJon[1].title}
-                  details={devJon[1].details}
-                  code={() => <JRecursiveIsEven />}
                 />
                 <PageCard
+                  code={() => <JCountChars />}
+                  details={devJon[2].details}
                   id={devJon[2].id}
                   title={devJon[2].title}
-                  details={devJon[2].details}
-                  code={() => <JCountChars />}
                 />
               </>
             )}

@@ -1,167 +1,160 @@
 [
   {
-    "id": 2,
-    "title": "Chapter 2",
-    "subtitle": "Program Structure",
-    "image": "/chapter-2.jpg",
-    "exercises": "Looping a triangle, FizzBuzz, Chessboard",
-    "link": "/chapter2",
     "details": "This chapter introduces the basic concepts of programming. Control structures, functions, and data structures are covered. The chapter also explains how JavaScript is organized and how it differs from other programming languages. Here are the following assignments: 1) Write a loop that makes seven calls to output a triangle. 2)Write a program that print all the numbers from 1 to 100. For numbers divisible by 3, print Fizz, and for numbers 5, print Buzz. 3) Write a program that represents an 8×8 grid, using newline characters to separate lines.",
-    "devOscar": [
-      {
-        "id": 1,
-        "title": "Looping a triangle",
-        "details": "Click Add/Remove button to show a little moon 🌝."
-      },
-      {
-        "id": 2,
-        "title": "FizzBuzz",
-        "details": "Introduce any sentence and see how it Fizz Buzzes."
-      },
-      {
-        "id": 3,
-        "title": "Chessboard",
-        "details": "Here is a jumper chessboard."
-      }
-    ],
     "devJon": [
       {
+        "details": "Tap + or - to update rows",
         "id": 1,
-        "title": "Looping a triangle",
-        "details": "Tap + or - to update rows"
+        "title": "Looping a triangle"
       },
       {
+        "details": "Tap + or - to update number",
         "id": 2,
-        "title": "FizzBuzz",
-        "details": "Tap + or - to update number"
+        "title": "FizzBuzz"
       },
       {
+        "details": "Tap + or - to update rows",
         "id": 3,
-        "title": "Chessboard",
-        "details": "Tap + or - to update rows"
+        "title": "Chessboard"
       }
-    ]
+    ],
+    "devOscar": [
+      {
+        "details": "Click Add/Remove button to show a little moon 🌝.",
+        "id": 1,
+        "title": "Looping a triangle"
+      },
+      {
+        "details": "Introduce any sentence and see how it Fizz Buzzes.",
+        "id": 2,
+        "title": "FizzBuzz"
+      },
+      {
+        "details": "Here is a jumper chessboard.",
+        "id": 3,
+        "title": "Chessboard"
+      }
+    ],
+    "exercises": "Looping a triangle, FizzBuzz, Chessboard",
+    "id": 2,
+    "image": "/chapter-2.jpg",
+    "link": "/chapter2",
+    "subtitle": "Program Structure",
+    "title": "Chapter 2"
   },
   {
-    "id": 3,
-    "title": "Chapter 3",
-    "subtitle": "Functions",
-    "image": "/chapter-3.jpg",
-    "exercises": "Minimum, Recursion, Bean counting",
-    "link": "/chapter3",
     "details": "This chapter taught you how to write your own functions. Separating the tasks your program performs into different functions is helpful. You won’t have to repeat yourself as much, and functions can help organize a program by grouping code into pieces that do specific things.",
-    "devOscar": [
-      {
-        "id": 1,
-        "title": "Minimum",
-        "details": "Press the button below to display the youngest person."
-      },
-      {
-        "id": 2,
-        "title": "Recursion",
-        "details": "So I was thinking about a solution, then I found a flower and I came up with this"
-      },
-      {
-        "id": 3,
-        "title": "Bean counting",
-        "details": "👨🏽‍💻: Enter any phrase and I will count the number of Bs."
-      }
-    ],
     "devJon": [
       {
+        "details": "Add bugs on the code by tapping + or -, and find out which code has the fewest bugs.",
         "id": 1,
-        "title": "Minimum number of Bugs",
-        "details": "Add bugs on the code by tapping + or -, and find out which code has the fewest bugs."
+        "title": "Minimum number of Bugs"
       },
       {
+        "details": "Calculate whether a number is even or odd by subtracting 2 until you get to 0 or 1",
         "id": 2,
-        "title": "Recursive counter",
-        "details": "Calculate whether a number is even or odd by subtracting 2 until you get to 0 or 1"
+        "title": "Recursive counter"
       },
       {
+        "details": "Tap to see the number of \"a\"s, \"B\"s or \"c\"s on these words",
         "id": 3,
-        "title": "Character counter",
-        "details": "Tap to see the number of \"a\"s, \"B\"s or \"c\"s on these words"
+        "title": "Character counter"
       }
-    ]
+    ],
+    "devOscar": [
+      {
+        "details": "Press the button below to display the youngest person.",
+        "id": 1,
+        "title": "Minimum"
+      },
+      {
+        "details": "So I was thinking about a solution, then I found a flower and I came up with this",
+        "id": 2,
+        "title": "Recursion"
+      },
+      {
+        "details": "👨🏽‍💻: Enter any phrase and I will count the number of Bs.",
+        "id": 3,
+        "title": "Bean counting"
+      }
+    ],
+    "exercises": "Minimum, Recursion, Bean counting",
+    "id": 3,
+    "image": "/chapter-3.jpg",
+    "link": "/chapter3",
+    "subtitle": "Functions",
+    "title": "Chapter 3"
   },
   {
-    "id": 4,
-    "title": "Chapter 4",
-    "subtitle": "Data Structures: Objects and Arrays",
-    "image": "/chapter-4.jpg",
-    "exercises": "The sum of a range, reversing an array, a list, deep comparison",
-    "link": "/chapter4",
     "details": "Objects and arrays (which are a specific kind of object) provide ways to group several values into a single value. Conceptually, this allows us to put a bunch of related things in a bag and run around with the bag, instead of wrapping our arms around all of the individual things and trying to hold on to them separately",
-    "devOscar": [
-      {
-        "id": 1,
-        "title": "The sum of a range",
-        "details": "Adjust the range of animals to be shown through the dropdown selectors. Each animal represents a value from 1 to 10. Sum of animals represents the sum of the selected animals."
-      },
-      {
-        "id": 2,
-        "title": "Reversing an array",
-        "details": "The first, Click to reverse, takes an array as argument and produces a new array that has the same elements in the inverse order. The second, Click to reverse in place, modifies the array given as argument by reversing its elements"
-      },
-      {
-        "id": 3,
-        "title": "A list",
-        "details": "The first tab in yellow shows a dropdown with cities, and then the green button randomly adds a new city at the beginning of the list. Under, it renders the countries and flags of every city listed above. On the right in blue color, displays the main dish recommended for the first element of the list"
-      },
-
-      {
-        "id": 4,
-        "title": "Deep comparison",
-        "details": "Compare two objects representing 2 lists and return true only if they have the same properties and values. Use the +/- buttons to add or remove properties"
-      }
-    ],
     "devJon": [
       {
+        "details": "Drag the sliders to specify the range of numbers to sum",
         "id": 1,
-        "title": "Sum of a range",
-        "details": "Drag the sliders to specify the range of numbers to sum"
+        "title": "Sum of a range"
       },
       {
+        "details": "First button creates a new array with the elements in the inverse order. Second button reverses the array in place",
         "id": 2,
-        "title": "Reversion arrays",
-        "details": "First button creates a new array with the elements in the inverse order. Second button reverses the array in place"
+        "title": "Reversion arrays"
       },
       {
+        "details": "Add new items as the first element of the linked list and see how the list changes below",
         "id": 3,
-        "title": "Prepend to linked list",
-        "details": "Add new items as the first element of the linked list and see how the list changes below"
+        "title": "Prepend to linked list"
       },
       {
+        "details": "Tap on each text to randomly change their styles and see if they are equal",
         "id": 4,
-        "title": "Compare two texts",
-        "details": "Tap on each text to randomly change their styles and see if they are equal"
+        "title": "Compare two texts"
       }
-    ]
+    ],
+    "devOscar": [
+      {
+        "details": "Adjust the range of animals to be shown through the dropdown selectors. Each animal represents a value from 1 to 10. Sum of animals represents the sum of the selected animals.",
+        "id": 1,
+        "title": "The sum of a range"
+      },
+      {
+        "details": "The first, Click to reverse, takes an array as argument and produces a new array that has the same elements in the inverse order. The second, Click to reverse in place, modifies the array given as argument by reversing its elements",
+        "id": 2,
+        "title": "Reversing an array"
+      },
+      {
+        "details": "The first tab in yellow shows a dropdown with cities, and then the green button randomly adds a new city at the beginning of the list. Under, it renders the countries and flags of every city listed above. On the right in blue color, displays the main dish recommended for the first element of the list",
+        "id": 3,
+        "title": "A list"
+      },
+      {
+        "details": "Compare two objects representing 2 lists and return true only if they have the same properties and values. Use the +/- buttons to add or remove properties",
+        "id": 4,
+        "title": "Deep comparison"
+      }
+    ],
+    "exercises": "The sum of a range, reversing an array, a list, deep comparison",
+    "id": 4,
+    "image": "/chapter-4.jpg",
+    "link": "/chapter4",
+    "subtitle": "Data Structures: Objects and Arrays",
+    "title": "Chapter 4"
   },
   {
-    "id": 5,
-    "title": "Chapter 5",
-    "subtitle": "Higher-order Functions",
-    "image": "/chapter-5.jpg",
-    "exercises": "Flattening, Your own loop, Everything, Dominant writing direction",
-    "link": "/chapter5",
     "details": "Being able to pass function values to other functions is a deeply useful aspect of JavaScript. It allows us to write functions that model computations with “gaps” in them.",
-    "devOscar": [
+    "devJon": [
       {
+        "details": "Select prefixes and suffixes to update the result word.",
         "id": 1,
-        "title": "Flattening",
-        "details": "The header board is a representation of an array of arrays. The board below concatenates all the elements of the header board into a single array and includes a meaningful motivational phrase."
+        "title": "Compound words"
       },
       {
+        "details": "Add new planets and see how the planets orbit around the sun",
         "id": 2,
-        "title": "Your own loop",
-        "details": "In the center, you will find a timer, press the button ▶️ to start the countdown and press the button 🔄 to reset the counter. The timer stops when it reaches 0."
+        "title": "Orbiting planets"
       },
       {
+        "details": "",
         "id": 3,
-        "title": "Everything",
-        "details": "Enter a city or country in the search bar to get the weather information."
+        "title": ""
       },
       {
         "id": 4,
@@ -169,62 +162,73 @@
         "details": ""
       }
     ],
-    "devJon": [
+    "devOscar": [
       {
+        "details": "The header board is a representation of an array of arrays. The board below concatenates all the elements of the header board into a single array and includes a meaningful motivational phrase.",
         "id": 1,
-        "title": "",
-        "details": ""
+        "title": "Flattening"
       },
       {
+        "details": "In the center, you will find a timer, press the button ▶️ to start the countdown and press the button 🔄 to reset the counter. The timer stops when it reaches 0.",
         "id": 2,
-        "title": " ",
-        "details": ""
+        "title": "Your own loop"
       },
       {
+        "details": "Enter a city or country in the search bar to get the weather information.",
         "id": 3,
-        "title": " ",
-        "details": "This is my solution for..."
+        "title": "Everything"
+      },
+      {
+        "details": "",
+        "id": 4,
+        "title": ""
       }
-    ]
+    ],
+    "exercises": "Flattening, Your own loop, Everything, Dominant writing direction",
+    "id": 5,
+    "image": "/chapter-5.jpg",
+    "link": "/chapter5",
+    "subtitle": "Higher-order Functions",
+    "title": "Chapter 5"
   },
   {
-    "title": "Chapter 6",
-    "subtitle": "The Secret Life of Objects",
+    "details": "",
+    "exercises": "",
     "image": "/chapter-6.jpg",
-    "exercises": "",
     "link": "/chapter6",
-    "details": ""
+    "subtitle": "The Secret Life of Objects",
+    "title": "Chapter 6"
   },
   {
-    "title": "Chapter 7",
-    "subtitle": "Project: A Robot",
+    "details": "",
+    "exercises": "",
     "image": "/chapter-7.jpg",
-    "exercises": "",
     "link": "/chapter7",
-    "details": ""
+    "subtitle": "Project: A Robot",
+    "title": "Chapter 7"
   },
   {
-    "title": "Chapter 8",
-    "subtitle": "Bugs and Errors",
+    "details": "",
+    "exercises": "",
     "image": "/chapter-8.jpg",
-    "exercises": "",
     "link": "/chapter8",
-    "details": ""
+    "subtitle": "Bugs and Errors",
+    "title": "Chapter 8"
   },
   {
-    "title": "Chapter 9",
-    "subtitle": "Regular Expressions",
+    "details": "",
+    "exercises": "",
     "image": "/chapter-9.jpg",
-    "exercises": "",
     "link": "/chapter9",
-    "details": ""
+    "subtitle": "Regular Expressions",
+    "title": "Chapter 9"
   },
   {
-    "title": "Chapter 10",
-    "subtitle": "Modules",
-    "image": "/chapter-10.jpg",
+    "details": "",
     "exercises": "",
+    "image": "/chapter-10.jpg",
     "link": "/chapter10",
-    "details": ""
+    "subtitle": "Modules",
+    "title": "Chapter 10"
   }
 ]

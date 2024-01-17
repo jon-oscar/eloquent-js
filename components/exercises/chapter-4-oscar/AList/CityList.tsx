@@ -127,8 +127,8 @@ export default function CityList() {
       <div className='max-w-sm flex-[0.2] p-4'>
         <button
           className='mb-4 cursor-pointer rounded-lg bg-green-300 p-4 shadow-md'
-          onClick={handleClick}
           data-testid='add-button'
+          onClick={handleClick}
         >
           +
         </button>

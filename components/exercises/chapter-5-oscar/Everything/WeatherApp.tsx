@@ -75,13 +75,13 @@ export default function WeatherApp(): JSX.Element {
       />
       <div className='container relative z-10 flex flex-col justify-between rounded-md p-8'>
         <div className='py-1'>
-          <form onSubmit={handleFormSubmit} data-testid='weather-form'>
+          <form data-testid='weather-form' onSubmit={handleFormSubmit}>
             <input
               className='rounded-md border border-white bg-transparent p-1 text-white outline-none placeholder:text-white'
+              onChange={handleLocationInputChange}
+              placeholder='Enter location'
               type='text'
               value={locationInput}
-              placeholder='Enter location'
-              onChange={handleLocationInputChange}
             />
           </form>
         </div>

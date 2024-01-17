@@ -31,14 +31,14 @@ export default function JFizzBuzz() {
       <div className='flex flex-col items-center'>
         <div className='flex justify-center'>
           <CustomButton
+            containerStyles={buttonStyles}
             handleClick={handleDecrease}
             title='-'
-            containerStyles={buttonStyles}
           />
           <CustomButton
+            containerStyles={buttonStyles}
             handleClick={handleIncrease}
             title='+'
-            containerStyles={buttonStyles}
           />
         </div>
         <div className='text-[80px] font-bold text-[#B2980B]'>

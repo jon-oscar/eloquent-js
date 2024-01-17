@@ -20,12 +20,16 @@ describe('Chapter5', () => {
     render(<Chapter5 />);
     const flattening = screen.getByText(/Flattening/i);
     expect(flattening).toBeInTheDocument();
+    const jflattening = screen.getByText(/Compound words/i);
+    expect(jflattening).toBeInTheDocument();
   });
 
   it('renders the your own loop exercise', () => {
     render(<Chapter5 />);
     const yourOwnLoop = screen.getByText(/Your Own Loop/i);
     expect(yourOwnLoop).toBeInTheDocument();
+    const orbitingPlanets = screen.getByText(/Orbiting planets/i);
+    expect(orbitingPlanets).toBeInTheDocument();
   });
 
   it('renders the everything exercise', () => {
