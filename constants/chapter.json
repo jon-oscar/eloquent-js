@@ -155,6 +155,11 @@
         "details": "Press button to change animals until every animal shown is herbivore",
         "id": 3,
         "title": "Find herbivore animals"
+      },
+      {
+        "details": "Enter any text to see the writing direction of the majority of the text",
+        "id": 4,
+        "title": "Dominant writing direction"
       }
     ],
     "devOscar": [
