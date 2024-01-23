@@ -4,6 +4,7 @@ import chapter from '@/constants/chapter.json';
 import Flattening from '@/components/exercises/chapter-5-oscar/Flattening/Flattening';
 import YourOwnLoop from '@/components/exercises/chapter-5-oscar/YourOwnLoop/YourOwnLoop';
 import WeatherApp from '@/components/exercises/chapter-5-oscar/Everything/WeatherApp';
+import DominantDirection from '@/components/exercises/chapter-5-oscar/DominantDirection/DominantDirection';
 import '../app/globals.css';
 import JFlatList from '@/components/exercises/chapter-5-jon/JFlatList';
 import JOrbit from '@/components/exercises/chapter-5-jon/JOrbit';
@@ -53,6 +54,12 @@ export default function Chapter5() {
                   details={devOscar[2].details}
                   id={devOscar[2].id}
                   title={devOscar[2].title}
+                />
+                <PageCard
+                  code={() => <DominantDirection />}
+                  details={devOscar[3].details}
+                  id={devOscar[3].id}
+                  title={devOscar[3].title}
                 />
               </>
             )}

@@ -179,9 +179,9 @@
         "title": "Everything"
       },
       {
-        "details": "",
+        "details": "Enter any phrase in any language to display the dominant writing direction of the text.",
         "id": 4,
-        "title": ""
+        "title": "Check dominant direction"
       }
     ],
     "exercises": "Flattening, Your own loop, Everything, Dominant writing direction",
