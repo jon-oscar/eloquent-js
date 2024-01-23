@@ -193,7 +193,25 @@
   },
   {
     "details": "",
+    "devJon": [
+      {
+        "details": "Create new vectors and see how they are added and subtracted in the graph",
+        "id": 1,
+        "title": "Adding and subtracting vectors"
+      },
+      {
+        "details": "",
+        "id": 2,
+        "title": ""
+      },
+      {
+        "details": "",
+        "id": 3,
+        "title": ""
+      }
+    ],
     "exercises": "",
+    "id": 6,
     "image": "/chapter-6.jpg",
     "link": "/chapter6",
     "subtitle": "The Secret Life of Objects",
