@@ -46,6 +46,8 @@ describe('Chapter5', () => {
       /Enter any text to see the writing direction of the majority of the text/i
     );
     expect(exercise).toBeInTheDocument();
+    const dominantDirection = screen.getByText(/Check Dominant Direction/i);
+    expect(dominantDirection).toBeInTheDocument();
   });
 
   it('renders the developer card for Oscar Reyes', () => {
