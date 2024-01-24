@@ -6,11 +6,10 @@ import { getDirection } from './getDirection';
  * @param phrase - The input phrase to analyze.
  * @returns The dominant direction ('left to right', 'right to left', or 'top to bottom').
  */
-
 export default function DominantDirection(): JSX.Element {
   const [phrase, setPhrase] = useState<string>('');
 
-  function displayDirection(): string {
+  const displayDirection: string = (() => {
     if (getDirection(phrase) === 'ltr') {
       return 'left to right';
     } else if (getDirection(phrase) === 'rtl') {
@@ -18,7 +17,7 @@ export default function DominantDirection(): JSX.Element {
     } else {
       return 'top to bottom';
     }
-  }
+  })();
 
   return (
     <div className='flex flex-col items-center gap-2 text-center'>
@@ -33,7 +32,7 @@ export default function DominantDirection(): JSX.Element {
 
       {phrase && (
         <p className='font-semibold'>
-          Dominant direction is {displayDirection()}
+          Dominant direction is {displayDirection}
         </p>
       )}
     </div>

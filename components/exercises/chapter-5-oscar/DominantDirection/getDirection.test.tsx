@@ -1,7 +1,7 @@
 import { getDirection } from './getDirection';
 
 describe('getDirection', () => {
-  it('should return the dominant direction of the text', () => {
+  it('should return the dominant direction of the text left to right', () => {
     const text = 'Hello, 世界!';
     const expectedDirection = 'ltr';
 
@@ -28,5 +28,12 @@ describe('getDirection', () => {
     expect(result).toEqual(expectedDirection);
   });
 
-  // Add more test cases here...
+  it('should return the dominant direction of the text right to left', () => {
+    const text = 'مرحبا بكم!';
+    const expectedDirection = 'rtl';
+
+    const result = getDirection(text);
+
+    expect(result).toEqual(expectedDirection);
+  });
 });

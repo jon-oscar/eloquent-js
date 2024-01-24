@@ -11,17 +11,17 @@ type CharacterScript = {
  * @param text - The text to analyze.
  * @returns The dominant direction of the text.
  */
-export function getDirection(text: string): string {
+export function getDirection(text: string): 'ltr' | 'rtl' | 'none' {
   // count the number of characters that belong to each script
-  let counted: CharacterScript[] = countBy(Array.from(text), (char) => {
+  const counted: CharacterScript[] = countBy(Array.from(text), (char) => {
     // get the code point of the character
     let codePoint = char.codePointAt(0);
 
     // get the script object that corresponds to the code point
-    let script = codePoint !== undefined ? characterScript(codePoint) : null;
+    let script = codePoint ? characterScript(codePoint) : null;
 
     // return the direction of the script object
-    return script ? script.direction : 'none';
+    return script?.direction ?? 'none';
   });
 
   // filter out the characters that don't belong to a script
@@ -36,5 +36,5 @@ export function getDirection(text: string): string {
     a.count > b.count ? a : b
   ).name;
 
-  return directionResult;
+  return directionResult as 'ltr' | 'rtl' | 'none';
 }
