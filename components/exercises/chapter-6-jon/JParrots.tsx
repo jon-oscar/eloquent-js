@@ -45,6 +45,18 @@ export default function JParrots(): JSX.Element {
     setShownParrots(newShownParrots);
   };
 
+  // Contrived example of using an iterator to render the parrots.
+  const parrotsToRender: Parrot[] = (() => {
+    const parrotsToRenderArr: Parrot[] = [];
+    const parrotIterator = shownParrots[Symbol.iterator]();
+    let parrot = parrotIterator.next().value;
+    while (parrot) {
+      parrotsToRenderArr.push(parrot);
+      parrot = parrotIterator.next().value;
+    }
+    return parrotsToRenderArr;
+  })();
+
   return (
     <div>
       <div className='flex gap-2'>
@@ -60,8 +72,8 @@ export default function JParrots(): JSX.Element {
         ))}
       </div>
       <div className='mt-4 flex gap-2' style={{ minHeight: '60px' }}>
-        {shownParrots.members.length > 0 &&
-          shownParrots.members.map((parrot) => (
+        {parrotsToRender.length > 0 &&
+          parrotsToRender.map((parrot) => (
             <span
               className='cursor-pointer text-4xl'
               key={parrot}
