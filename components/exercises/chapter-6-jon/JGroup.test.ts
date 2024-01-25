@@ -46,4 +46,13 @@ describe('Group', () => {
     expect(newGroup.has(2)).toBe(true);
     expect(newGroup.has(3)).toBe(true);
   });
+
+  it('should iterate over the group using Symbol.iterator', () => {
+    group.add(1);
+    group.add(2);
+    const iterator = group[Symbol.iterator]();
+    expect(iterator.next().value).toBe(1);
+    expect(iterator.next().value).toBe(2);
+    expect(iterator.next().done).toBe(true);
+  });
 });
