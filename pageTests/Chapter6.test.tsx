@@ -16,6 +16,12 @@ describe('Chapter6', () => {
     expect(jVector).toBeInTheDocument();
   });
 
+  it('renders the group exercise', () => {
+    render(<Chapter6 />);
+    const jGroup = screen.getByText(/party parrots/i);
+    expect(jGroup).toBeInTheDocument();
+  });
+
   it('renders the developer card for Oscar Reyes', () => {
     render(<Chapter6 />);
     const oscarCard = screen.getByText(/Oscar Reyes/i);

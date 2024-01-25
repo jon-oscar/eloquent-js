@@ -3,6 +3,7 @@ import PageCard from '@/components/PageCard';
 import chapter from '@/constants/chapter.json';
 import '../app/globals.css';
 import JVector from '@/components/exercises/chapter-6-jon/JVector';
+import JParrots from '@/components/exercises/chapter-6-jon/JParrots';
 
 const chapterId = 6;
 
@@ -36,6 +37,12 @@ export default function Chapter6() {
                   details={devJon[0].details}
                   id={devJon[0].id}
                   title={devJon[0].title}
+                />
+                <PageCard
+                  code={() => <JParrots />}
+                  details={devJon[1].details}
+                  id={devJon[1].id}
+                  title={devJon[1].title}
                 />
               </>
             )}
