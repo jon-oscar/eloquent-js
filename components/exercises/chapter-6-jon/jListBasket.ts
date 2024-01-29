@@ -7,7 +7,7 @@ type PicnicBasketWithOverride = PicnicBasket & {
   hasOwnProperty: boolean;
 };
 
-type Basket = PicnicBasket | PicnicBasketWithOverride;
+export type Basket = PicnicBasket | PicnicBasketWithOverride;
 
 function jListObjectsHelper(
   basket: Basket,
