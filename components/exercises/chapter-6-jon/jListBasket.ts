@@ -3,7 +3,7 @@ type PicnicBasket = {
   wine: boolean;
 };
 
-type PicnicBasketWithOverride = PicnicBasket & {
+export type PicnicBasketWithOverride = PicnicBasket & {
   hasOwnProperty: boolean;
 };
 

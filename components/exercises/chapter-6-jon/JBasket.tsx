@@ -2,18 +2,22 @@ import Image from 'next/image';
 import React, { useState } from 'react';
 import {
   Basket,
+  PicnicBasketWithOverride,
   jListObjectsInBasket,
   jListObjectsInBasketOverrideSafe,
 } from './jListBasket';
 
-const BASKET_ITEMS = [
-  {
-    icon: '🧀',
-    value: 'cheese',
-  },
+const BASKET_ITEMS: {
+  icon: string;
+  value: keyof PicnicBasketWithOverride;
+}[] = [
   {
     icon: '🍷',
     value: 'wine',
+  },
+  {
+    icon: '🧀',
+    value: 'cheese',
   },
   {
     icon: '🤖',
@@ -21,28 +25,34 @@ const BASKET_ITEMS = [
   },
 ];
 
-const topAndLeftStylesByIndex = [
-  { left: '40%', top: '40%' },
-  { left: '20%', top: '20%' },
-  { left: '60%', top: '10%' },
-];
-
 /**
- * JBasket component.
+ * Renders a basket image with items that can be added or removed from the basket on button press. One of the items is
+ * "hasOwnProperty" which is a reserved property name in JavaScript.
+ * The contents of the basket are displayed below the basket. To demonstrate errors that can occur when overriding a reserved property name,
+ * the contents can be displayed with or without override protection.
  */
 export default function JBasket(): JSX.Element {
-  const [basketItems, setBasketItems] = useState<Basket>({});
+  const [basketItems, setBasketItems] = useState<Basket>({
+    wine: true,
+    cheese: true,
+    hasOwnProperty: undefined,
+  });
   const [showOverrideProtection, setShowOverrideProtection] = useState(false);
 
   const isItemInBasket = (item: string): boolean =>
     Object.prototype.hasOwnProperty.call(basketItems, item);
 
-  const toggleItemInBasket = (item: string): void => {
+  const toggleItemInBasket = (item: keyof PicnicBasketWithOverride): void => {
     const newBasketItems = { ...basketItems };
     if (isItemInBasket(item)) {
       delete newBasketItems[item];
     } else {
-      newBasketItems[item] = true;
+      // Trick for TS to accept the overriding of property "hasOwnProperty"
+      newBasketItems[item] = true as boolean &
+        (
+          | ((v: PropertyKey) => boolean)
+          | (((v: PropertyKey) => boolean) & boolean)
+        );
     }
     setBasketItems(newBasketItems);
   };
@@ -50,8 +60,6 @@ export default function JBasket(): JSX.Element {
   const toggleOverrideProtection = (): void => {
     setShowOverrideProtection((prevValue) => !prevValue);
   };
-
-  // class="rounded-full bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 disabled:cursor-not-allowed disabled:bg-gray-400"
 
   return (
     <div className='flex flex-col items-center gap-4'>
@@ -76,38 +84,18 @@ export default function JBasket(): JSX.Element {
               <div
                 className='absolute'
                 key={icon}
-                style={topAndLeftStylesByIndex[i]}
+                style={
+                  [
+                    { left: '10%', top: '25%' },
+                    { left: '35%', top: '28%' },
+                    { left: '60%', top: '24%' },
+                  ][i]
+                }
               >
-                <span
-                  className={`text-3xl ${
-                    isItemInBasket(value) ? 'text-green-500' : 'text-red-500'
-                  }`}
-                >
-                  {icon}
-                </span>
+                <span style={{ fontSize: '80px' }}>{icon}</span>
               </div>
             )
         )}
-      </div>
-      <div className='flex flex-col gap-2'>
-        <label>
-          <input
-            checked={!showOverrideProtection}
-            name='basketCheck'
-            onChange={toggleOverrideProtection}
-            type='radio'
-          />
-          List basket
-        </label>
-        <label>
-          <input
-            checked={showOverrideProtection}
-            name='basketCheck'
-            onChange={toggleOverrideProtection}
-            type='radio'
-          />
-          List basket with override protection
-        </label>
       </div>
       <div>
         <p>
@@ -115,6 +103,16 @@ export default function JBasket(): JSX.Element {
             ? jListObjectsInBasketOverrideSafe(basketItems)
             : jListObjectsInBasket(basketItems)}
         </p>
+      </div>
+      <div className='flex flex-col gap-2'>
+        <label>
+          <input
+            checked={showOverrideProtection}
+            onChange={toggleOverrideProtection}
+            type='checkbox'
+          />
+          Use override protection
+        </label>
       </div>
     </div>
   );
