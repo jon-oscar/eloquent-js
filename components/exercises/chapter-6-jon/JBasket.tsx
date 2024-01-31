@@ -92,7 +92,9 @@ export default function JBasket(): JSX.Element {
                   ][i]
                 }
               >
-                <span style={{ fontSize: '80px' }}>{icon}</span>
+                <span data-testid='basket-icon' style={{ fontSize: '80px' }}>
+                  {icon}
+                </span>
               </div>
             )
         )}

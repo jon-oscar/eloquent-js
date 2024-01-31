@@ -22,6 +22,12 @@ describe('Chapter6', () => {
     expect(jGroup).toBeInTheDocument();
   });
 
+  it('renders the borrow a method exercise', () => {
+    render(<Chapter6 />);
+    const jBasket = screen.getByText(/Basket with overrides/i);
+    expect(jBasket).toBeInTheDocument();
+  });
+
   it('renders the developer card for Oscar Reyes', () => {
     render(<Chapter6 />);
     const oscarCard = screen.getByText(/Oscar Reyes/i);

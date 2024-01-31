@@ -1,64 +1,57 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import JBasket from './JBasket';
+import userEvent from '@testing-library/user-event';
 
 describe('JBasket component', () => {
-  it('renders basket items', () => {
+  it('adds and removes items from the basket', async () => {
     render(<JBasket />);
+
+    // Test buttons
     const basketItems = screen.getAllByRole('button');
     expect(basketItems).toHaveLength(3);
-    expect(basketItems[0]).toHaveTextContent('🍷');
-    expect(basketItems[1]).toHaveTextContent('🧀');
-    expect(basketItems[2]).toHaveTextContent('🤖');
+    const [wineBtn, cheeseBtn, robotBtn] = basketItems;
+    expect(wineBtn).toHaveTextContent('🍷');
+    expect(cheeseBtn).toHaveTextContent('🧀');
+    expect(robotBtn).toHaveTextContent('🤖');
+
+    expect(screen.queryAllByTestId('basket-icon')).toHaveLength(3);
+
+    // Remove items
+    await userEvent.click(wineBtn);
+    expect(screen.queryAllByTestId('basket-icon')).toHaveLength(2);
+    await userEvent.click(cheeseBtn);
+    expect(screen.queryAllByTestId('basket-icon')).toHaveLength(1);
+    await userEvent.click(robotBtn);
+    expect(screen.queryAllByTestId('basket-icon')).toHaveLength(0);
+
+    // Add items
+    await userEvent.click(cheeseBtn);
+    expect(screen.queryAllByTestId('basket-icon')).toHaveLength(1);
   });
 
-  it('adds and removes items from the basket', () => {
+  it('lists items with and without override protection', async () => {
     render(<JBasket />);
 
-    const wineButton = screen.getByText('🍷', { role: butto });
-    const cheeseButton = screen.getByText('🧀');
-    const hasOwnPropertyButton = screen.getByText('🤖');
+    expect(
+      screen.queryByText('In this basket, I have: wine, cheese')
+    ).not.toBeInTheDocument();
+    expect(
+      screen.getByText('In this basket, I have: an Error!')
+    ).toBeInTheDocument();
 
-    // Add wine to the basket
-    fireEvent.click(wineButton);
-    expect(wineButton).toHaveClass('bg-blue-700');
-
-    // Add cheese to the basket
-    fireEvent.click(cheeseButton);
-    expect(cheeseButton).toHaveClass('bg-blue-700');
-
-    // Remove wine from the basket
-    fireEvent.click(wineButton);
-    expect(wineButton).not.toHaveClass('bg-blue-700');
-
-    // Add hasOwnProperty to the basket
-    fireEvent.click(hasOwnPropertyButton);
-    expect(hasOwnPropertyButton).toHaveClass('bg-blue-700');
-
-    // Remove hasOwnProperty from the basket
-    fireEvent.click(hasOwnPropertyButton);
-    expect(hasOwnPropertyButton).not.toHaveClass('bg-blue-700');
-  });
-
-  it('toggles override protection', () => {
-    render(<JBasket />);
     const overrideProtectionCheckbox = screen.getByLabelText(
       'Use override protection'
     );
-    const basketContents = screen.getByTestId('basket-contents');
 
-    // Override protection is initially disabled
     expect(overrideProtectionCheckbox).not.toBeChecked();
-    expect(basketContents).toHaveTextContent('wine, cheese');
-
-    // Enable override protection
-    fireEvent.click(overrideProtectionCheckbox);
+    await userEvent.click(overrideProtectionCheckbox);
     expect(overrideProtectionCheckbox).toBeChecked();
-    expect(basketContents).toHaveTextContent('wine, cheese');
-
-    // Disable override protection
-    fireEvent.click(overrideProtectionCheckbox);
-    expect(overrideProtectionCheckbox).not.toBeChecked();
-    expect(basketContents).toHaveTextContent('wine, cheese, hasOwnProperty');
+    expect(
+      screen.queryByText('In this basket, I have: an Error!')
+    ).not.toBeInTheDocument();
+    expect(
+      screen.getByText('In this basket, I have: wine, cheese')
+    ).toBeInTheDocument();
   });
 });
