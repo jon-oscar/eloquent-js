@@ -4,6 +4,7 @@ import chapter from '@/constants/chapter.json';
 import '../app/globals.css';
 import JVector from '@/components/exercises/chapter-6-jon/JVector';
 import JParrots from '@/components/exercises/chapter-6-jon/JParrots';
+import JBasket from '@/components/exercises/chapter-6-jon/JBasket';
 
 const chapterId = 6;
 
@@ -43,6 +44,12 @@ export default function Chapter6() {
                   details={devJon[1].details}
                   id={devJon[1].id}
                   title={devJon[1].title}
+                />
+                <PageCard
+                  code={() => <JBasket />}
+                  details={devJon[2].details}
+                  id={devJon[2].id}
+                  title={devJon[2].title}
                 />
               </>
             )}
