@@ -202,7 +202,7 @@
     ],
     "devOscar": [
       {
-        "details": "",
+        "details": "Display a square with the given size, increase or decrease the size and display its length with the buttons below",
         "id": 1,
         "title": "A vector type"
       }
