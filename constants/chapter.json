@@ -192,8 +192,23 @@
     "title": "Chapter 5"
   },
   {
-    "details": "",
-    "exercises": "",
+    "details": "So objects do more than just hold their own properties. They have prototypes, which are other objects.",
+    "devJon": [
+      {
+        "details": "",
+        "id": 1,
+        "title": ""
+      }
+    ],
+    "devOscar": [
+      {
+        "details": "Display a square with the given size, increase or decrease the size and display its length with the buttons below",
+        "id": 1,
+        "title": "A vector type"
+      }
+    ],
+    "exercises": "A vector type, Groups, Iterable groups, Borrowing a method",
+    "id": 6,
     "image": "/chapter-6.jpg",
     "link": "/chapter6",
     "subtitle": "The Secret Life of Objects",
