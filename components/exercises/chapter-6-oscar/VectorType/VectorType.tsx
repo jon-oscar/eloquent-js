@@ -37,7 +37,7 @@ export default function VectorType() {
   return (
     <div className='flex flex-col items-center justify-center'>
       <div
-        className={`w-${vector.x} h-${vector.y} bg-blue-500`}
+        className='bg-blue-500'
         style={{ width: `${vector.x}px`, height: `${vector.y}px` }}
       ></div>
       <div>
