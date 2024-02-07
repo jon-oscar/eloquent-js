@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Group } from './Group';
+import Group from './Group';
 
 /**
  * Renders a component that allows to add and remove members from a group.
  * @returns JSX.Element
  */
-export function MembersGroup(): JSX.Element {
+export default function MembersGroup(): JSX.Element {
   const initialState = ['Oscar', 'Luis', 'Maria'];
   const [members, setMembers] = useState(Group.from(initialState));
   const [input, setInput] = useState('');
@@ -35,25 +35,31 @@ export function MembersGroup(): JSX.Element {
 
   return (
     <div className='container'>
-      <div className='mb-2 flex flex-row'>
+      <div className='mb-2 flex flex-row gap-x-2'>
         <input
           aria-label='Phrase'
-          className='mr-2 h-[50px] w-full rounded bg-[#FEFCF3] px-4 py-2 text-center'
+          className='h-[50px] w-full rounded bg-[#FEFCF3] px-4 py-2 text-center'
           onChange={(e) => setInput(e.target.value)}
           placeholder='Enter your member name'
           type='text'
           value={input}
         />
-        <div className='flex'>
+        <div className='flex gap-x-2'>
           <button
-            className='mr-2 h-[50px] w-full rounded bg-green-500 px-4 py-2 text-center text-sm text-white'
+            className={`h-[50px] w-full rounded px-4 py-2 text-center text-sm text-white ${
+              isInputEmptyOrExists
+                ? 'cursor-not-allowed bg-gray-300'
+                : 'bg-green-500'
+            }`}
             disabled={isInputEmptyOrExists}
             onClick={handleAdd}
           >
             Add Member
           </button>
           <button
-            className='mr-2 h-[50px] w-full rounded bg-red-500 px-4 py-2 text-center text-sm text-white'
+            className={`h-[50px] w-full rounded px-4 py-2 text-center text-sm text-white ${
+              !input.trim() ? 'cursor-not-allowed bg-gray-300' : 'bg-red-500'
+            }`}
             disabled={!input.trim()} // Disable the button if input is empty or whitespace
             onClick={handleRemove}
           >

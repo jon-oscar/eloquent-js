@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
-import { MembersGroup } from './MembersGroup';
+import MembersGroup from './MembersGroup';
 
 describe('MembersGroup', () => {
   it('should add a member when the "Add Member" button is clicked', () => {

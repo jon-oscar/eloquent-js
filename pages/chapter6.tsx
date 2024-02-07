@@ -2,7 +2,7 @@ import Layout from '@/components/Layout';
 import PageCard from '@/components/PageCard';
 import chapter from '@/constants/chapter.json';
 import VectorType from '@/components/exercises/chapter-6-oscar/VectorType/VectorType';
-import { MembersGroup } from '@/components/exercises/chapter-6-oscar/group/MembersGroup';
+import MembersGroup from '@/components/exercises/chapter-6-oscar/group/MembersGroup';
 
 import '../app/globals.css';
 

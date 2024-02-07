@@ -2,7 +2,7 @@
  * Represents a group that holds a collection of values.
  * @template T The type of values stored in the group.
  */
-export class Group<T> {
+export default class Group<T> {
   private members: T[];
 
   // creates an empty group
@@ -29,7 +29,7 @@ export class Group<T> {
 
   // static method to create a group from an array
   static from<T>(collection: T[]): Group<T> {
-    let group = new Group<T>();
+    const group = new Group<T>();
     for (let value of collection) {
       group.add(value);
     }

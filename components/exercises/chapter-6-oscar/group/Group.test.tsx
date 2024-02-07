@@ -1,4 +1,4 @@
-import { Group } from './Group';
+import Group from './Group';
 
 describe('Group', () => {
   let group: Group<string>;
