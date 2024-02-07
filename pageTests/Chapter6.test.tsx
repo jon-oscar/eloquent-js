@@ -26,8 +26,10 @@ describe('Chapter6', () => {
 
   it('renders the groups exercise', () => {
     render(<Chapter6 />);
-    const vectorType = screen.getByText(/Groups/i);
-    expect(vectorType).toBeInTheDocument();
+    const groups = screen.getByText(/Groups/i);
+    expect(groups).toBeInTheDocument();
+    const jGroup = screen.getByText(/party parrots/i);
+    expect(jGroup).toBeInTheDocument();
   });
 
   it('renders the developer card for Oscar Reyes', () => {
