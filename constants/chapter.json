@@ -205,6 +205,11 @@
         "details": "Display a square with the given size, increase or decrease the size and display its length with the buttons below",
         "id": 1,
         "title": "A vector type"
+      },
+      {
+        "details": "Display a list, add or remove members and if the member is already in the list, it will not be added",
+        "id": 2,
+        "title": "Groups"
       }
     ],
     "exercises": "A vector type, Groups, Iterable groups, Borrowing a method",

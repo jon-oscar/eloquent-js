@@ -3,6 +3,7 @@ import PageCard from '@/components/PageCard';
 import chapter from '@/constants/chapter.json';
 import VectorType from '@/components/exercises/chapter-6-oscar/VectorType/VectorType';
 import JVector from '@/components/exercises/chapter-6-jon/JVector';
+import MembersGroup from '@/components/exercises/chapter-6-oscar/group/MembersGroup';
 
 import '../app/globals.css';
 
@@ -16,7 +17,7 @@ if (!chapterMatch) {
 
 const { title, subtitle, details, devOscar, devJon } = chapterMatch;
 
-export default function Chapter5() {
+export default function Chapter6() {
   return (
     <Layout>
       <div className=' relative z-0 mx-auto mb-2 flex max-w-[1440px] gap-5 xl:flex-col'>
@@ -37,6 +38,12 @@ export default function Chapter5() {
                   details={devOscar[0].details}
                   id={devOscar[0].id}
                   title={devOscar[0].title}
+                />
+                <PageCard
+                  code={() => <MembersGroup />}
+                  details={devOscar[1].details}
+                  id={devOscar[1].id}
+                  title={devOscar[1].title}
                 />
               </>
             )}
