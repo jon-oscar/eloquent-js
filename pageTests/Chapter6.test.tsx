@@ -20,6 +20,8 @@ describe('Chapter6', () => {
     render(<Chapter6 />);
     const vectorType = screen.getByText(/A Vector Type/i);
     expect(vectorType).toBeInTheDocument();
+    const jVector = screen.getByText(/Adding and subtracting vectors/i);
+    expect(jVector).toBeInTheDocument();
   });
 
   it('renders the groups exercise', () => {

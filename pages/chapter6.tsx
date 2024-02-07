@@ -2,6 +2,7 @@ import Layout from '@/components/Layout';
 import PageCard from '@/components/PageCard';
 import chapter from '@/constants/chapter.json';
 import VectorType from '@/components/exercises/chapter-6-oscar/VectorType/VectorType';
+import JVector from '@/components/exercises/chapter-6-jon/JVector';
 import MembersGroup from '@/components/exercises/chapter-6-oscar/group/MembersGroup';
 
 import '../app/globals.css';
@@ -51,7 +52,7 @@ export default function Chapter6() {
             {devJon && (
               <>
                 <PageCard
-                  code={() => 'Code goes here'}
+                  code={() => <JVector />}
                   details={devJon[0].details}
                   id={devJon[0].id}
                   title={devJon[0].title}

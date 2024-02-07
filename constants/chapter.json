@@ -195,9 +195,9 @@
     "details": "So objects do more than just hold their own properties. They have prototypes, which are other objects.",
     "devJon": [
       {
-        "details": "",
+        "details": "Create new vectors and see how they are added and subtracted in the graph",
         "id": 1,
-        "title": ""
+        "title": "Adding and subtracting vectors"
       }
     ],
     "devOscar": [
