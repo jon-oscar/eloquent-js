@@ -29,4 +29,22 @@ export default class Group {
     }
     return group;
   }
+
+  [Symbol.iterator]() {
+    let index = 0;
+    const members = this.members;
+
+    return {
+      next() {
+        if (index >= members.length) {
+          return { done: true };
+        }
+
+        const value = members[index];
+        index++;
+
+        return { value, done: false };
+      },
+    };
+  }
 }
