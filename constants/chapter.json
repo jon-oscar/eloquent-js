@@ -198,6 +198,11 @@
         "details": "Create new vectors and see how they are added and subtracted in the graph",
         "id": 1,
         "title": "Adding and subtracting vectors"
+      },
+      {
+        "details": "Press on the buttons to toggle the parrots",
+        "id": 2,
+        "title": "Party parrots!"
       }
     ],
     "devOscar": [

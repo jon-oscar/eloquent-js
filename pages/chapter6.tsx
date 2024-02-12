@@ -4,6 +4,7 @@ import chapter from '@/constants/chapter.json';
 import VectorType from '@/components/exercises/chapter-6-oscar/VectorType/VectorType';
 import JVector from '@/components/exercises/chapter-6-jon/JVector';
 import MembersGroup from '@/components/exercises/chapter-6-oscar/group/MembersGroup';
+import JParrots from '@/components/exercises/chapter-6-jon/JParrots';
 
 import '../app/globals.css';
 
@@ -56,6 +57,12 @@ export default function Chapter6() {
                   details={devJon[0].details}
                   id={devJon[0].id}
                   title={devJon[0].title}
+                />
+                <PageCard
+                  code={() => <JParrots />}
+                  details={devJon[1].details}
+                  id={devJon[1].id}
+                  title={devJon[1].title}
                 />
               </>
             )}
