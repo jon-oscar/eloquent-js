@@ -71,7 +71,7 @@ export default function MembersGroup(): JSX.Element {
         <p className='my-2 text-red-500'>Member is already in the list</p>
       )}
       <ul>
-        {[...members].map((value) => (
+        {Array.from(members).map((value) => (
           <li
             className='mb-2 rounded-lg bg-white p-2 shadow-md hover:shadow-lg'
             key={value}
