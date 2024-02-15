@@ -43,4 +43,36 @@ export default class Group<T> {
   getMembers(): T[] {
     return this.members;
   }
+
+  /**
+   * Returns an iterator for the Group class.
+   * @returns {Iterator<T>} An iterator for the Group class.
+   */
+  [Symbol.iterator](): Iterator<T> {
+    return new GroupIterator<T>(this);
+  }
+}
+
+/**
+ * Represents an iterator for the Group class.
+ * @template T - The type of elements in the Group.
+ */
+export class GroupIterator<T> implements Iterator<T> {
+  private group: Group<T>;
+  private position: number = 0;
+
+  constructor(group: Group<T>) {
+    this.group = group;
+  }
+
+  /**
+   * @returns An IteratorResult object containing the next element and a boolean indicating if the iteration is done.
+   */
+  next(): IteratorResult<T> {
+    const members = this.group.getMembers();
+    if (this.position >= members.length) {
+      return { done: true, value: undefined as any };
+    }
+    return { value: members[this.position++], done: false };
+  }
 }
