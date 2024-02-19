@@ -5,6 +5,7 @@ import VectorType from '@/components/exercises/chapter-6-oscar/VectorType/Vector
 import JVector from '@/components/exercises/chapter-6-jon/JVector';
 import MembersGroup from '@/components/exercises/chapter-6-oscar/group/MembersGroup';
 import JParrots from '@/components/exercises/chapter-6-jon/JParrots';
+import BorrowingMethod from '@/components/exercises/chapter-6-oscar/BorrowingMethod/BorrowingMethoth';
 
 import '../app/globals.css';
 
@@ -45,6 +46,12 @@ export default function Chapter6() {
                   details={devOscar[1].details}
                   id={devOscar[1].id}
                   title={devOscar[1].title}
+                />
+                <PageCard
+                  code={() => <BorrowingMethod />}
+                  details={devOscar[2].details}
+                  id={devOscar[2].id}
+                  title={devOscar[2].title}
                 />
               </>
             )}
