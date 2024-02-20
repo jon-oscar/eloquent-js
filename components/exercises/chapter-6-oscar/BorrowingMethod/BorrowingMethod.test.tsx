@@ -2,44 +2,52 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import BorrowingMethod, { checkIfExist } from './BorrowingMethod';
 
 describe('checkIfExist', () => {
-  it('should return true if the key exists in the list', () => {
-    const list = {
+  it('should return true if the object has the specified key', () => {
+    const foodList = {
       hotdog: true,
       chips: true,
       hamburger: true,
       hasOwnProperty: true,
     };
-    const key = 'hotdog';
-    const result = checkIfExist(list, key);
-    expect(result).toBe(true);
+
+    expect(checkIfExist(foodList, 'hotdog')).toBe(true);
+    expect(checkIfExist(foodList, 'chips')).toBe(true);
+    expect(checkIfExist(foodList, 'hamburger')).toBe(true);
+    expect(checkIfExist(foodList, 'hasOwnProperty')).toBe(true);
   });
 
-  it('should return false if the key does not exist in the list', () => {
-    const list = {
+  it('should return false if the object does not have the specified key', () => {
+    const foodList = {
       hotdog: true,
       chips: true,
       hamburger: true,
       hasOwnProperty: true,
     };
-    const key = 'pizza';
-    const result = checkIfExist(list, key);
-    expect(result).toBe(false);
+
+    expect(checkIfExist(foodList, 'pizza')).toBe(false);
+    expect(checkIfExist(foodList, 'fries')).toBe(false);
+    expect(checkIfExist(foodList, 'soda')).toBe(false);
   });
 });
 
 describe('BorrowingMethod', () => {
-  it('should render a message if the input exists in the list', () => {
+  test('should display a message if the input food already exists in the list', () => {
     render(<BorrowingMethod />);
-    const inputElement = screen.getByPlaceholderText('Type a food');
-    fireEvent.change(inputElement, { target: { value: 'hotdog' } });
+    const input = screen.getByLabelText('Phrase');
 
-    const messageElement = screen.getByText('The food is already in the list');
-    expect(messageElement).toBeInTheDocument();
+    fireEvent.change(input, { target: { value: 'hotdog' } });
+
+    expect(
+      screen.getByText('The food is already in the list')
+    ).toBeInTheDocument();
   });
 
-  it('should not render a message if the input does not exist in the list', () => {
+  test('should not display a message if the input food does not exist in the list', () => {
     render(<BorrowingMethod />);
-    const messageElement = screen.getByText('The food is already in the list');
-    expect(messageElement).not.toBeInTheDocument();
+    const input = screen.getByLabelText('Phrase');
+
+    fireEvent.change(input, { target: { value: 'pizza' } });
+
+    expect(screen.queryByText('The food is already in the list')).toBeNull();
   });
 });
