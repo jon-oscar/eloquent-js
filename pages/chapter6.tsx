@@ -5,7 +5,7 @@ import VectorType from '@/components/exercises/chapter-6-oscar/VectorType/Vector
 import JVector from '@/components/exercises/chapter-6-jon/JVector';
 import MembersGroup from '@/components/exercises/chapter-6-oscar/group/MembersGroup';
 import JParrots from '@/components/exercises/chapter-6-jon/JParrots';
-import BorrowingMethod from '@/components/exercises/chapter-6-oscar/BorrowingMethod/BorrowingMethoth';
+import BorrowingMethod from '@/components/exercises/chapter-6-oscar/BorrowingMethod/BorrowingMethod';
 
 import '../app/globals.css';
 

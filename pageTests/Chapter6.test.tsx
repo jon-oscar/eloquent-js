@@ -32,6 +32,12 @@ describe('Chapter6', () => {
     expect(jGroup).toBeInTheDocument();
   });
 
+  it('renders the Borrowing A Method exercise', () => {
+    render(<Chapter6 />);
+    const borrowingAMethod = screen.getByText(/Borrowing A Method/i);
+    expect(borrowingAMethod).toBeInTheDocument();
+  });
+
   it('renders the developer card for Oscar Reyes', () => {
     render(<Chapter6 />);
     const oscarCard = screen.getByText(/Oscar Reyes/i);

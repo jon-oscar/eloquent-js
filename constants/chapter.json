@@ -217,7 +217,7 @@
         "title": "Groups"
       },
       {
-        "details": "lorem ipsum",
+        "details": "Evaluates if the input is included in the list, if it does, it will display a warning message",
         "id": 3,
         "title": "Borrowing a method"
       }
