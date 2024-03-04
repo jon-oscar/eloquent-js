@@ -228,37 +228,5 @@
     "link": "/chapter6",
     "subtitle": "The Secret Life of Objects",
     "title": "Chapter 6"
-  },
-  {
-    "details": "",
-    "exercises": "",
-    "image": "/chapter-7.jpg",
-    "link": "/chapter7",
-    "subtitle": "Project: A Robot",
-    "title": "Chapter 7"
-  },
-  {
-    "details": "",
-    "exercises": "",
-    "image": "/chapter-8.jpg",
-    "link": "/chapter8",
-    "subtitle": "Bugs and Errors",
-    "title": "Chapter 8"
-  },
-  {
-    "details": "",
-    "exercises": "",
-    "image": "/chapter-9.jpg",
-    "link": "/chapter9",
-    "subtitle": "Regular Expressions",
-    "title": "Chapter 9"
-  },
-  {
-    "details": "",
-    "exercises": "",
-    "image": "/chapter-10.jpg",
-    "link": "/chapter10",
-    "subtitle": "Modules",
-    "title": "Chapter 10"
   }
 ]
