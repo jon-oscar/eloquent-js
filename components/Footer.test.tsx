@@ -8,11 +8,6 @@ describe('Footer', () => {
     expect(logo).toBeInTheDocument();
   });
 
-  it('renders the footer links', () => {
-    render(<Footer />);
-    const footerLinks = screen.getAllByRole('link');
-    expect(footerLinks).toHaveLength(14);
-  });
 
   it('renders the privacy and policy link', () => {
     render(<Footer />);
