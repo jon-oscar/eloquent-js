@@ -1,8 +1,14 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import CustomButton from './CustomButton';
 
 const Navbar = () => {
+  const handleContact = () => {
+    window.location.assign('mailto:oreyesdev@gmail.com');
+  };
+
   return (
     <header className='absolute z-10 w-full'>
       <nav className='mx-auto flex max-w-[1440px] items-center justify-between px-6 py-4 sm:px-16'>
@@ -19,6 +25,7 @@ const Navbar = () => {
         <CustomButton
           btnType='button'
           containerStyles='text-white rounded-full bg-[#B2980B] min-w-[130px]'
+          handleClick={handleContact}
           title='Contact me'
         />
       </nav>
