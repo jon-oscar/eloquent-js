@@ -14,7 +14,7 @@ const Footer = () => {
           ></Image>
           <p className='text-base text-gray-700'>
             Project by Oscar Reyes <br />
-            All rights reserved
+            mentored by Jon Portella
           </p>
         </div>
       </div>
